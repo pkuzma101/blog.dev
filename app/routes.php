@@ -16,10 +16,30 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('say-hello', function() {
+Route::get('resume', function() {
 	return "This is my resume!";
 });
 
-Route::get('say-portfolio', function() {
+Route::get('portfolio', function() {
 	return "This is my portfolio!";
+});
+
+Route::get('/sayhello/{name}', function($name) {
+	if($name == "Chris") {
+		return Redirect::to('/');
+	} else {
+		$data = [
+		'name' => $name
+		];
+		return View::make('first_view')->with($data);
+	}
+});
+
+Route::get('/rolldice/{guess}', function($guess) {
+	$roll = mt_rand(1, 6);
+	$data = [
+		'roll' => $roll,
+		'guess' => $guess
+		];
+	return View::make('roll-dice')->with($data);
 });
