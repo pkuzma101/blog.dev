@@ -20,4 +20,29 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function sayHello($name) {
+		if($name == "Chris") {
+		return Redirect::to('/');
+		} else {
+		$data = [
+		'name' => $name
+		];
+		return View::make('first_view')->with($data);
+		}
+	}
+
+	public function rollDice($guess) {
+		$roll = mt_rand(1, 6);
+		$data = [
+			'roll' => $roll,
+			'guess' => $guess
+			];
+		return View::make('roll-dice')->with($data);
+	}
+
+	public function showResume() {
+		return View::make('resume');
+	}
 }
+
+
