@@ -1,0 +1,16 @@
+
+body {
+	padding-top: 85px;
+	background-image: url("/css/images/Ryu_Hayabusa.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.intro {
+	color: white;
+}
+
+h3 {
+	text-align: left;
+	margin-right: 80px;
+}

@@ -2,9 +2,6 @@
 
 @section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,15 +11,6 @@
 
     <title>Paul Kuzma's Resume</title>
     <link rel="stylesheet" href="/css/style.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -101,7 +89,9 @@
                       <h2>Projects I've Done</h2>
                     </div>
                     <div id="modal-portfolio">
-                      Though I do not yet have any projects to my name to boast of now, I will have at least one by the time Codeup is over. 
+                      <p>JS/jQuery Whack-a-mole Game - https://github.com/pkuzma101/Whackamole</p>
+                      <p>To-Do List using MySQL - https://github.com/pkuzma101/Planner.dev/blob/master/sql_todo_list.php</p>
+                      <p>Other coding works and exercises can be viewed at my Git hub - https://github.com/pkuzma101/</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -125,7 +115,7 @@
                     <p class="contact-list">Phone: 317-407-5789</p>
                     <p class="contact-list">Email: kuzma.paul@gmail.com</p>
                     <p class="contact-list">Address: 5639 N. Meridian St., Indianapolis, IN 46208</p>
-                    <p class="contact-list">LinkedIn: whatever linkedin address i get</p>
+                    <p class="contact-list">LinkedIn: www.linkedin.com/pub/paul-kuzma/a9/a7b/170/</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
