@@ -33,9 +33,9 @@ class PostsController extends \BaseController {
 	{
 		// $input = Input::all();
 		$first_name = Input::get('first_name');
-		$last_name = Input::get('last_name');
-		// return $first_name . " " . $last_name;
-		return Redirect::back()->withInput();
+		$content = Input::get('content');
+		return $first_name . " " . $content;
+		// return Redirect::back()->withInput();
 	}
 
 

@@ -3,8 +3,18 @@
 @section('content')
 
 {{ Form::open(array('action' => 'PostsController@store'))}}
-	<input type="text" name="first_name" value="{{{ Input::old('first_name') }}}">First Name</input>
-	<input type="text" name="last_name" value ="{{{ Input::old('last_name') }}}">Last Name</input>
+	<h1>Welcome to the Nether Regions of the Soul</h1>
+	<p>
+		<label for="title">Title</label>
+		<input type="text" name="title" value="{{{ Input::old('first_name') }}}"></input>
+	</p>
+	<p>
+		<label for="content">Post</label>
+		<textarea cols="130" rows="25" name="content" value ="{{{ Input::old('content') }}}"></textarea>
+	</p>
 	<input type="submit" value="submit">
 	{{ Form::close()}}
 	@stop
+
+
+
