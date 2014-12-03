@@ -9,7 +9,9 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "this will show a list of posts";
+		$posts = Post::all();
+		$data = ['posts' => $posts];
+		return View::make('posts.index', $data);
 	}
 
 
@@ -31,11 +33,11 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		// $input = Input::all();
-		$first_name = Input::get('first_name');
-		$content = Input::get('content');
-		return $first_name . " " . $content;
-		// return Redirect::back()->withInput();
+		$post = new Post();
+		$post->title = Input::get('title');
+		$post->body = Input::get('body');
+		$post->save();
+		return Redirect::action('PostsController@index')->withInput();
 	}
 
 
@@ -47,7 +49,9 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "this will show a specific post";
+		$post = Post::find($id);
+		$data = ['post' => $post];
+		return View::make('posts.show', $data);
 	}
 
 
@@ -59,7 +63,7 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return "this will show a form for editing a post";
+		
 	}
 
 
@@ -71,7 +75,10 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return "this will update a specific post";
+		$post = Post::find(1);
+		$post->title = "New Title Goes Here.";
+		$post->save();
+		return $post;
 	}
 
 
