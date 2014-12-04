@@ -20,6 +20,8 @@ Route::get('/rolldice/{guess}', 'HomeController@rollDice');
 
 Route::resource('posts', 'PostsController');
 
+Route::resource('things', 'ThingsController');
+
 Route::get('orm-test', function ()
 {
  //    $post1 = new Post();

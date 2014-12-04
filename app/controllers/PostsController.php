@@ -34,12 +34,15 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		$post = new Post();
-		$post->title = Input::get('title');
-		$post->body = Input::get('body');
-		$post->save();
-		return Redirect::action('PostsController@index')->withInput();
+		if(Input::has('title') && Input::has('body')){
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+			$post->save();
+			return Redirect::action('PostsController@show', $post->id);
+		} 
+		
+		return "Please fill all fields";
 	}
-
 
 	/**
 	 * Display the specified resource.
@@ -50,8 +53,7 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
-		$data = ['post' => $post];
-		return View::make('posts.show', $data);
+		return View::make('posts.show')->with('post', $post);
 	}
 
 
@@ -63,7 +65,8 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
+		$post = Post::find($id);
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 
@@ -75,10 +78,11 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$post = Post::find(1);
-		$post->title = "New Title Goes Here.";
+		$post = Post::find($id);
+		$post->title = Input::get('title');
+		$post->body = Input::get('body');
 		$post->save();
-		return $post;
+		return Redirect::action('PostsController@show', $post->id);
 	}
 
 
@@ -90,8 +94,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "this will delete a post";
+		$post = Post::find($id);
+		$post->delete();
 	}
 
-
 }
+

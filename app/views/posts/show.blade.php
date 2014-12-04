@@ -2,10 +2,13 @@
 
 @section('content')
 
+
 	<p>
 		{{{ $post->id }}}
 		{{{ $post->title }}}
-		{{{ $post->content }}}
+	</p>
+	<p>
+		{{{ $post->body }}}
 	</p>
 
 @stop

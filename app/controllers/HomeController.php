@@ -43,6 +43,10 @@ class HomeController extends BaseController {
 	public function showResume() {
 		return View::make('resume');
 	}
+
+	public function showToDoList() {
+		return View::make('todo');
+	}
 }
 
 
