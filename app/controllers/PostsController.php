@@ -33,15 +33,21 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$post = new Post();
+		$validator = Validator::make(Input::all(), Post::$rules);
+		
+		if($validator->fails()) {
+			return "Please fill all fields";
+		} else {
 		if(Input::has('title') && Input::has('body')){
+			$post = new Post();
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
 			return Redirect::action('PostsController@show', $post->id);
+			   }
 		} 
 		
-		return "Please fill all fields";
+		
 	}
 
 	/**
