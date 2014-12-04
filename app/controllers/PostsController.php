@@ -36,7 +36,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Post::$rules);
 		
 		if($validator->fails()) {
-			return "Please fill all fields";
+			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 		if(Input::has('title') && Input::has('body')){
 			$post = new Post();
