@@ -38,16 +38,14 @@ class PostsController extends \BaseController {
 		if($validator->fails()) {
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
-		if(Input::has('title') && Input::has('body')){
-			$post = new Post();
-			$post->title = Input::get('title');
-			$post->body = Input::get('body');
-			$post->save();
-			return Redirect::action('PostsController@show', $post->id);
-			   }
-		} 
-		
-		
+			if(Input::has('title') && Input::has('body')){
+				$post = new Post();
+				$post->title = Input::get('title');
+				$post->body = Input::get('body');
+				$post->save();
+				return Redirect::action('PostsController@show', $post->id);
+				   }
+			} 	
 	}
 
 	/**
@@ -84,12 +82,18 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$post = Post::find($id);
-		$post->title = Input::get('title');
-		$post->body = Input::get('body');
-		$post->save();
-		return Redirect::action('PostsController@show', $post->id);
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else {
+			$post = Post::find($id);
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+			$post->save();
+			return Redirect::action('PostsController@show', $post->id);
 	}
+}
 
 
 	/**
