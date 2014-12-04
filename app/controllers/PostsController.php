@@ -31,7 +31,7 @@ class PostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store()  
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
 		

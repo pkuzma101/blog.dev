@@ -2,7 +2,7 @@
 @section('content')
 
 {{ Form::open(array('action' => 'PostsController@store'))}}
-	<div class="container">
+	<div class="container">  
 	{{$errors->first('title', '<span class="help-block">:message</span>');}}
 	{{$errors->first('body', '<span class="help-block">:message</span>');}}
 		<h1>Welcome to the Nether Regions of the Soul</h1>
