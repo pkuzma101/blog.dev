@@ -6,6 +6,7 @@ class Post extends Eloquent {
     'body'       => 'required|max:10000'
 	);
 	protected $table = 'posts';
+
 }
 
 
