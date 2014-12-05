@@ -4,9 +4,9 @@
 <div class="container">
 	<div class="container" id="blog-body">
 		<div class="container" id="title">
+			<br>
 			<p class="heading">
-				{{{ $post->id }}}
-				{{{ $post->title }}}
+				{{{ $post->title }}} - {{{$post->created_at->diffForHumans()}}}
 			</p>
 		</div>
 		<div class="container" id="content">

@@ -3,10 +3,11 @@ body {
 	color: white;
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
-h1 {
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+.navbar {
+	text-shadow: none;
 }
 
 #port-header {
@@ -21,19 +22,16 @@ h1 {
 	background-image: url("/css/images/underwater.jpg");
 	border-radius: 25px;
 	padding: 10px;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	height: 50px;
+	overflow: hidden;
+}
+
+#pagination {
+	text-shadow: none;
 }
 
 #content {
 	width: 80%;
-}
-
-.heading {
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
-label {
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;	
 }
 
 li {
@@ -42,7 +40,6 @@ li {
 
 .intro {
 	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	text-align: center;
 }
 
