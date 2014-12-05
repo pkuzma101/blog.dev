@@ -36,6 +36,8 @@ class PostsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Post::$rules);
 		
 		if($validator->fails()) {
+			Log::error('Failed to save post!', Input::all());
+			Session::flash('errorMessage', "Post could not be saved.");
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 			if(Input::has('title') && Input::has('body')){
@@ -43,9 +45,12 @@ class PostsController extends \BaseController {
 				$post->title = Input::get('title');
 				$post->body = Input::get('body');
 				$post->save();
+
+				Session::flash('successMessage', "Post saved successfully!");
+
 				return Redirect::action('PostsController@show', $post->id);
-				   }
-			} 	
+					}
+				} 	
 	}
 
 	/**
@@ -56,7 +61,12 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
+		try {
+		$post = Post::findorFail($id);
+		} catch(Exception $e) {
+			App::abort(404);
+		}
+		
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -91,11 +101,12 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
 			$post->save();
+
+			Session::flash('sucessMessage', "Post saved successfuly!");
+
 			return Redirect::action('PostsController@show', $post->id);
 	}
 }
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
