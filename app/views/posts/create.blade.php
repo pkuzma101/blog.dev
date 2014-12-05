@@ -12,9 +12,9 @@
 		</p>
 		<p>
 			<label for="body">Body</label>
-			<textarea cols="130" rows="25" class ="form-control" name="body" value ="{{{ Input::old('body') }}}"></textarea>
+			<textarea cols="100" rows="25" class="form-control" name="body" value ="{{{ Input::old('body') }}}"></textarea>
 		</p>
-		<input type="submit" value="submit" class="btn btn-alert">
+		<input type="submit" value="Submit" class="btn btn-danger">
 	</div>
 	{{ Form::close()}}
 	@stop

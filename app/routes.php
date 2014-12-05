@@ -15,12 +15,12 @@ Route::get('/', 'HomeController@showWelcome');
 
 Route::get('resume', 'HomeController@showResume');
 
+Route::get('portfolio', 'HomeController@showPortfolio');
+
 Route::get('sayhello/{name}', 'HomeController@sayHello');
 Route::get('/rolldice/{guess}', 'HomeController@rollDice');
 
 Route::resource('posts', 'PostsController');
-
-Route::resource('things', 'ThingsController');
 
 Route::get('orm-test', function ()
 {
