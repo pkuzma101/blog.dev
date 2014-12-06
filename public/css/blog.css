@@ -1,3 +1,5 @@
+
+/* Affects all pages */
 body {
 	background-image: url("/css/images/forest.jpg");
 	color: white;
@@ -10,20 +12,20 @@ body {
 	text-shadow: none;
 }
 
-#port-header {
-	text-align: center;
+#user-email {
+	font-size: 15px;
 }
 
+/* Index */
 #blog-body {
 	text-align: center;
 }
 
-#blog-entry {
-	background-image: url("/css/images/underwater.jpg");
+.blog-entry {
+	background-image: url("/css/images/blackpattern.jpg");
 	border-radius: 25px;
 	padding: 10px;
-	height: 50px;
-	overflow: hidden;
+	height: 100%;
 }
 
 #pagination {
@@ -43,6 +45,7 @@ li {
 	text-align: center;
 }
 
+/* Resume */
 #pic {
 	width: 100%;
 	text-align: center;
@@ -59,34 +62,49 @@ li {
 	width: 60%;
 }
 
+#paper-resume {
+	text-align: center;
+}
+
+i {
+	color: red;
+	background-color: white;
+}
+
+/* Resume modals */
 #modal-bar {
 	width: 45%;
 }
 
 .contact-list {
 	color: black;
+	text-shadow: none;
 }
 
 #modal-qualifications {
 	color: black;
 	font-size: 15px;
+	text-shadow: none;
 }
 
 .exp-heading {
 	color: black;
 	font-size: 20px;
+	text-shadow: none;
 }
 
 .exp-body {
 	color: black;
 	font-size: 15px;
 	width: 800px;
+	text-shadow: none;
 }
 
+/* Portfolio */
 .box {
 	width: 300px;
 	height: 300px;
-	border: solid black 1px;
+	/*border: solid black 1px;*/
 	float: left;
 }
 
@@ -99,6 +117,8 @@ li {
 	text-align: center;
 }
 
-
+#port-header {
+	text-align: center;
+}
 
 

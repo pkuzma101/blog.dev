@@ -21,7 +21,7 @@
 			</div>
 			<div class="box" id="box3">
 				<a href="/todo_list/sql_todo_list.php">
-					<img src="/todo_list/images/RyuHayabusa2.jpg" height="250px" width="250px" class="img-circle">
+					<img src="/todo_list/images/computer_ninja.jpg" height="250px" width="250px" class="img-circle">
 				</a>
 				<p>To-Do List App</p>
 			</div>

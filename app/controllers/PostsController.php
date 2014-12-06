@@ -2,6 +2,11 @@
 
 class PostsController extends \BaseController {
 
+	public function __construct() {
+		parent::__construct();
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -66,7 +71,7 @@ class PostsController extends \BaseController {
 		} catch(Exception $e) {
 			App::abort(404);
 		}
-		
+
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -115,8 +120,9 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$post = Post::find($id);
+		$post = Post::findOrFail($id);
 		$post->delete();
+		return Redirect::action('PostsController@index');
 	}
 
 }

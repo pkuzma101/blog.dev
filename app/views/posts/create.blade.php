@@ -5,7 +5,7 @@
 	<div class="container">  
 	{{$errors->first('title', '<span class="help-block">:message</span>');}}
 	{{$errors->first('body', '<span class="help-block">:message</span>');}}
-		<h1>Welcome to the Nether Regions of the Soul</h1>
+		<h1>Create a Blog Entry</h1>
 		<p>
 			<label for="title">Title</label>
 			<input type="text" name="title" class="form-control" value="{{{ Input::old('title') }}}"></input>

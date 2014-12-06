@@ -13,8 +13,11 @@
 			</p>
 		</div>
 		<div class="container" id="content">
-			<p id="blog-entry">
+			<p class="blog-entry">
 				{{{ $post->body }}}
+			</p>
+			<p>
+				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
 			</p>
 			<br>
 			@endforeach
@@ -22,6 +25,8 @@
 		<div id="pagination">
 			{{ $posts->links() }}
 		</div>
+		{{ Form::open(['method' => 'delete', 'id' => 'delete-form']) }}
+		{{ Form::close() }}
 	</div>  <!-- ends blog body container -->
 </div> <!-- ends overall container -->
 
