@@ -1,0 +1,39 @@
+body {
+	background-image: url("../img/canoe.jpg");
+}
+
+h1 {
+	font-family: 'Smokum', cursive;
+	text-align: center;
+	font-size: 60px;
+	color: yellow;
+	text-shadow: 8px 8px 8px black;
+}
+
+table {
+	font-family: 'Nunito', sans-serif;
+	color: white;
+	background-image: url("../img/forest.jpg");
+	background-repeat: no-repeat;
+	text-shadow: 3px 3px 3px black;
+}
+
+h2 {
+	font-family: 'Raleway', sans-serif;
+	color: red;
+}
+
+form {
+	font-family: 'Nunito', sans-serif;
+	color: #C40615;
+	margin-left: 25px;
+	text-shadow: 1px 1px white;
+}
+
+button {
+	margin-left: 20px;
+}
+
+#pagination {
+	margin-left: 20px;
+}
