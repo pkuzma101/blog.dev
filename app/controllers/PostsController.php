@@ -14,7 +14,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::paginate(4);
+		$posts = Post::with('user')->paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index', $data);
 	}
@@ -46,7 +46,7 @@ class PostsController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 			if(Input::has('title') && Input::has('body')){
-				$post = new Post();
+				$post->user_id = Auth::id(); 
 				$post->title = Input::get('title');
 				$post->body = Input::get('body');
 				$post->save();
