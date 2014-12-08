@@ -11,18 +11,24 @@
 				<a href="/whackamole/public/puppy.html">
 					<img src="/whackamole/public/puppies/dalek.jpg" height="250px" width="250px" class="img-circle">
 				</a>
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/whackamole/public">
+					<i class="fa fa-git-square" id="mole"></i></a>
 				<p>Whack-a-Mole Game</p>
 			</div>
 			<div class="box" id="box2">
 				<a href="/national_parks/national_parks.php">
 					<img src="/national_parks/img/canoe.jpg" height="250px"width="250px" class="img-circle">
 				</a>
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/national_parks">
+					<i class="fa fa-git-square" id="mole"></i></a>
 				<p>National Parks Database</p>
 			</div>
 			<div class="box" id="box3">
 				<a href="/todo_list/sql_todo_list.php">
 					<img src="/todo_list/images/computer_ninja.jpg" height="250px" width="250px" class="img-circle">
 				</a>
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/todo_list">
+					<i class="fa fa-git-square" id="mole"></i></a>
 				<p>To-Do List App</p>
 			</div>
 		</div>

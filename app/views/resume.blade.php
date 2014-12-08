@@ -40,8 +40,10 @@
         <br>
         <div id="paper-resume" class="container">
           <p>
-            See my paper resume here: 
-            <a href="paul_kuzma_dev_resume.pdf"><i class="fa fa-file-pdf-o"></i></a>
+            See my paper resume here:
+            <p id="resume-icon">
+              <a href="paul_kuzma_dev_resume.pdf"><i class="fa fa-file-pdf-o"></i></a>
+            </p>
           </p>
         </div>
          <!-- "Qualfications" Modal -->
