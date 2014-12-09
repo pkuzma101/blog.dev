@@ -10,7 +10,7 @@
 			</p>
 		</div>
 		<div class="container" id="content">
-			<p id="blog-entry">
+			<p class="blog-entry">
 				{{{ $post->body }}}
 			</p>
 			{{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete']) }}
