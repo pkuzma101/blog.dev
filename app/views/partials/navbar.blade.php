@@ -29,7 +29,9 @@
 		        <!-- Search Bar goes here -->
 		        <form class="navbar-form navbar-left" role="search">
 		        	<div class="form-group">
-          			<input type="text" class="form-control" name="search" placeholder="Search">
+          				<input type="text" class="form-control" name="search" placeholder="Search Posts">
+          			<button type="submit" class="btn btn-default">Search</button>
+          			</div>
 		        </form>
 		        <!-- Login code goes here -->
 		        <ul class="nav navbar-nav navbar-right">
@@ -40,7 +42,7 @@
 		        	@else
 		        	<li id="user-email">
 		        		<p>
-		        			Welcome {{{ Auth::user()->email }}}
+		        			
 		        		</p>
 		        	</li>
 		        	<li>

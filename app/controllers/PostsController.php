@@ -14,18 +14,22 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		if(Input::has('search')) {
-		$input = Input::get('search');
-		$query = Post::with('user')->where('title', 'like', "%$input%")->get();
-		$posts = $query->orderBy('created_at', 'DESC')->paginate(4);
-		return View::make('posts.index')->with('posts', $posts);
-		} else {	
-		$posts = Post::with('user')->paginate(4);
-		$data = ['posts' => $posts];
-		return View::make('posts.index', $data);
-		}
-	}
+		// Establishes connection between the post and user who created it
+		$query = Post::with('user');
+		// Grabbing material from the search bar
+		$search = Input::get('search');
 
+		// If the search bar has info...
+		if(!is_null($search)) {
+			// Look for anything within the titles or bodies of entries that are similar to search material
+			$query->where('title', 'LIKE', "%{$search}%")
+				  ->orWhere('body', 'LIKE', "%{$search}%"); 
+		}
+		// Display the found posts starting with the latest-created ones
+		$posts = $query->orderBy('created_at', 'desc')->paginate(3);
+
+		return View::make('posts.index')->with('posts', $posts)->with('search', $search);
+	}
 
 	/**
 	 * Show the form for creating a new resource.
