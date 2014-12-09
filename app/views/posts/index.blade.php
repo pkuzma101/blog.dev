@@ -14,11 +14,16 @@
 			</p>
 		</div>
 		<div class="container" id="content">
-			<p class="blog-entry">
-				{{{ $post->body }}}
-			</p>
+			<div class="blog-entry">
+				<p>
+					{{{ $post->body }}}
+				</p>
+				<p>
+					<img src="{{{ asset($post->image) }}}">
+			</div>
 			<p>
 				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
+				{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
 			</p>
 			<br>
 			@endforeach

@@ -50,25 +50,36 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
+		// $image = Input::file('image');
+		
 		
 		if($validator->fails()) {
 			Log::error('Failed to save post!', Input::all());
 			Session::flash('errorMessage', "Post could not be saved.");
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
-			if(Input::has('title') && Input::has('body')){
+			
 				$post = new Post();
+
 				$post->user_id = Auth::id(); 
 				$post->title = Input::get('title');
 				$post->body = Input::get('body');
+				if(Input::hasFile('image')) {
+					$file = Input::file('image');
+					$destinationPath = 'uploaded_images/';
+					$filename = $file->getClientOriginalName();
+					$file = $file->move($destinationPath, $filename);
+					$post->image = $destinationPath . $filename;
+					
+				}	
 				$post->save();
 
 				Session::flash('successMessage', "Post saved successfully!");
 
 				return Redirect::action('PostsController@show', $post->id);
-					}
-				} 	
-	}
+				}
+		} 	
+	
 
 	/**
 	 * Display the specified resource.

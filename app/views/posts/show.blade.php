@@ -10,10 +10,16 @@
 			</p>
 		</div>
 		<div class="container" id="content">
-			<p class="blog-entry">
-				{{{ $post->body }}}
-			</p>
+			<div class="blog-entry">
+				<p>
+					{{{ $post->body }}}
+				</p>
+				<p>
+					<img src="{{ asset($post->image) }}">
+				</p>
+			</div>
 			{{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete']) }}
+			{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
 				{{ Form::submit('Delete!', ['class' => 'btn btn-danger']) }}
 			{{ Form::close() }}
 		</div> <!-- end content container -->
