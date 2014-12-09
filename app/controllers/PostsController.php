@@ -14,9 +14,16 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
+		if(Input::has('search')) {
+		$input = Input::get('search');
+		$query = Post::with('user')->where('title', 'like', "%$input%")->get();
+		$posts = Post::with('user')->paginate(4);
+		return View::make('posts.index')->with('posts', $posts);
+		} else {	
 		$posts = Post::with('user')->paginate(4);
 		$data = ['posts' => $posts];
 		return View::make('posts.index', $data);
+		}
 	}
 
 
@@ -36,7 +43,7 @@ class PostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()  
+	public function store()
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
 		

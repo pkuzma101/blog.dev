@@ -26,6 +26,12 @@
 		        		<a href="https://www.linkedin.com/pub/paul-kuzma/a9/a7b/170/">LinkedIn<span class="sr-only">(current)</span></a>
 		        	</li>
 		        </ul>
+		        <!-- Search Bar goes here -->
+		        <form class="navbar-form navbar-left" role="search">
+		        	<div class="form-group">
+          			<input type="text" class="form-control" name="search" placeholder="Search">
+		        </form>
+		        <!-- Login code goes here -->
 		        <ul class="nav navbar-nav navbar-right">
 		        	@if(Auth::guest())
 		        	<li>
