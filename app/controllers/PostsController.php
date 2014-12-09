@@ -50,8 +50,6 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		$validator = Validator::make(Input::all(), Post::$rules);
-		// $image = Input::file('image');
-		
 		
 		if($validator->fails()) {
 			Log::error('Failed to save post!', Input::all());

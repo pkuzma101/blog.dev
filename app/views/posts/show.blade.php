@@ -15,7 +15,7 @@
 					{{{ $post->body }}}
 				</p>
 				<p>
-					<img src="{{ asset($post->image) }}">
+					<img src="{{ asset($post->image) }}" class="blog-image">
 				</p>
 			</div>
 			{{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete']) }}

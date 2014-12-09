@@ -19,7 +19,7 @@
 					{{{ $post->body }}}
 				</p>
 				<p>
-					<img src="{{{ asset($post->image) }}}">
+					<img src="{{{ asset($post->image) }}}" class="blog-image">
 			</div>
 			<p>
 				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>

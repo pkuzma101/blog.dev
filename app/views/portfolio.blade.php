@@ -8,8 +8,8 @@
 	<div class="container" id="main-container">
 		<div class="row" id="first-row-boxes">
 			<div class="box" id="box1">
-				<a href="/whackamole/public/puppy.html">
-					<img src="/whackamole/public/puppies/dalek.jpg" height="250px" width="250px" class="img-circle" id="mole" data-toggle="tooltip" data-placement="left" title="Click here to play the game">
+				<a href="/whackamole/puppy.html">
+					<img src="/whackamole/puppies/dalek.jpg" height="250px" width="250px" class="img-circle" id="mole" data-toggle="tooltip" data-placement="left" title="Click here to play the game">
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/whackamole/public">
 					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
