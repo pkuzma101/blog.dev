@@ -20,7 +20,7 @@
 					<img src="/national_parks/img/canoe.jpg" height="250px"width="250px" class="img-circle" id="parks" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/national_parks">
-					<i class="fa fa-git-square" data-toggle="tooltip" data=placement="top" title="Click here to see my code on Git"></i></a>
+					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
 				<p>National Parks Database</p>
 			</div>
 			<div class="box" id="box3">

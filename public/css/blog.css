@@ -28,6 +28,10 @@ body {
 	height: 100%;
 }
 
+.blog-image {
+	border-radius: 20px;
+}
+
 #pagination {
 	text-shadow: none;
 }
@@ -120,6 +124,7 @@ li {
 #port-header {
 	text-align: center;
 }
+
 
 /* Error Message */
 .error {
