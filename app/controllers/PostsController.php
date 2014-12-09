@@ -17,7 +17,7 @@ class PostsController extends \BaseController {
 		if(Input::has('search')) {
 		$input = Input::get('search');
 		$query = Post::with('user')->where('title', 'like', "%$input%")->get();
-		$posts = Post::with('user')->paginate(4);
+		$posts = $query->orderBy('created_at', 'DESC')->paginate(4);
 		return View::make('posts.index')->with('posts', $posts);
 		} else {	
 		$posts = Post::with('user')->paginate(4);
@@ -53,6 +53,7 @@ class PostsController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 			if(Input::has('title') && Input::has('body')){
+				$post = new Post();
 				$post->user_id = Auth::id(); 
 				$post->title = Input::get('title');
 				$post->body = Input::get('body');
