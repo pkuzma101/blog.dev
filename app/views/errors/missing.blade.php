@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
-	<p>You have found Error</p>
-	<p><img src="/css/images/error.jpg"></p>
+	<p class="error">You have found Error</p>
+	<p class="error"><img src="/css/images/error.jpg"></p>
 </div>
 
 
