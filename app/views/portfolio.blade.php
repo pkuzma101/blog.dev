@@ -1,8 +1,10 @@
+
 @extends('layouts.master')
 <title>Paul Kuzma's Portfolio</title>
 @section('content')
 
 <h1 id="port-header">Paul Kuzma's Portfolio</h1>
+<br>
 <br>
 <div class="row" id="mainrow">
 	<div class="container" id="main-container">
@@ -42,6 +44,3 @@
 
 
 @stop
-
-
-				
