@@ -26,10 +26,10 @@
 				</p>
 				@endif
 			</div>
-			<p>
-				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
-				{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
-			</p>
+			<div>
+				<p class="buttons"><button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
+				{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}</p>
+			</div>
 			<br>
 			@endforeach			
 		</div> <!-- ends blog entry container -->

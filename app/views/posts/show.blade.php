@@ -21,9 +21,9 @@
 				@endif
 			</div>
 			{{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete']) }}
-			{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
+			<p class="buttons">{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
 				{{ Form::submit('Delete!', ['class' => 'btn btn-danger']) }}
-			{{ Form::close() }}
+			{{ Form::close() }}</p>
 		</div> <!-- end content container -->
 
 	</div> <!-- end blog body container -->

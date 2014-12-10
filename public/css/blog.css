@@ -16,13 +16,17 @@ body {
 	font-size: 15px;
 }
 
+.buttons {
+	text-shadow: none;
+}
+
 /* Index */
 #blog-body {
 	text-align: center;
 }
 
 .blog-entry {
-	background-image: url("/css/images/blackpattern.jpg");
+	background-color: black;
 	border-radius: 25px;
 	padding: 10px;
 	height: 100%;
