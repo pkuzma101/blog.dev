@@ -14,9 +14,11 @@
 				<p>
 					{{{ $post->body }}}
 				</p>
+				@if(isset($post->image))
 				<p>
 					<img src="{{ asset($post->image) }}" class="blog-image">
 				</p>
+				@endif
 			</div>
 			{{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete']) }}
 			{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}

@@ -20,9 +20,11 @@
 				<p>
 					{{{ $post->body }}}
 				</p>
+				@if(isset($post->image))
 				<p>
 					<img src="{{{ asset($post->image) }}}" class="blog-image">
 				</p>
+				@endif
 			</div>
 			<p>
 				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
