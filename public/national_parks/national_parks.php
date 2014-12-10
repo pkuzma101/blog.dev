@@ -53,6 +53,7 @@ if($_POST) {
 		<link rel="stylesheet" href="css/national_parks.css">
 	</head>
 	<body>
+		<a href="/portfolio" class="btn btn-default" id="back">Back</a>
 		<h1>National Parks Bonanza</h1>
 		<table class="table table">
 			<tr>

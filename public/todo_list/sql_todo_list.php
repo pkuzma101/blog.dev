@@ -58,6 +58,7 @@ $numberOfItems = $dbc->query('SELECT count(*) FROM items')->fetchColumn();
 		<link rel="stylesheet" type="text/css" href="css/sql_todo_list.css">
 	</head>
 	<body>
+		<a href="/portfolio" class="btn btn-default" id="back">Back</a>
 		<h1>TODO List</h1>
 		<div class="container" id="list">
 			<!-- List items appear here -->
