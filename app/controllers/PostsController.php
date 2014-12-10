@@ -15,6 +15,7 @@ class PostsController extends \BaseController {
 	public function index()
 	{
 		// Establishes connection between the post and user who created it
+		$post = Post::paginate(3);
 		$query = Post::with('user');
 		// Grabbing material from the search bar
 		$search = Input::get('search');

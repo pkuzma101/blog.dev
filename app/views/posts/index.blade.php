@@ -5,7 +5,9 @@
 <div class="container">
 	<div class="container" id="blog-body">
 		<h1>Paul Kuzma's Blog</h1>
+		@if(Auth::check())
 		<h4>Welcome {{{ Auth::user()->email }}}</h4>
+		@endif
 		<br>
 		<div class="container" id="title">
 			@foreach($posts as $post)
@@ -20,15 +22,14 @@
 				</p>
 				<p>
 					<img src="{{{ asset($post->image) }}}" class="blog-image">
+				</p>
 			</div>
 			<p>
 				<button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
 				{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}
 			</p>
 			<br>
-			@endforeach
-
-			
+			@endforeach			
 		</div> <!-- ends blog entry container -->
 		<div id="pagination">
 			{{ $posts->appends(['search' => $search])->links() }}
