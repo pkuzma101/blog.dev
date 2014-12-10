@@ -12,7 +12,7 @@
 		</p>
 		<p class="heading">
 			<label for="body">Body</label>
-			<textarea cols="130" rows="25" class ="form-control" name="body" value ="{{{ $post->body }}}"></textarea>
+			<textarea cols="130" rows="25" class ="form-control" name="body">{{{ $post->body }}}</textarea>
 		</p>
 		<input type="submit" value="Submit" class="btn btn-danger">
 	</div>
