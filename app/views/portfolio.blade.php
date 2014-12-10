@@ -11,7 +11,7 @@
 				<a href="/whackamole/puppy.html">
 					<img src="/whackamole/puppies/dalek.jpg" height="250px" width="250px" class="img-circle" id="mole" data-toggle="tooltip" data-placement="left" title="Click here to play the game">
 				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/whackamole/public">
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/whackamole">
 					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
 				<p>Whack-a-Mole Game</p>
 			</div>
