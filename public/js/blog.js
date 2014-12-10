@@ -1,11 +1,4 @@
 $(document).ready(function() {
-
-	$(".blog-entry").click(function() {
-		$(this).animate({
-			height: 'auto'
-		});
-	});
-
 	$(".delete-btn").click(function() {
 		var postId = $(this).data('post-id');
 		$("#delete-form").attr('action', '/posts/' + postId);
@@ -17,6 +10,20 @@ $(document).ready(function() {
 	$(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	});
+
+	$(".blog-entry").each(function() {
+        $(this).data('default-height', $(this).height());
+                
+        $(this).height('80');
+    });
+            
+    $(".blog-entry").click(function() {
+        var targetHeight = $(this).data('default-height');
+        
+        $(this).animate({
+            height: targetHeight
+        }, 1000);
+    });
 
 });
 
