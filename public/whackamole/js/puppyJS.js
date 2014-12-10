@@ -36,6 +36,7 @@ function fadeInPuppy() {
 		$(this).off();
 		// Adds one point per click
 		score++;
+		console.log(score);
 		// Puppy fades upon being clicked
 		$(this).fadeOut();
 	});
