@@ -3,7 +3,6 @@
 define ('DB_NAME', 'todo_list_db');
 
 require '../inc/config.php';
-require 'inc/db_connect.php';
 
 if(isset($_GET['list-item'])) {
 	$itemToRemove = intval($_GET['list-item']);

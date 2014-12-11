@@ -3,7 +3,6 @@
 define ('DB_NAME', 'national_parks_db');
 
 require '../inc/config.php';
-require 'inc/db_connect.php';
 
 if(isset($_GET['page'])) {
 	$pageNumber = $_GET['page'];
