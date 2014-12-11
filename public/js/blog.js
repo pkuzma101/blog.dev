@@ -14,7 +14,7 @@ $(document).ready(function() {
 	$(".blog-entry").each(function() {
         $(this).data('default-height', $(this).height());
                 
-        $(this).height('80');
+        $(this).height('120');
     });
             
     $(".blog-entry").click(function() {

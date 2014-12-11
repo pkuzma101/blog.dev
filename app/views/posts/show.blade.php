@@ -16,7 +16,7 @@
 				</p>
 				@if(isset($post->image))
 				<p>
-					<img src="{{ asset($post->image) }}" class="blog-image">
+					<img src="{{ asset($post->image) }}" class="blog-image" class="blog-entry">
 				</p>
 				@endif
 			</div>
