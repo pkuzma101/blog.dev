@@ -1,10 +1,8 @@
 <?php
 
-define ('DB_HOST', '127.0.0.1');
 define ('DB_NAME', 'todo_list_db');
-define ('DB_USER', 'tdl_user');
-define ('DB_PASS', 'duster2');
 
+require 'inc/config.php';
 require 'inc/db_connect.php';
 
 if(isset($_GET['list-item'])) {
