@@ -1,8 +1,8 @@
 <?php
 
-define ('DB_NAME', 'national_parks_db');
+// define ('DB_NAME', 'national_parks_db');
 
-require '../inc/config.php';
+require '../inc/config.np.php';
 
 if(isset($_GET['page'])) {
 	$pageNumber = $_GET['page'];
