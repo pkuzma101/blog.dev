@@ -6,24 +6,26 @@ $(document).ready(function() {
 			$("#delete-form").submit();
 		}
 	});
-
+	// Tooltips
 	$(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	});
 
-	$(".blog-entry").each(function() {
-        $(this).data('default-height', $(this).height());
-                
-        $(this).height('120');
-    });
-            
-    $(".blog-entry").click(function() {
-        var targetHeight = $(this).data('default-height');
-        
-        $(this).animate({
-            height: targetHeight
-        }, 1000);
-    });
+	// Scroll down blog entries when they are clicked
+		$(".blog-entry").each(function() {
+	        $(this).data('default-height', $(this).height());
+	                
+	        $(this).height('120');
+	    });
+	    
+	    $(".blog-entry").click(function() {
+	        var targetHeight = $(this).data('default-height');
+	        
+	        $(this).animate({
+	            height: targetHeight
+	        }, 1000);
+	    });
+
 
 });
 

@@ -1,4 +1,6 @@
 public/inc/config.php
+public/inc/config.todo.php
+public/inc/config.np.php
 /bootstrap/compiled.php
 /vendor
 composer.phar

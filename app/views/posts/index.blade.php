@@ -16,7 +16,7 @@
 			</p>
 		</div>
 		<div class="container" id="content">
-			<div class="blog-entry">
+			<div class="blog-entry" class="container">
 				<p>
 					{{{ $post->body }}}
 				</p>

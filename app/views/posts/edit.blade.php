@@ -12,7 +12,11 @@
 		</p>
 		<p class="heading">
 			<label for="body">Body</label>
-			<textarea cols="130" rows="25" class ="form-control" name="body">{{{ $post->body }}}</textarea>
+			<textarea cols="130" rows="25" class="form-control" name="body">{{{ $post->body }}}</textarea>
+		</p>
+		<p>
+			<label for="image">Upload an Image - optional</label>
+			<input type="file" class="form-control" name="image" placeholder="Upload an Image">
 		</p>
 		<input type="submit" value="Submit" class="btn btn-danger">
 	</div>
