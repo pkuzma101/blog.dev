@@ -42,7 +42,7 @@
           <p>
             See my paper resume here:
             <p id="resume-icon">
-              <a href="css/images/paul_kuzma_dev_resume.pdf"><i class="fa fa-file-pdf-o"></i></a>
+              <a href="/paul_kuzma_developer_resume.pdf"><i class="fa fa-file-pdf-o"></i></a>
             </p>
           </p>
         </div>
