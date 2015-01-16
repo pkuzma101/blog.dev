@@ -10,7 +10,7 @@
              <p class="lead"></p>
           <div id="pitch" class="container">
              <p>
-              I am a Full Stack Web Developer, trained in LNMP as well as JavaScript, jQuery, HTML5, and CSS3.  I love the process of building web pages and software, and am eager to bring my skills and passion, as well as the strong interpersonal skills developed through seven years as a professional educator, to an organization that requires a junior web developer who can learn new technologies quickly.
+              I am a Full Stack Web Developer, trained in the full LAMP Stack as well as JavaScript, jQuery, HTML5, and CSS3.  I love the process of building web pages and software, and am eager to bring my skills and passion, as well as the strong interpersonal skills developed through seven years as a professional educator, to an organization that requires a junior web developer who can learn new technologies quickly.
              </p>
           </div>
           <div id="pic">
@@ -77,7 +77,7 @@
         <br>
         <br>
 
-    <!-- 'Projects I've Done Modal -->
+    <!-- 'Experience Modal -->
 
       <div class="modal fade" id="modal-portfolio" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -89,7 +89,7 @@
             <div id="modal-portfolio" class="container">
               <p class="exp-heading">Web Developer - 2014 to present</p>
               <p class="exp-body">
-                I am a graduate of <em>CodeUp</em>, a programming boot camp in San Antonio, Texas, where I was taught the full LNMP stack, as well as JavaScript, jQuery, HTML, and CSS.  Over a 12-week period, I completed over a hundred coding exercises, homework assignments, and challenges.  I also helped to develop a capstone project that took two weeks and over two hundred hours of coding.
+                I am a graduate of <em>CodeUp</em>, a programming boot camp in San Antonio, Texas, where I was taught the full LAMP stack, as well as JavaScript, jQuery, HTML, and CSS.  Over a 12-week period, I completed over a hundred coding exercises, homework assignments, and challenges.  I also helped to develop worldmentr.org, an interactive website that allows men and women to give or receive mentoring on any subject across the web.
               </p>
               <p class="exp-heading">Professional Educator - 2007 to 2014</p>
               <p class="exp-body">
