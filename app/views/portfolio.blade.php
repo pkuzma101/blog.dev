@@ -53,6 +53,8 @@
 				<a href="/projects/alphabet_soup/alphabet_soup.php">
 					<img src="/projects/alphabet_soup/images/soup.png" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/alphabet_soup">
+					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
 				<p>Alphabet Soup</p>
 			</div>	
 		</div>
