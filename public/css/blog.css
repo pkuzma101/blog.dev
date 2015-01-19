@@ -1,8 +1,8 @@
 
 /* Affects all pages */
 body {
-	background-image: url("/css/images/forest.jpg");
-	background-attachment: fixed;
+	background-color: #372ee0;
+	/*background-attachment: fixed;*/
 	color: white;
 	font-family: 'Roboto Slab', serif;
 	font-size: 24px;
@@ -58,6 +58,14 @@ li {
 	text-align: center;
 }
 
+.space-filler {
+	height: 30px;
+}
+
+.space-filler60 {
+	height: 60px;
+}
+
 /* Resume */
 #pic {
 	width: 100%;
@@ -81,6 +89,10 @@ li {
 
 .fa {
 	color: red;
+	background-color: transparent;
+}
+
+#resumeIcon {
 	background-color: white;
 }
 
@@ -114,11 +126,10 @@ li {
 }
 
 /* Portfolio */
-.box {
-	width: 300px;
-	height: 300px;
-	/*border: solid black 1px;*/
-	float: left;
+
+#portPic {
+	height: 250px;
+	width: 250px;
 }
 
 #main-container {
