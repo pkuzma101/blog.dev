@@ -1,0 +1,54 @@
+body {
+	background: #E8640C;
+	display: none;
+}
+
+.space-filler {
+	height: 30px;
+}
+
+.palindromeTitle {
+	font-family: 'Aclonica', sans-serif;
+	text-align: center;
+}
+
+.instructions {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	font-size: 24px;
+	font-family: 'Aclonica', sans-serif;
+}
+
+.formSection {
+	padding-top: 100px;
+}
+
+#palindromeForm {
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	padding-left: 60px;
+}
+
+#entry {
+	width: 400px;
+}
+
+.answerSection {
+	display: block;
+	margin: 0 auto;
+	height: 500px;
+	width: 60%;
+	background: #6b7944;
+	border: 10px solid black;
+}
+
+.answer {
+	text-align: center;
+	padding-top: 80px;
+	color: white;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 70px;
+}
+
