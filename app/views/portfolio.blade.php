@@ -16,7 +16,7 @@
 				<a href="https://github.com/worldmentr/capstone">
 					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i>
 				</a>
-				<p>World Mentr</p>
+				<p class="app-title">World Mentr</p>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -28,7 +28,7 @@
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/whackamole">
 					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p>Whack-a-Mole Game</p>
+				<p class="app-title">Whack-a-Mole Game</p>
 			</div>
 			<div class="col-md-4">
 				<a href="/projects/national_parks/national_parks.php">
@@ -36,7 +36,7 @@
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/national_parks">
 					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p>National Parks Database</p>
+				<p class="app-title">National Parks Database</p>
 			</div>
 			<div class="col-md-4" id="box3">
 				<a href="/projects/todo_list/sql_todo_list.php">
@@ -44,7 +44,7 @@
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/todo_list">
 					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p>To-Do List App</p>
+				<p class="app-title">To-Do List App</p>
 			</div>
 		</div>
 		<div class="space-filler"></div>
@@ -55,7 +55,21 @@
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/alphabet_soup">
 					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p>Alphabet Soup</p>
+				<p class="app-title">Alphabet Soup</p>
+			</div>
+			<div class="col-md-4">
+				<a href="/projects/recipe_conversion/recipe_conversion.php">
+					<img src="/projects/recipe_conversion/images/utensils.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
+				</a>
+				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
+				<p class="app-title">Measurement Conversion</p>
+			</div>
+			<div class="col-md-4">
+				<a href="/projects/palindrome/palindrome.php">
+					<img src="/projects/palindrome/images/palindrome.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
+				</a>
+				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
+				<p class="app-title">Palindrome or No?</p>
 			</div>	
 		</div>
 	</div> <!-- main-container closes here -->
