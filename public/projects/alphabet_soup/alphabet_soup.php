@@ -45,7 +45,7 @@ function alphabetSoup($string) {
 				<div class="formSection">	
 					<form method="POST" role="form" action="" id="soupForm">
 						<input id="entry" name="entry" type="text" placeholder="Enter text here"></input>
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" id="button" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 			</div>

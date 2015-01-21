@@ -2,11 +2,10 @@ $(document).ready(function() {
 	// $('#exampleReveal').hide();
 	$('#exampleTrigger').hover(
 		function() {
-			$('#exampleReveal').show();
+			$('#exampleReveal').fadeIn("slow");
 		},
 		function() {
-			$('#exampleReveal').hide();
+			$('#exampleReveal').fadeOut("slow");
 		}
 	);
-
 });
