@@ -9,30 +9,39 @@
 		<h4>Welcome {{{ Auth::user()->email }}}</h4>
 		@endif
 		<br>
-		<div class="container" id="title">
-			@foreach($posts as $post)
-			<p class="heading"> 
-				{{{ $post->title }}} - {{{$post->created_at->diffForHumans()}}}
-			</p>
+		<!-- Search Bar goes here -->
+		<div id="search-section">
+	        <form role="search">
+	  			<input type="text" class="form-control" name="search" placeholder="Search Posts" id="search-bar"></input><button type="submit" class="btn btn-default" id="search-button">Search</button>
+	        </form>
+	    </div>
+        <div class="space-filler"></div>
+		<div class="entry-box">
+			<div class="container" id="title">
+				@foreach($posts as $post)
+				<p class="heading"> 
+					{{{ $post->title }}} - {{{$post->created_at->diffForHumans()}}}
+				</p>
+			</div>
+			<div class="container" id="content">
+				<div class="blog-entry" class="container">
+					<p>
+						{{{ $post->body }}}
+					</p>
+					@if(isset($post->image))
+					<p>
+						<img src="{{{ asset($post->image) }}}" class="blog-image" class="blog-entry">
+					</p>
+					@endif
+				</div>
+				<div>
+					<p class="buttons"><button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
+					{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}</p>
+				</div>
+				<br>
+				@endforeach			
+			</div> <!-- ends blog entry container -->
 		</div>
-		<div class="container" id="content">
-			<div class="blog-entry" class="container">
-				<p>
-					{{{ $post->body }}}
-				</p>
-				@if(isset($post->image))
-				<p>
-					<img src="{{{ asset($post->image) }}}" class="blog-image" class="blog-entry">
-				</p>
-				@endif
-			</div>
-			<div>
-				<p class="buttons"><button class="btn btn-danger delete-btn" data-post-id="{{{ $post->id }}}">Delete</button>
-				{{ HTML::link('http://blog.dev/posts/' . $post->id . '/edit', 'Edit', array('class' => 'btn btn-primary')) }}</p>
-			</div>
-			<br>
-			@endforeach			
-		</div> <!-- ends blog entry container -->
 		<div id="pagination">
 			{{ $posts->appends(['search' => $search])->links() }}
 		</div>
