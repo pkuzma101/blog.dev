@@ -68,7 +68,7 @@
 				<a href="/projects/palindrome/palindrome.php">
 					<img src="/projects/palindrome/images/palindrome.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/palindrome"
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/palindrome">
 				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
 				<p class="app-title">Palindrome or No?</p>
 			</div>	
