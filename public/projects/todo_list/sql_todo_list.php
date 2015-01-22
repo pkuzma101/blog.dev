@@ -2,7 +2,7 @@
 
 // define ('DB_NAME', 'todo_list_db');
 
-require '/projects/inc/config.todo.php';
+require '../inc/config.todo.php';
 
 if(isset($_GET['list-item'])) {
 	$itemToRemove = intval($_GET['list-item']);
