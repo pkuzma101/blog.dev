@@ -1,0 +1,11 @@
+public/projects/inc/config.php
+public/projects/inc/config.todo.php
+public/projects/inc/config.np.php
+/bootstrap/compiled.php
+/vendor
+composer.phar
+.env.*.php
+.env.php
+.env.php.html
+.DS_Store
+Thumbs.db
