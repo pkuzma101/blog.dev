@@ -31,8 +31,8 @@
 				<p class="app-title">Whack-a-Mole Game</p>
 			</div>
 			<div class="col-md-4">
-				<a href="/projects/national_parks/national_parks.php">
-					<img src="/projects/national_parks/img/canoe.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
+				<a href="/national_parks/national_parks.php">
+					<img src="/national_parks/img/canoe.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
 				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/national_parks">
 					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
