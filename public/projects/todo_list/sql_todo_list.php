@@ -75,7 +75,7 @@ $numberOfItems = $dbc->query('SELECT count(*) FROM items')->fetchColumn();
 		
 			<div>
 				<h3>Add Item to the List</h3>
-				<form method="POST" class="addItem" action="/sql_todo_list.php" role="form">
+				<form method="POST" class="addItem" action="/projects/todo_list/sql_todo_list.php" role="form">
 					<p>
 						<input id="add" name="add" type="text" placeholder="Task to Add">
 					</p>
