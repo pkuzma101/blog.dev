@@ -75,7 +75,7 @@ if($_POST) {
 			<? endif ?>
 		</div>
 		<!-- Form that creates a new park -->
-		<form method="POST" action="/national_parks.php" class='form-horizontal' role='form'>
+		<form method="POST" action="/projects/national_parks/national_parks.php" class='form-horizontal' role='form'>
 			<h2>Insert a New Park</h2>
 			<p class='input-group'>
 				<label for="name">Name:</label>
