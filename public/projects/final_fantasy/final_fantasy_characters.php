@@ -1,6 +1,6 @@
 <?php
 
-require 'inc/config.emp.php';
+require '../../../config.emp.php';
 include 'final_fantasy_characters_modal.php';
 
 // Pagination code
