@@ -77,6 +77,7 @@ if($_POST) {
 	</head>
 	<body>
 		<div class="container-fluid" id="finalFantasyPage">
+			<a href="/portfolio" class="btn btn-default" id="back">Back</a>
 			<h1 id="pageTitle">Final Fantasy Characters</h1>
 			<div class="space-filler"></div>
 			<div class="buttonRow">
