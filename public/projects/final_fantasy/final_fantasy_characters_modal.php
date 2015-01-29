@@ -19,7 +19,7 @@
                     </div>
                     <div class="inputGroup">
                         <input type="text" name="class" id="class" class="inputText" value="<?= isset($_POST['class']) ? $_POST['class'] : '' ?> ">
-                        <label for="class">Class: </label>
+                        <label for="class">Class</label>
                     </div>
                     <div class="inputGroup">
                         <input type="text" name="special_ability" id="special_ability" class="inputText" value="<?= isset($_POST['special_ability']) ? $_POST['special_ability'] : '' ?> ">
