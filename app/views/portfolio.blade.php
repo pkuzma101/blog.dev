@@ -31,14 +31,14 @@
 				<p class="app-title">Whack-a-Mole Game</p>
 			</div>
 			<div class="col-md-4">
-				<a href="/projects/national_parks/national_parks.php">
-					<img src="/projects/national_parks/img/canoe.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
+				<a href="/projects/final_fantasy/final_fantasy_characters.php">
+					<img src="/projects/final_fantasy/images/background_wallpaper.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/national_parks">
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/final_fantasy">
 					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">National Parks Database</p>
+				<p class="app-title">Character Database</p>
 			</div>
-			<div class="col-md-4" id="box3">
+			<div class="col-md-4">
 				<a href="/projects/todo_list/sql_todo_list.php">
 					<img src="/projects/todo_list/images/computer_ninja.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
@@ -58,11 +58,12 @@
 				<p class="app-title">Alphabet Soup</p>
 			</div>
 			<div class="col-md-4">
-				<a href="/projects/recipe_conversion/recipe_conversion.php">
-					<img src="/projects/recipe_conversion/images/utensils.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
+				<a href="/projects/national_parks/national_parks.php">
+					<img src="/projects/national_parks/img/canoe.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
 				</a>
+				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/national_parks">
 				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">Measurement Conversion</p>
+				<p class="app-title">National Parks Database</p>
 			</div>
 			<div class="col-md-4">
 				<a href="/projects/palindrome/palindrome.php">
