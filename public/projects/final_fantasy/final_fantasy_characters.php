@@ -42,7 +42,7 @@ if($_POST) {
 			$pathinfo = pathinfo(__FILE__);
 
 			$sysUploadDir = $pathinfo['dirname'] . '/images/';
-			$filePath = '/final_fantasy/images/';
+			$filePath = '/projects/final_fantasy/images/';
 			$savedFileName = $fileName;
 
 			if($fileType == 'image/jpg' || $fileType == 'image/png' || $fileType == 'image/gif' || $fileType == 'image/jpeg') {
