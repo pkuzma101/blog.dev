@@ -6,10 +6,41 @@ $(document).ready(function() {
 			$("#delete-form").submit();
 		}
 	});
+
 	// Tooltips
 	$(function() {
 		$('[data-toggle="tooltip"]').tooltip()
 	});
+
+	// Parallax Scroll - Title Page
+	$('#introSection').parallax({imageSrc: 'css/images/name3.png'});
+
+	// Title Page Hover Functionality
+	var featuredWorkSquare = $('.hoverSquare').hide();
+
+	$('#mentrSquare').hover(
+		function() {
+			$('#mentrHoverSquare').fadeToggle("fast");
+		},
+		function() {
+			$('#mentrHoverSquare').fadeToggle("fast");
+		});
+
+	$('#fantasySquare').hover(
+		function() {
+			$('#fantasyHoverSquare').fadeToggle("fast");
+		},
+		function() {
+			$('#fantasyHoverSquare').fadeToggle("fast");
+		});
+
+	$('#whackSquare').hover(
+		function() {
+			$('#whackHoverSquare').fadeToggle("fast");
+		},
+		function() {
+			$('#whackHoverSquare').fadeToggle("fast");
+		});
 
 	// Scroll down blog entries when they are clicked
 		// $(".blog-entry").each(function() {

@@ -13,7 +13,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	            <li><a href="/posts">Home</a></li>
+	            <li><a href="/">Home</a></li>
 	            <li>
 	                @if (Auth::check())
 	                <a href="/posts/create">New<span class="sr-only">(current)</span></a>
@@ -21,6 +21,7 @@
 	            </li>
 	            <li><a href="/resume">Resume</a></li>
 	            <li><a href="/portfolio">Portfolio</a></li>
+	            <li><a href="/posts">Blog</a></li>
 	            @if(Auth::guest())
 	            <li>
 	                <a href="{{{ action('HomeController@showLogin') }}}">Login</a>

@@ -1,172 +1,355 @@
-window.onload = function(){
-	if (typeof jQuery === 'undefined') {
-		alert("ERROR: parallax.js requires jQuery.");
-	} else {
-		var updateparallax = function(){
-			parallax.width = window.innerWidth;
-			parallax.height = window.innerHeight;
-		}
-		updateparallax();
-		$(window).resize(function(){updateparallax();});
-	}
-}
+/*!
+ * parallax.js v1.2.1 (http://pixelcog.github.io/parallax.js/)
+ * Copyright (c) 2014 PixelCog, Inc.
+ * Licensed under MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
+ */
 
-var parallaxPage = function(name, pageHtml){
-	return{
-		key: name,
-		page : pageHtml,
-		right  : function(callback){return this.transition({left:parallax.width,top:0}  ,{left:-parallax.width,top:0} ,callback);},
-		left   : function(callback){return this.transition({left:-parallax.width,top:0} ,{left:parallax.width,top:0}  ,callback);},
-		top    : function(callback){return this.transition({left:0,top:-parallax.height},{left:0,top:parallax.height} ,callback);},
-		bottom : function(callback){return this.transition({left:0,top:parallax.height} ,{left:0,top:-parallax.height},callback);},
+;(function ( $, window, document, undefined ) {
 
-		transition : function(locationNew, locationOld, callback){
-			if(!parallax.sliding){
-				parallax.sliding = true;
-				var thisPage = this;
-				if(parallax.current !== this){
-					this.hide(locationNew);
-					if(typeof parallax.preload === 'function'){
-						parallax.preload();
-					}
-					if(typeof this.preload === 'function'){
-						this.preload();
-					}
-					this.slide({left:0,top:0}, function(){
-						thisPage.makeCurrent();
-						parallax.sliding = false;
-						if(typeof callback === 'function'){
-							callback();
-						}
-					});
-					if(typeof parallax.current !== 'undefined'){
-						parallax.current.slide( locationOld,
-							function(){
-								parallax.sliding = false;
-							}
-						);
-					}
-					parallax.slideBackground(locationNew);
-				}
-			}
-			return this;
-		},
+  // Polyfill for requestAnimationFrame
+  // via: https://gist.github.com/paulirish/1579671
 
-		slide : function(css, callback){
-			this.page.css("display", "block");
-			this.page.stop().animate(css, parallax.speed, parallax.easing,
-				function(){if(typeof callback === "function"){callback();}
-			});
-		},
+  (function() {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                 || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
 
-		hide : function(newLocation){
-			newLocation = newLocation || {left:parallax.width,top:0}; //defaults left off screen
-			this.page.css("display", "none");
-			this.page.css(newLocation);
-			return this;
-		},
+    if (!window.requestAnimationFrame)
+      window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+      };
 
-		show : function(newLocation){
-			newLocation = newLocation || {left:0,top:0}; //defaults on screen
-			if(typeof parallax.current !== 'undefined'){
-				parallax.current.hide();
-			}
-			this.makeCurrent();
-			this.page.css("display", "block");
-			this.page.css(newLocation);
-			return this;
-		},
+    if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+      };
+  }());
 
-		makeCurrent : function(){
-			if(this === parallax.current){
-				return false;
-			}else{
-				if(typeof parallax.current !== 'undefined'){
-					parallax.current.hide();
-					parallax.last = parallax.current;
-				}
-				if(parallax.updateUrl === true){ this.updateUrl(); }
-				if(typeof parallax.onload == 'function'){ parallax.onload();}
-				if(typeof this.onload === 'function'){ this.onload();}
-				parallax.current = this;
-			}
-			return true;
-		},
 
-		updateUrl : function(){
-			var url = document.URL;
-			url = (url.lastIndexOf("#") === -1)? url : url.substring(0, url.lastIndexOf("#"));
-			window.location.href = url + "#" + this.key;
-		},
+  // Parallax Constructor
 
-		ackbar : function(){ alert(this.key + " thinks it's a trap!"); return this;},
-	};
-};
+  var $body = $('body');
+  var $window = $(window);
 
-var parallax = {
-	speed : 800,
-	easing : 'swing',
-	sliding : false,
-	unusableNames : ["last", "current", "background","onload","updateUrl", "preload"],
-	scaling : 0.15,
+  function Parallax(element, options) {
+    var self = this;
 
-	add : function(key,object) {
-		var check = true;
-		if(typeof key === 'object'){
-			try{
-				object = key
-				key = key.attr('id');
-			} catch(err){
-				check = false;
-				alert("ERROR:Page object lacks an id");
-			}
-		}else if(typeof key !== 'string'){
-			check = false;
-			alert("ERROR:undefined key");
-		}
+    if (typeof options == 'object') {
+      delete options.refresh;
+      delete options.render;
+      $.extend(this, options);
+    }
 
-		if(typeof object !== 'object'){
-			check = false;
-			alert("ERROR:undefined page");
-		}
+    this.$element = $(element);
 
-		if(check){
-			validKeyName = true;
-			for(propName in this){
-				if(propName === key) {
-					validKeyName = false;
-				}
-			}
-			if($.inArray(key, this.unusableNames) !== -1){
-				validKeyName = false;
-			}
-			if(validKeyName){
-				this[key] = parallaxPage(key,object);
-				this[key].hide();
-				this[key].page.css("position","absolute");
-			}else{
-				alert("ERROR:'"+key+"' cannot be used as a page identifier");
-			}
-		}
-		return this;
-	},
+    if (!this.imageSrc && this.$element.is('img')) {
+      this.imageSrc = this.$element.attr('src');
+    }
 
-	fromUrl : function(){
-		var temp = document.URL.lastIndexOf("#")
-		if(temp !== -1){
-			pageName = document.URL.substring(temp + 1, document.URL.length);
-			if(parallax.hasOwnProperty(pageName)){
-				return parallax[pageName];
-			}
-		}
-	},
+    var positions = (this.position + '').toLowerCase().match(/\S+/g) || [];
 
-	slideBackground : function(newLocation){
-		if(typeof this.background !== 'undefined' && typeof newLocation !== 'undefined'){
-			$(this.background).animate({
-				'background-position-x': '+=' + -newLocation.left * parallax.scaling + 'px',
-				'background-position-y': '+=' + -newLocation.top * parallax.scaling + 'px',
-				}, parallax.speed, parallax.easing);
-		}
-	},
-};
+    if (positions.length < 1) {
+      positions.push('center');
+    }
+    if (positions.length == 1) {
+      positions.push(positions[0]);
+    }
+
+    if (positions[0] == 'top' || positions[0] == 'bottom' ||
+        positions[1] == 'left' || positions[1] == 'right') {
+      self.positionX = positions[1];
+      self.positionY = positions[0];
+    } else {
+      self.positionX = positions[0];
+      self.positionY = positions[1];
+    }
+
+    if (this.positionX != undefined) positions[0] = this.positionX.toLowerCase();
+    if (this.positionY != undefined) positions[1] = this.positionY.toLowerCase();
+
+    if (this.positionX != 'left' && this.positionX != 'right') {
+      if (isNaN(parseInt(this.positionX))) {
+        this.positionX = 'center';
+      } else {
+        this.positionX = parseInt(this.positionX);
+      }
+    }
+
+    if (this.positionY != 'top' && this.positionY != 'bottom') {
+      if (isNaN(parseInt(this.positionY))) {
+        this.positionY = 'center';
+      } else {
+        this.positionY = parseInt(this.positionY);
+      }
+    }
+
+    this.position =
+      this.positionX + (isNaN(this.positionX)? '' : 'px') + ' ' +
+      this.positionY + (isNaN(this.positionY)? '' : 'px');
+
+    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+      if (this.iosFix && !this.$element.is('img')) {
+        this.$element.css({
+          backgroundImage: 'url(' + this.imageSrc + ')',
+          backgroundSize: 'cover',
+          backgroundPosition: this.position
+        });
+      }
+      return this;
+    }
+
+    if (navigator.userAgent.match(/(Android)/)) {
+      if (this.androidFix && !this.$element.is('img')) {
+        this.$element.css({
+          backgroundImage: 'url(' + this.imageSrc + ')',
+          backgroundSize: 'cover',
+          backgroundPosition: this.position
+        });
+      }
+      return this;
+    }
+
+    this.$mirror = $('<div />').prependTo('body');
+    this.$slider = $('<img />').prependTo(this.$mirror);
+
+    this.$mirror.addClass('parallax-mirror').css({
+      visibility: 'hidden',
+      zIndex: this.zIndex,
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      overflow: 'hidden'
+    });
+
+    this.$slider.addClass('parallax-slider').one('load', function() {
+      if (!self.naturalHeight || !self.naturalWidth) {
+        self.naturalHeight = this.naturalHeight || this.height || 1;
+        self.naturalWidth  = this.naturalWidth  || this.width  || 1;
+      }
+      self.aspectRatio = self.naturalWidth / self.naturalHeight;
+
+      Parallax.isSetup || Parallax.setup();
+      Parallax.sliders.push(self);
+      Parallax.isFresh = false;
+      Parallax.requestRender();
+    });
+
+    this.$slider[0].src = this.imageSrc;
+
+    if (this.naturalHeight && this.naturalWidth || this.$slider[0].complete) {
+      this.$slider.trigger('load');
+    }
+
+  };
+
+
+  // Parallax Instance Methods
+
+  $.extend(Parallax.prototype, {
+    speed:    0.2,
+    bleed:    0,
+    zIndex:   -100,
+    iosFix:   true,
+    androidFix: true,
+    position: 'center',
+
+    refresh: function() {
+      this.boxWidth        = this.$element.outerWidth();
+      this.boxHeight       = this.$element.outerHeight() + this.bleed * 2;
+      this.boxOffsetTop    = this.$element.offset().top - this.bleed;
+      this.boxOffsetLeft   = this.$element.offset().left;
+      this.boxOffsetBottom = this.boxOffsetTop + this.boxHeight;
+
+      var margin = 0;
+      var winHeight = Parallax.winHeight;
+      var imageHeightMin = winHeight - (winHeight - this.boxHeight) * this.speed | 0;
+
+      if (imageHeightMin * this.aspectRatio >= this.boxWidth) {
+        this.imageWidth    = imageHeightMin * this.aspectRatio | 0;
+        this.imageHeight   = imageHeightMin;
+        this.offsetBaseTop = 0;
+
+        margin = this.imageWidth - this.boxWidth;
+
+        if (this.positionX == 'left') {
+          this.offsetLeft = 0;
+        } else if (this.positionX == 'right') {
+          this.offsetLeft = - margin;
+        } else if (!isNaN(this.positionX)) {
+          this.offsetLeft = Math.max(this.positionX, - margin);
+        } else {
+          this.offsetLeft = - margin / 2 | 0;
+        }
+      } else {
+        this.imageWidth    = this.boxWidth;
+        this.imageHeight   = this.boxWidth / this.aspectRatio | 0;
+        this.offsetLeft    = 0;
+
+        margin = this.imageHeight - imageHeightMin;
+
+        if (this.positionY == 'top') {
+          this.offsetBaseTop = 0;
+        } else if (this.positionY == 'bottom') {
+          this.offsetBaseTop = - margin;
+        } else if (!isNaN(this.positionY)) {
+          this.offsetBaseTop = Math.max(this.positionY, - margin);
+        } else {
+          this.offsetBaseTop = - margin / 2 | 0;
+        }
+      }
+    },
+
+    render: function() {
+      var scrollTop    = Parallax.scrollTop;
+      var scrollLeft   = Parallax.scrollLeft;
+      var scrollBottom = scrollTop + Parallax.winHeight;
+
+      if (this.boxOffsetBottom > scrollTop && this.boxOffsetTop < scrollBottom) {
+        this.visibility = 'visible';
+      } else {
+        this.visibility = 'hidden';
+      }
+      this.mirrorTop = this.boxOffsetTop  - scrollTop;
+      this.mirrorLeft = this.boxOffsetLeft - scrollLeft;
+      this.offsetTop = this.offsetBaseTop - this.mirrorTop * (1 - this.speed);
+
+      this.$mirror.css({
+        transform: 'translate3d(0px, 0px, 0px)',
+        visibility: this.visibility,
+        top: this.mirrorTop,
+        left: this.mirrorLeft,
+        height: this.boxHeight,
+        width: this.boxWidth
+      });
+
+      this.$slider.css({
+        transform: 'translate3d(0px, 0px, 0px)',
+        position: 'absolute',
+        top: this.offsetTop,
+        left: this.offsetLeft,
+        height: this.imageHeight,
+        width: this.imageWidth
+      });
+    }
+  });
+
+
+  // Parallax Static Methods
+
+  $.extend(Parallax, {
+    scrollTop:    0,
+    scrollLeft:   0,
+    winHeight:    0,
+    winWidth:     0,
+    docHeight:    1 << 30,
+    docWidth:     1 << 30,
+    sliders:      [],
+    isReady:      false,
+    isFresh:      false,
+    isBusy:       false,
+
+    setup: function() {
+      if (this.isReady) return;
+
+      $window
+        .on('scroll.px.parallax load.px.parallax', function() {
+          var scrollTopMax  = Parallax.docHeight - Parallax.winHeight;
+          var scrollLeftMax = Parallax.docWidth  - Parallax.winWidth;
+          Parallax.scrollTop  = Math.max(0, Math.min(scrollTopMax, $window.scrollTop()));
+          Parallax.scrollLeft = Math.max(0, Math.min(scrollLeftMax, $window.scrollLeft()));
+          Parallax.requestRender();
+        })
+        .on('resize.px.parallax load.px.parallax', function() {
+          Parallax.winHeight = $window.height();
+          Parallax.winWidth  = $window.width();
+          Parallax.docHeight = $(document).height();
+          Parallax.docWidth  = $(document).width();
+          Parallax.isFresh = false;
+          Parallax.requestRender();
+        });
+
+      this.isReady = true;
+    },
+
+    configure: function(options) {
+      if (typeof options == 'object') {
+        delete options.refresh;
+        delete options.render;
+        $.extend(this.prototype, options);
+      }
+    },
+
+    refresh: function() {
+      $.each(this.sliders, function(){ this.refresh() });
+      this.isFresh = true;
+    },
+
+    render: function() {
+      this.isFresh || this.refresh();
+      $.each(this.sliders, function(){ this.render() });
+    },
+
+    requestRender: function() {
+      var self = this;
+
+      if (!this.isBusy) {
+        this.isBusy = true;
+        window.requestAnimationFrame(function() {
+          self.render();
+          self.isBusy = false;
+        });
+      }
+    }
+  });
+
+
+  // Parallax Plugin Definition
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this);
+      var options = typeof option == 'object' && option;
+
+      if (this == window || this == document || $this.is('body')) {
+        Parallax.configure(options);
+      }
+      else if (!$this.data('px.parallax')) {
+        options = $.extend({}, $this.data(), options);
+        $this.data('px.parallax', new Parallax(this, options));
+      }
+      if (typeof option == 'string') {
+        Parallax[option]();
+      }
+    })
+  };
+
+  var old = $.fn.parallax;
+
+  $.fn.parallax             = Plugin;
+  $.fn.parallax.Constructor = Parallax;
+
+
+  // Parallax No Conflict
+
+  $.fn.parallax.noConflict = function () {
+    $.fn.parallax = old;
+    return this;
+  };
+
+
+  // Parallax Data-API
+
+  $(document).on('ready.px.parallax.data-api', function () {
+    $('[data-parallax="scroll"]').parallax();
+  });
+
+}(jQuery, window, document));
