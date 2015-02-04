@@ -1,0 +1,323 @@
+@media only screen and (max-width: 480px) {
+
+
+/* Affects all pages */
+body {
+	background-color: #372ee0;
+	color: white;
+	font-family: 'Roboto Slab', serif;
+	font-size: 18px;
+}
+
+h1 {
+	font-family: 'Holtwood One SC', serif;
+}
+
+.space-filler {
+	height: 30px;
+}
+
+.space-filler60 {
+	height: 60px;
+}
+
+.space-filler90 {
+	height: 90px;
+}
+
+/* Title Page */
+
+#introSection {
+	height: 60%;
+	
+}
+
+#titlePitch {
+	width: 60%;
+	display: block;
+	margin: 0 auto;
+	padding-top: 160px;
+}
+
+#titlePitchText {
+	text-align: center;
+	line-height: 2.5em;
+	font-size: 13px;
+	/*padding-top: 30px;*/
+}
+
+#featuredSection {
+	height: 60%;
+	background-color: white;
+	color: black;
+	display: block;
+	margin: 0 auto;
+}
+
+#featuredTitle {
+	text-align: center;
+	font-size: 20px;
+}
+
+.imageSquare {
+	width: 200px;
+	height: 100px;
+	padding: 10px;
+}
+
+.featuredSquare {
+	padding-left: 40px;
+}
+
+.hoverSquare {
+	margin-left: 40px !important;
+	position: absolute;
+	height: 100px;
+	width: 200px;
+	top: 0;
+	left: 0;
+	color: #fff;
+	background-color: #ff534b;
+	opacity: 0.9;
+	margin-left: 0;
+}
+
+.hoverSquare p {
+	font-family: 'Cuprum', sans-serif;
+	padding-top: 10px;
+	font-size: 10px;
+	text-align: center;
+}
+
+#featuredRow {
+	height: 60%;
+}
+
+#portfolioLinkRow {
+	display: block;
+	margin: 0 auto;
+	padding-top: 30px;
+	text-align: center;
+}
+
+.boxedButton {
+	margin-bottom: 40px;
+	display: none;
+}
+
+.boxedButton p {
+	margin: 0 auto;
+	height: 40px;
+	padding-top: 13px;
+}
+
+.boxedButton a {
+	padding: 10px;
+	border: 3px solid #000;
+	text-transform: uppercase;
+	color: #000;
+	background-color: none;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	-webkit-transition: all 300ms;
+	transition: all 300ms; 
+}
+
+.boxedButton a:hover {
+	border: 3px solid white;
+	color: black;
+	background-color: #ff6e19;
+	-moz-transition: all 300ms;
+	-o-transition: all 300ms;
+	-webkit-transition: all 300ms;
+	transition: all 300ms; 
+}
+
+#footerContainer {
+	width: 100%;
+	display: none;
+}
+
+.footerSection {
+	height: 20%;
+	width: 100%;
+	background-color: #000;
+	padding-top: 40px;
+}
+
+.footerRow {
+	display: block;
+	margin: 0 auto;
+	width: 400px;
+	/*height: 400px;*/
+}
+
+.footerRow h4 {
+	text-align: center;
+}
+
+.footerRow a {
+	color: white;
+}
+
+.footerLogo {
+	width: 50%;
+}
+
+/*            */
+
+#user-email {
+	font-size: 15px;
+}
+
+.buttons {
+	text-shadow: none;
+}
+
+/* Navbar */
+.navbar {
+	background: white;
+	width: 100%;
+	border-radius: 0px;
+	text-shadow: none;
+}
+
+/* Index */
+#blog-body {
+	text-align: center;
+}
+
+#search-bar {
+	width: 500px;
+	display: block;
+	margin: 0 auto;
+}
+
+#search-button {
+
+}
+
+.entry-box {
+	background-color: #FF6E19;
+}
+
+.blog-entry {
+	background-color: black;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.blog-image {
+	border-radius: 20px;
+}
+
+#pagination {
+	text-shadow: none;
+}
+
+#content {
+	width: 95%;
+}
+
+li {
+	color: black;
+}
+
+.intro {
+	color: white;
+	text-align: center;
+}
+
+/* Resume */
+#pic {
+	width: 100%;
+	text-align: center;
+	margin-top: 60px;
+}
+
+#selfie {
+	height: 300px;
+	width: 300px;
+}
+
+#pitch {
+	font-size: 20px;
+	width: 60%;
+}
+
+#paper-resume {
+	text-align: center;
+}
+
+.fa {
+	color: red;
+	background-color: transparent;
+}
+
+#resumeIcon {
+	background-color: white;
+}
+
+/* Resume modals */
+#modal-bar {
+	width: 45%;
+}
+
+.contact-list {
+	color: black;
+	text-shadow: none;
+}
+
+#modal-qualifications {
+	color: black;
+	font-size: 15px;
+	text-shadow: none;
+}
+
+.exp-heading {
+	color: black;
+	font-size: 20px;
+	text-shadow: none;
+}
+
+.exp-body {
+	color: black;
+	font-size: 15px;
+	width: 800px;
+	text-shadow: none;
+}
+
+/* Portfolio */
+
+#portPic {
+	height: 250px;
+	width: 250px;
+}
+
+#main-container {
+	width: 1000px;
+	height: 100%;
+}
+
+.row {
+	text-align: center;
+}
+
+#port-header {
+	text-align: center;
+}
+
+.app-title {
+	width: 265px;
+	padding-left: 15px;
+}
+
+
+/* Error Message */
+.error {
+	text-align: center;
+}
+
+}
+
+

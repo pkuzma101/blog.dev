@@ -8,6 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/blog.css" type="text/css">
+    <link rel="stylesheet" href="/css/small_device_blog.css">
 </head>
 <body>
 	@include('partials.navbar')
