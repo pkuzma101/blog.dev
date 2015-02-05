@@ -70,7 +70,8 @@
 						<h3 class="footerLogo">Paul Kuzma</h3>
 					</div>
 					<div class="col-xs-6 col-sm-3">
-						<h4>kuzma.paul@gmail.com</h4>
+						{{ HTML::mailto('kuzma.paul@gmail.com', 'Email') }}
+
 					</div>
 					<div class="col-xs-6 col-sm-3">
 						<a href="https://www.linkedin.com/pub/paul-kuzma/a9/a7b/170/"><h4>LinkedIn</h4></a>

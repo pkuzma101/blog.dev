@@ -117,7 +117,7 @@
                 <p class="contact-list"><em>Phone</em></p>
                 <p class="contact-list">317-407-5789</p>
                 <p class="contact-list"><em>Email</em></p>
-                <p class="contact-list">kuzma.paul@gmail.com</p>
+                <p class="contact-list">{{ HTML::mailto('kuzma.paul@gmail.com', 'kuzma.paul@gmail.com') }}</p>
                 <p class="contact-list"><em>Address</em></p>
                 <p class="contact-list">5639 N. Meridian St., Indianapolis, IN 46208</p>
               </div>
