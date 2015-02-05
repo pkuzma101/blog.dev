@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 450px) {
 
 
 /* Affects all pages */
@@ -66,11 +66,11 @@ h1 {
 }
 
 .featuredSquare {
-	padding-left: 40px;
+	padding-left: 90px;
 }
 
 .hoverSquare {
-	margin-left: 40px !important;
+	margin-left: 90px !important;
 	position: absolute;
 	height: 100px;
 	width: 200px;
@@ -79,7 +79,6 @@ h1 {
 	color: #fff;
 	background-color: #ff534b;
 	opacity: 0.9;
-	margin-left: 0;
 }
 
 .hoverSquare p {
@@ -295,6 +294,7 @@ li {
 #portPic {
 	height: 250px;
 	width: 250px;
+	float: left;
 }
 
 #main-container {

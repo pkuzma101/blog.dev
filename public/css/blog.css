@@ -77,7 +77,6 @@ h1 {
 	color: #fff;
 	background-color: #ff534b;
 	opacity: 0.9;
-	margin-left: 0;
 }
 
 .hoverSquare p {
@@ -178,7 +177,7 @@ h1 {
 	text-shadow: none;
 }
 
-/* Index */
+/* Blog Index */
 #blog-body {
 	text-align: center;
 }
