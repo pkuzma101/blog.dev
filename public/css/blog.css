@@ -147,12 +147,13 @@ h1 {
 	/*height: 400px;*/
 }
 
-.footerRow h4 {
-	text-align: center;
-}
+/*.footerRow p {
+	float: right;
+}*/
 
 .footerRow a {
 	color: white;
+	float: right;
 }
 
 .footerLogo {
