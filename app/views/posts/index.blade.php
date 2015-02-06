@@ -11,15 +11,17 @@
 		<br>
 		<!-- Search Bar goes here -->
 		<div id="search-section">
-	        <form role="search">
-	  			<input type="text" class="form-control" name="search" placeholder="Search Posts" id="search-bar"></input><button type="submit" class="btn btn-default" id="search-button">Search</button>
-	        </form>
+	        <form role="search" class="blog-search">
+	  			<input type="text" name="search" placeholder="Search Posts" id="search-bar"></input>
+	  			<span><button type="submit" class="btn btn-default" id="search-button">Search</button></span>
+			</form>
+
 	    </div>
         <div class="space-filler"></div>
 		<div class="entry-box">
 			<div class="container" id="title">
 				@foreach($posts as $post)
-				<p class="heading"> 
+				<p class="blog-heading"> 
 					{{{ $post->title }}} - {{{$post->created_at->diffForHumans()}}}
 				</p>
 			</div>

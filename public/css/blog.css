@@ -147,17 +147,13 @@ h1 {
 	/*height: 400px;*/
 }
 
-/*.footerRow p {
-	float: right;
-}*/
-
-.footerRow a {
+.footerRow a, .footerRow h3 {
 	color: white;
 	float: right;
 }
 
 .footerLogo {
-	width: 50%;
+	margin-top: 0;
 }
 
 /*            */
@@ -185,16 +181,20 @@ h1 {
 
 #search-bar {
 	width: 500px;
-	display: block;
-	margin: 0 auto;
-}
-
-#search-button {
-
+	border-radius: 4px;
+	color: black;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	font-size: 14px;
 }
 
 .entry-box {
 	background-color: #FF6E19;
+}
+
+.blog-heading {
+	padding-top: 20px;
+	font-family: 'Comfortaa', cursive;
 }
 
 .blog-entry {

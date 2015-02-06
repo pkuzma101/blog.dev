@@ -66,9 +66,9 @@
 		<footer class="footerSection">
 			<div class="footerRow">
 				<div class="row-fluid">
-					<!-- <div class="col-xs-6 col-sm-3"> -->
-						<!-- <h3 class="footerLogo">Paul Kuzma</h3> -->
-					<!-- </div> -->
+					<div class="col-xs-6 col-sm-3">
+						<h3 class="footerLogo">Paul Kuzma</h3>
+					</div>
 					<div class="col-xs-6 col-sm-3">
 						{{ HTML::mailto('kuzma.paul@gmail.com', 'Email') }}
 
