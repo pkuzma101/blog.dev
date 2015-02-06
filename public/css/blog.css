@@ -82,7 +82,7 @@ h1 {
 .hoverSquare p {
 	font-family: 'Cuprum', sans-serif;
 	padding-top: 20px;
-	font-size: 25px;
+	font-size: 30px;
 	text-align: center;
 }
 
@@ -172,6 +172,11 @@ h1 {
 	width: 100%;
 	border-radius: 0px;
 	text-shadow: none;
+	font-family: 'Comfortaa', cursive;
+}
+
+.navbar-nav>li>a {
+	color: black !important;
 }
 
 /* Blog Index */
@@ -285,9 +290,28 @@ li {
 
 /* Portfolio */
 
-#portPic {
-	height: 250px;
-	width: 250px;
+.portPic {
+	height: 300px;
+	width: 300px;
+}
+
+.portHover {
+	margin-left: 16px !important;
+	position: absolute;
+	height: 300px;
+	width: 300px;
+	top: 0;
+	left: 0;
+	color: #fff;
+	background-color: #ff534b;
+	opacity: 0.9;
+}
+
+.portHover p {
+	font-family: 'Cuprum', sans-serif;
+	padding-top: 20px;
+	font-size: 25px;
+	text-align: center;
 }
 
 #main-container {

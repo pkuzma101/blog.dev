@@ -6,75 +6,99 @@
 <h1 id="port-header">Paul Kuzma's Portfolio</h1>
 <div class="space-filler60"></div>
 <div class="container-fluid" id="portfolioPage">
-	<div class="container" id="main-container">
-		<div class="row" id="capstone-box">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<a href="http://worldmentr.org">
-					<img src="/css/images/logo.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see a website I helped develop">
-				</a> 
-				<a href="https://github.com/worldmentr/capstone">
-					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i>
-				</a>
-				<p class="app-title">World Mentr</p>
+	<section id="squareSection">
+		<div class="container" id="main-container">
+			<div class="row" id="capstone-box">
+				<div class="col-md-4"></div>
+				<div class="col-md-4" id="portMentSquare">
+					<a href="http://worldmentr.org">
+						<img src="/css/images/mentr.png" class="portPic">
+						<span class="portHover" id="portMentHover">
+							<p class="portAppName">World Mentor</p>
+							<p class="portAppContent">
+								An interactive website where people can give or receive mentoring advice across the web.
+							</p>
+						</span>
+					</a> 
+				</div>
+				<div class="col-md-4"></div>
 			</div>
-			<div class="col-md-4"></div>
-		</div>
-		<div class="space-filler"></div>
-		<div class="row">
-			<div class="col-md-4">
-				<a href="/projects/whackamole/puppy.html">
-					<img src="/projects/whackamole/puppies/dalek.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to play the game">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/whackamole">
-					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">Whack-a-Mole Game</p>
+			<div class="space-filler"></div>
+			<div class="row">
+				<div class="col-md-4" id="portWhackSquare">
+					<a href="/projects/whackamole/puppy.html">
+						<img src="/css/images/whack.png" class="portPic">
+						<span class="portHover" id="portWhackHover">
+							<p class="portAppName">Pet All Puppies</p>
+							<p class="portAppContent">
+								This app utilizes JavaScript and jQuery to create
+								a whack-a-mole game.
+							</p>
+						</span>
+					</a>
+				</div>
+				<div class="col-md-4" id="portFantasySquare">
+					<a href="/projects/final_fantasy/final_fantasy_characters.php">
+						<img src="/css/images/fantasy.png" class="portPic">
+						<span class="portHover" id="portFantasyHover">
+							<p class="portAppName">Character Database</p>
+							<p class="portAppContent">
+								A database that stores information about characters in a 
+								MySQL database.
+							</p>
+						</span>
+					</a>
+				</div>
+				<div class="col-md-4" id="portTodoSquare">
+					<a href="/projects/todo_list/sql_todo_list.php">
+						<img src="/css/images/todo.png" class="portPic">
+						<span class="portHover" id="portTodoHover">
+							<p class="portAppName">To-Do List</p>
+							<p class="portAppContent">
+								A digital things-to-do list that uses MySQL to add and subtract tasks. 
+							</p>
+						</span>
+					</a>
+				</div>
 			</div>
-			<div class="col-md-4">
-				<a href="/projects/final_fantasy/final_fantasy_characters.php">
-					<img src="/projects/final_fantasy/images/background_wallpaper.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/final_fantasy">
-					<i class="fa fa-git-square" id="gitLogo" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">Character Database</p>
-			</div>
-			<div class="col-md-4">
-				<a href="/projects/todo_list/sql_todo_list.php">
-					<img src="/projects/todo_list/images/computer_ninja.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/todo_list">
-					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">To-Do List App</p>
-			</div>
-		</div>
-		<div class="space-filler"></div>
-		<div class="row">
-			<div class="col-md-4">
-				<a href="/projects/alphabet_soup/alphabet_soup.php">
-					<img src="/projects/alphabet_soup/images/soup.png" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/alphabet_soup">
-					<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">Alphabet Soup</p>
-			</div>
-			<div class="col-md-4">
-				<a href="/projects/national_parks/national_parks.php">
-					<img src="/projects/national_parks/img/canoe.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/national_parks">
-				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">National Parks Database</p>
-			</div>
-			<div class="col-md-4">
-				<a href="/projects/palindrome/palindrome.php">
-					<img src="/projects/palindrome/images/palindrome.jpg" id="portPic" data-toggle="tooltip" data-placement="left" title="Click here to see the app">
-				</a>
-				<a href="https://github.com/pkuzma101/blog.dev/tree/master/public/projects/palindrome">
-				<i class="fa fa-git-square" data-toggle="tooltip" data-placement="top" title="Click here to see my code on Git"></i></a>
-				<p class="app-title">Palindrome or No?</p>
-			</div>	
-		</div>
-	</div> <!-- main-container closes here -->
+			<div class="space-filler"></div>
+			<div class="row">
+				<div class="col-md-4" id="portAlphabetSquare">
+					<a href="/projects/alphabet_soup/alphabet_soup.php">
+						<img src="/css/images/alphabet.png" class="portPic">
+						<span class="portHover" id="portAlphabetHover">
+							<p class="portAppName">Alphabet Soup</p>
+							<p class="portAppContent">
+								An app that takes any string(s) fed to it and rearranges the letters in alphabetical order.
+							</p>
+						</span>
+					</a>
+				</div>
+				<div class="col-md-4" id="portNationalSquare">
+					<a href="/projects/national_parks/national_parks.php">
+						<img src="/projects/national_parks/img/canoe.jpg" class="portPic">
+						<span class="portHover" id="portNationalHover">
+							<p class="portAppName">National Parks Database</p>
+							<p class="portAppContent">
+								An app that uses MySQL to store information about various national parks in a table.
+							</p>
+						</span>
+					</a>
+				</div>
+				<div class="col-md-4" id="portPalindromeSquare">
+					<a href="/projects/palindrome/palindrome.php">
+						<img src="/css/images/palindrome.png" class="portPic">
+						<span class="portHover" id="portPalindromeHover">
+							<p class="portAppName">Palindrome</p>
+							<p class="portAppContent">
+								An app that takes an entered string and judges whether or not it is a palindrome.
+							</p>
+						</span>
+					</a>
+				</div>	
+			</div> <!-- row -->
+		</div> <!-- main-container closes here -->
+	</section>
 </div>
 
 
