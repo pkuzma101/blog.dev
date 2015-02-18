@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="myModalLabel">Add to Database</h4>
             </div>
             <div class="modal-body">
-                <form method="POST" role="form" enctype="multipart/form-data" action="http://codeup.dev/final_fantasy/final_fantasy_characters.php" >
+                <form method="POST" role="form" enctype="multipart/form-data" action="http://paulkuzmadev.com/projects/final_fantasy/final_fantasy_characters.php" >
                     <h2 id="modalHeadline">Add New Character</h2>
                     <div class="inputGroup">
                         <input type="text" name="first_name" id="first_name" class="inputText" value="<?= isset($_POST['first_name']) ? $_POST['first_name'] : '' ?> "></input>
