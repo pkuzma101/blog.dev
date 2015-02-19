@@ -12,8 +12,13 @@ if(isset($_GET['page'])) {
 
 $offsetNumber = ($pageNumber - 1) * 6;
 
+// Remove Character Variables
+if(isset($_GET['characterId'])) {
+	$characterToRemove = intval($_GET['characterId']);
+}
+
 // SQL Query statement for cards
-$stmt = $dbc->prepare("SELECT first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT 8 OFFSET :offsetNumber");
+$stmt = $dbc->prepare("SELECT id, first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT 8 OFFSET :offsetNumber");
 $stmt->bindValue(':offsetNumber', $offsetNumber, PDO::PARAM_INT);
 $stmt->execute();
 
@@ -63,7 +68,14 @@ if($_POST) {
 			$_POST = array();
 		}
 	}
-} 
+}
+
+// Delete Character
+if(isset($characterToRemove)) {
+	$deletion = $dbc->prepare("DELETE FROM characters WHERE id = :characterToRemove");
+	$deletion->bindValue(':characterToRemove', $characterToRemove, PDO::PARAM_INT);
+	$deletion->execute();
+}
 
 ?>
 
@@ -97,7 +109,6 @@ if($_POST) {
 			<div class="menuBox">
 				<? foreach($employees as $employee): ?>
 				<div id="cardBlock">
-
 					<div class="charCard">
 						<div class="row">
 							<div class="col-xs-6" id="charPicDiv">
@@ -115,7 +126,10 @@ if($_POST) {
 							<div class="col-xs-6">
 								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
 							</div>
-						</div> <!-- inforRow -->
+						</div> <!-- infoRow -->
+						<div id="deleteRow">
+							<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>">Delete</a></span>
+						</div>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
