@@ -34,7 +34,6 @@
                         <label for="image">Upload Portrait</label>
                     </div>
                     <div class="modalButtonBlock">
-                        <!-- <button type="submit" class="btn btn-primary">Add Character</button> -->
                         <a href="#" onclick="$(this).closest('form').submit()">Add Character</a>
                     </div>
                 </form>

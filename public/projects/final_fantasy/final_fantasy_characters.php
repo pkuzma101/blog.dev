@@ -127,9 +127,7 @@ if(isset($characterToRemove)) {
 								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
 							</div>
 						</div> <!-- infoRow -->
-						<div id="deleteRow">
-							<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>">Delete</a></span>
-						</div>
+						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>">Delete</a></span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
