@@ -113,7 +113,7 @@ $dbc = null;
 					<? if($pageNumber > 1): ?>
 						<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton"> &lt; Previous </a>
 					<? endif ?>
-					<? if(round($numberOfEmployees / 8) >= $pageNumber): ?>
+					<? if(($numberOfEmployees / 8) > $pageNumber): ?>
 						<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton"> Next &gt;</a>
 					<? endif ?>
 				</span>
