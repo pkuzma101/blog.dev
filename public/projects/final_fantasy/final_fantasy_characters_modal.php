@@ -7,7 +7,21 @@
                 <h4 class="modal-title" id="myModalLabel">Add to Database</h4>
             </div>
             <div class="modal-body">
-                <form method="POST" role="form" enctype="multipart/form-data" action="http://paulkuzmadev.com/projects/final_fantasy/final_fantasy_characters.php" >
+                <?php 
+                    if (isset($_GET['page'])){
+                        $page = "?".$pageParam;
+                    }
+                    else{
+                        $page = "";
+                    }
+                    if (ENV == "prod"){
+                        $action = "http://paulkuzmadev.com/projects/final_fantasy/final_fantasy_characters.php".$page;
+                    }
+                    else{
+                        $action = "http://blog.dev/projects/final_fantasy/final_fantasy_characters.php".$page;
+                    }
+                ?>
+                <form method="POST" role="form" enctype="multipart/form-data" action="<?php echo $action; ?>" >
                     <h2 id="modalHeadline">Add New Character</h2>
                     <div class="inputGroup">
                         <input type="text" name="first_name" id="first_name" class="inputText" value="<?= isset($_POST['first_name']) ? $_POST['first_name'] : '' ?> "></input>
@@ -34,7 +48,7 @@
                         <label for="image">Upload Portrait</label>
                     </div>
                     <div class="modalButtonBlock">
-                        <a href="#" onclick="$(this).closest('form').submit()">Add Character</a>
+                        <button type="submit" class="btn btn-default">Add Character</button>
                     </div>
                 </form>
             </div>

@@ -1,7 +1,11 @@
 <?php
-
-require '../../../config.emp.php';
-include 'final_fantasy_characters_modal.php';
+session_start();
+if($_SERVER['SERVER_NAME'] == 'paulkuzmadev.com'){
+	define("ENV","prod");
+}
+else{
+	define("ENV","dev");
+}
 
 // Pagination code
 if(isset($_GET['page'])) {
@@ -9,22 +13,24 @@ if(isset($_GET['page'])) {
 } else {
 	$pageNumber = 1;
 }
+$pageParam = "page=".$pageNumber;
+require '../../../config.emp.php';
+include 'final_fantasy_characters_modal.php';
 
-$offsetNumber = ($pageNumber - 1) * 6;
-
-// Remove Character Variables
-if(isset($_GET['characterId'])) {
-	$characterToRemove = intval($_GET['characterId']);
-}
+$offsetNumber = ($pageNumber - 1) * 8;
 
 // SQL Query statement for cards
-$stmt = $dbc->prepare("SELECT id, first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT 8 OFFSET :offsetNumber");
-$stmt->bindValue(':offsetNumber', $offsetNumber, PDO::PARAM_INT);
+$stmt = $dbc->prepare("SELECT id, first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT ".$offsetNumber.",8");// OFFSET :offsetNumber");
+//$stmt->bindValue(':offsetNumber', $offsetNumber, PDO::PARAM_INT);
 $stmt->execute();
 
 $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $numberOfEmployees = $dbc->query('SELECT count(*) FROM characters')->fetchColumn();
+// $getTotalRows = mysql_fetch_array($numberOfEmployees);
+// $charactersPerPage = 8;
+
+// $pages = ceil($getTotalRows[0]/$charactersPerPage);
 
 function darray($array, $exit = true){
 	echo '<pre>';
@@ -70,13 +76,20 @@ if($_POST) {
 	}
 }
 
+
+// Remove Character Variables
+if(isset($_GET['characterId'])) {
+	$characterToRemove = intval($_GET['characterId']);
+}
 // Delete Character
 if(isset($characterToRemove)) {
 	$deletion = $dbc->prepare("DELETE FROM characters WHERE id = :characterToRemove");
 	$deletion->bindValue(':characterToRemove', $characterToRemove, PDO::PARAM_INT);
 	$deletion->execute();
 }
-
+$stmt->closeCursor();
+$stmt = null;
+$dbc = null;
 ?>
 
 <html>
@@ -100,7 +113,7 @@ if(isset($characterToRemove)) {
 					<? if($pageNumber > 1): ?>
 						<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton"> &lt; Previous </a>
 					<? endif ?>
-					<? if(round($numberOfEmployees / 6) > $pageNumber): ?>
+					<? if(round($numberOfEmployees / 8) >= $pageNumber): ?>
 						<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton"> Next &gt;</a>
 					<? endif ?>
 				</span>
@@ -127,7 +140,7 @@ if(isset($characterToRemove)) {
 								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
 							</div>
 						</div> <!-- infoRow -->
-						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>">Delete</a></span>
+						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>">Delete</a></span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
