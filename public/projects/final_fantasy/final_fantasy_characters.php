@@ -14,6 +14,7 @@ if(isset($_GET['page'])) {
 	$pageNumber = 1;
 }
 $pageParam = "page=".$pageNumber;
+
 require '../../../config.emp.php';
 include 'final_fantasy_characters_modal.php';
 
@@ -27,10 +28,6 @@ $stmt->execute();
 $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $numberOfEmployees = $dbc->query('SELECT count(*) FROM characters')->fetchColumn();
-// $getTotalRows = mysql_fetch_array($numberOfEmployees);
-// $charactersPerPage = 8;
-
-// $pages = ceil($getTotalRows[0]/$charactersPerPage);
 
 function darray($array, $exit = true){
 	echo '<pre>';
@@ -72,7 +69,12 @@ if($_POST) {
 			$query->bindValue(':image_path', $filePath . $savedFileName, PDO:: PARAM_STR);
 			$query->execute();
 			$_POST = array();
+
+			// Do a header location
+			header("Location: final_fantasy_characters.php" . "?" . $pageParam);
 		}
+
+		
 	}
 }
 
