@@ -88,6 +88,8 @@ if(isset($characterToRemove)) {
 	$deletion = $dbc->prepare("DELETE FROM characters WHERE id = :characterToRemove");
 	$deletion->bindValue(':characterToRemove', $characterToRemove, PDO::PARAM_INT);
 	$deletion->execute();
+
+	header("Location: final_fantasy_characters.php" . "?" . $pageParam);
 }
 $stmt->closeCursor();
 $stmt = null;
@@ -142,10 +144,14 @@ $dbc = null;
 								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
 							</div>
 						</div> <!-- infoRow -->
-						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>">Delete</a></span>
+						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
+			</div> <!-- menuBox -->
+			<div class="soundDiv">
+				<audio src="sounds/cursor_move.mp3" id="move-sound" type="audio/mpeg">
+				<audio src="sounds/save_chime.mp3" id="save-sound" type="audio/mpeg">
 			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

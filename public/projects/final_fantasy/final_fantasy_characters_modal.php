@@ -48,7 +48,7 @@
                         <label for="image">Upload Portrait</label>
                     </div>
                     <div class="modalButtonBlock">
-                        <button type="submit" class="btn btn-default">Add Character</button>
+                        <button type="submit" class="btn btn-default" id="submit-button">Add Character</button>
                     </div>
                 </form>
             </div>
