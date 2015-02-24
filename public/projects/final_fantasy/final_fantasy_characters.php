@@ -110,15 +110,15 @@ $dbc = null;
 			<h1 id="pageTitle">Final Fantasy Characters</h1>
 			<div class="space-filler"></div>
 			<div class="buttonRow">
-				<a href="#" data-toggle="modal" data-target="#addCharacterModal" class="fantasyButton">
+				<a href="#" data-toggle="modal" data-target="#addCharacterModal" class="fantasyButton" id="pageButton">
 				    New Character
 				</a>
 				<span id="pagination">
 					<? if($pageNumber > 1): ?>
-						<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton"> &lt; Previous </a>
+						<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton" id="pageButton"> &lt; Previous </a>
 					<? endif ?>
 					<? if(($numberOfEmployees / 8) > $pageNumber): ?>
-						<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton"> Next &gt;</a>
+						<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton" id="pageButton"> Next &gt;</a>
 					<? endif ?>
 				</span>
 			</div>

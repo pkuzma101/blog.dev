@@ -50,6 +50,9 @@
                     <div class="modalButtonBlock">
                         <button type="submit" class="btn btn-default" id="submit-button">Add Character</button>
                     </div>
+                    <div class="soundDiv">
+                        <audio src="sounds/save_chime.mp3" id="save-sound" type="audio/mpeg">
+                    </div>
                 </form>
             </div>
         </div>
