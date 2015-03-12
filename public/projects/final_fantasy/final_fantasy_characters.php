@@ -123,7 +123,7 @@ $dbc = null;
 				</span>
 			</div>
 			<div class="space-filler"></div>
-			<div class="menuBox">
+			<div class="container menuBox">
 				<? foreach($employees as $employee): ?>
 				<div id="cardBlock">
 					<div class="charCard">
