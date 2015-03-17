@@ -8,16 +8,16 @@
             </div>
             <div class="modal-body">
                 <?php 
-                    if (isset($_GET['page'])){
+                    if (isset($_GET['page'])) {
                         $page = "?".$pageParam;
                     }
-                    else{
+                    else {
                         $page = "";
                     }
-                    if (ENV == "prod"){
+                    if (ENV == "prod") {
                         $action = "http://paulkuzmadev.com/projects/final_fantasy/final_fantasy_characters.php".$page;
                     }
-                    else{
+                    else {
                         $action = "http://blog.dev/projects/final_fantasy/final_fantasy_characters.php".$page;
                     }
                 ?>
