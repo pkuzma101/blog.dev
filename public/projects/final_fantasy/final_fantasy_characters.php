@@ -91,6 +91,27 @@ if(isset($characterToRemove)) {
 
 	header("Location: final_fantasy_characters.php" . "?" . $pageParam);
 }
+
+// Edit Character Variables
+if(isset($_GET['characterId'])) {
+	$characterToEdit = intval($_GET['characterId']);
+}
+
+// Edit Character
+if(isset($characterToEdit)) {
+	$update = $dbc->prepare("UPDATE characters SET first_name = :first_name, last_name = :last_name, special_ability = :special_ability, class = :class, weapon = :weapon, image_path = :image_path WHERE id = :characterToEdit");
+	$update->bindValue(':first_name', $_POST['edit_first_name'], PDO::PARAM_STR);
+	$update->bindValue(':last_name', $_POST['edit_last_name'], PDO::PARAM_STR);
+	$update->bindValue(':class', $_POST['edit_class'], PDO::PARAM_STR);
+	$update->bindValue(':special_ability', $_POST['edit_special_ability'], PDO::PARAM_STR);
+	$update->bindValue(':weapon', $_POST['edit_weapon'], PDO::PARAM_STR);
+	$update->bindValue(':image_path', $filePath . $savedFileName, PDO::PARAM_STR);
+	$update->execute();
+	$_POST = array();
+
+	header("Location: final_fantasy_characters.php" . "?" . $pageParam);
+}
+
 $stmt->closeCursor();
 $stmt = null;
 $dbc = null;
@@ -145,6 +166,8 @@ $dbc = null;
 							</div>
 						</div> <!-- infoRow -->
 						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
+					<!--	<span class="editButton"><a href="#" data-toggle="modal" data-target="#editCharacterModal">Edit</a></span> -->
+							<span class="editButton"><a href="#" data-toggle="modal" data-target="#addCharacterModal">Edit</a></span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
