@@ -38,6 +38,21 @@ body {
 	text-decoration: none;
 }
 
+.editButton {
+	position: absolute;
+	bottom: 0;
+	right: 5;
+}
+
+.editButton a {
+	color: #3f9fc6;
+	font-size: 1.0em;
+}
+
+.editButton a:hover {
+	text-decoration: none;
+}
+
 .fantasyButton {
 	font-size: 25px;
 	font-family: 'Cinzel', serif;
