@@ -64,12 +64,13 @@ h1 {
 }
 
 .hoverSquare {
-	margin-left: 100px !important;
+	/*margin-left: 100px !important;*/
 	position: absolute;
 	height: 300px;
 	width: 400px;
 	top: 0;
 	left: 0;
+	right: 0;
 	color: #fff;
 	background-color: #ff534b;
 	opacity: 0.9;
@@ -318,6 +319,7 @@ li {
 	width: 300px;
 	top: 0;
 	left: 0;
+	right: 0;
 	color: #fff;
 	background-color: #ff534b;
 	opacity: 0.9;

@@ -20,7 +20,7 @@
 			<div class="col-md-4" id="mentrSquare">
 				<a href="http://worldmentr.org">
 					<img src="/css/images/mentr.png" class="imageSquare center-block">
-					<span class="hoverSquare" id="mentrHoverSquare">
+					<span class="hoverSquare center-block" id="mentrHoverSquare">
 						<p class="whiteTextHeader">World Mentor</p>
 						<p class="whiteTextContent">
 							An interactive website where people can give or receive mentoring
@@ -44,7 +44,7 @@
 			<div class="col-md-4">
 				<a href="/projects/whackamole/puppy.html" id="whackSquare">
 					<img src="/css/images/whack.png" class="imageSquare center-block">
-					<span class="hoverSquare" id="whackHoverSquare">
+					<span class="hoverSquare center-block" id="whackHoverSquare">
 						<p class="whiteTextHeader">Pet All Puppies</p>
 						<p class="whiteTextContent">
 							This app utilizes JavaScript and jQuery to create
