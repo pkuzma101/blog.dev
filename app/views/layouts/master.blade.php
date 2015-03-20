@@ -10,7 +10,6 @@
     <link href='http://fonts.googleapis.com/css?family=Comfortaa:400,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/blog.css" type="text/css">
-    <link rel="stylesheet" href="/css/small_device_blog.css">
 </head>
 <body>
 	@include('partials.navbar')
@@ -22,6 +21,7 @@
 	    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
 	@endif
     @yield('content')
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
