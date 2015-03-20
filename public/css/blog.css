@@ -313,7 +313,7 @@ li {
 }
 
 .portHover {
-	margin-left: 17px !important;
+	/*margin-left: 17px !important;*/
 	position: absolute;
 	height: 300px;
 	width: 300px;
