@@ -21,39 +21,39 @@
                         $action = "http://blog.dev/projects/final_fantasy/final_fantasy_characters.php".$page;
                     }
                 ?>
-                <form method="POST" role="form" id="add-character-form" enctype="multipart/form-data" action="<?php echo $action; ?>" >
+                <?php foreach($employees as $employee) : ?>
+                <form method="POST" role="form" id="edit-character-form" enctype="multipart/form-data" action="<?php echo $action; ?>">
                     <h2 id="modalHeadline">Edit Character</h2>
+                    <input type="text" name="id" value="<?= $employee['id'] ?>">
                     <div class="inputGroup">
-                        <input type="text" name="edit_first_name" id="edit_first_name" class="inputText" value="<?= isset($_POST['edit_first_name']) ? $_POST['first_name'] : '' ?>"></input>
+                        <input type="text" name="edit_first_name" id="edit_first_name" class="inputText" value="<?php echo $employee['first_name']; ?><?= isset($_POST['edit_first_name']) ? $_POST['edit_first_name'] : '' ?>">
                         <label for="first_name">First Name</label>
                     </div>
                     <div class="inputGroup">
-                        <input type="text" name="edit_last_name" id="edit_last_name" class="inputText" value="<?= isset($_POST['edit_last_name']) ? $_POST['last_name'] : '' ?>">
+                        <input type="text" name="edit_last_name" id="edit_last_name" class="inputText" value="<?php echo $employee['last_name']; ?> <?= isset($_POST['edit_last_name']) ? $_POST['edit_last_name'] : '' ?>">
                         <label for="last_name">Last Name</label>    
                     </div>
                     <div class="inputGroup">
-                        <input type="text" name="edit_class" id="edit_class" class="inputText" value="<?= isset($_POST['edit_class']) ? $_POST['class'] : '' ?>">
+                        <input type="text" name="edit_class" id="edit_class" class="inputText" value="<?php echo $employee['class']; ?> <?= isset($_POST['edit_class']) ? $_POST['edit_class'] : '' ?>">
                         <label for="class">Class</label>
                     </div>
                     <div class="inputGroup">
-                        <input type="text" name="edit_special_ability" id="edit_special_ability" class="inputText" value="<?= isset($_POST['edit_special_ability']) ? $_POST['special_ability'] : '' ?>">
+                        <input type="text" name="edit_special_ability" id="edit_special_ability" class="inputText" value="<?php echo $employee['special_ability']; ?> <?= isset($_POST['edit_special_ability']) ? $_POST['edit_special_ability'] : '' ?>">
                         <label for="first_name">Special Ability</label>
                     </div>
                     <div class="inputGroup">
-                        <input type="text" name="edit_weapon" id="edit_weapon" class="inputText" value="<?= isset($_POST['edit_weapon']) ? $_POST['weapon'] : '' ?>">
+                        <input type="text" name="edit_weapon" id="edit_weapon" class="inputText" value="<?php echo $employee['weapon']; ?> <?= isset($_POST['edit_weapon']) ? $_POST['edit_weapon'] : '' ?>">
                         <label for="first_name">Weapon</label>    
                     </div>
                     <div class="inputGroup">
-                        <input type="file" name="edit_image" id="edit_image" class="inputText" placeholder="Upload an Image">
+                        <input type="file" name="image" id="image" class="inputText">
                         <label for="image">Upload Portrait</label>
                     </div>
                     <div class="modalButtonBlock">
-                        <button type="submit" class="btn btn-default" id="submit-button">Update Character</button>
-                    </div>
-                    <div class="soundDiv">
-                        <audio src="sounds/save_chime.mp3" id="save-sound" type="audio/mpeg">
+                        <button type="submit" name="edit-submit" class="btn btn-default" id="edit-submit-button" value="submit">Update Character</button>
                     </div>
                 </form>
+                <? endforeach; ?>
             </div>
         </div>
     </div>

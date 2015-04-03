@@ -16,16 +16,17 @@ if(isset($_GET['page'])) {
 $pageParam = "page=".$pageNumber;
 
 require '../../../config.emp.php';
-include 'final_fantasy_characters_modal.php';
 
 $offsetNumber = ($pageNumber - 1) * 8;
 
 // SQL Query statement for cards
-$stmt = $dbc->prepare("SELECT id, first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT ".$offsetNumber.",8");// OFFSET :offsetNumber");
+$stmt = $dbc->prepare("SELECT id, first_name, last_name, class, special_ability, weapon, image_path FROM characters LIMIT ".$offsetNumber.",8");
 //$stmt->bindValue(':offsetNumber', $offsetNumber, PDO::PARAM_INT);
 $stmt->execute();
 
 $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$stmt->closeCursor();
+$stmt = null;
 
 $numberOfEmployees = $dbc->query('SELECT count(*) FROM characters')->fetchColumn();
 
@@ -39,7 +40,7 @@ function darray($array, $exit = true){
 }
  
 // Add new employee
-if($_POST) {
+if(isset($_POST['new-submit-button'])) {
 	if(empty($_POST['first_name']) || empty($_POST['class']) || empty($_POST['special_ability']) || empty($_POST['weapon']) ) {
 		echo "<div class='alert alert-info' role='alert'> All fields except 'Last Name' must be filled</div>";
 	} else {
@@ -71,50 +72,81 @@ if($_POST) {
 			$_POST = array();
 
 			// Do a header location
-			header("Location: final_fantasy_characters.php" . "?" . $pageParam);
-		}
-
-		
+			header("Location: /projects/final_fantasy/final_fantasy_characters.php" . "?" . $pageParam);
+			exit();
+		}	
 	}
 }
-
-
-// Remove Character Variables
+// Set up the remove Character Variables
 if(isset($_GET['characterId'])) {
 	$characterToRemove = intval($_GET['characterId']);
 }
+
 // Delete Character
 if(isset($characterToRemove)) {
 	$deletion = $dbc->prepare("DELETE FROM characters WHERE id = :characterToRemove");
 	$deletion->bindValue(':characterToRemove', $characterToRemove, PDO::PARAM_INT);
 	$deletion->execute();
 
-	header("Location: final_fantasy_characters.php" . "?" . $pageParam);
+	header("Location: /projects/final_fantasy/final_fantasy_characters.php" . "?" . $pageParam);
+	exit();
 }
+
+#$dbc = null;
 
 // Edit Character Variables
-if(isset($_GET['characterId'])) {
-	$characterToEdit = intval($_GET['characterId']);
+if(isset($_POST['character_id'])) {
+	$characterToEdit = intval($_POST['character_id']);
 }
-
 // Edit Character
-if(isset($characterToEdit)) {
-	$update = $dbc->prepare("UPDATE characters SET first_name = :first_name, last_name = :last_name, special_ability = :special_ability, class = :class, weapon = :weapon, image_path = :image_path WHERE id = :characterToEdit");
-	$update->bindValue(':first_name', $_POST['edit_first_name'], PDO::PARAM_STR);
-	$update->bindValue(':last_name', $_POST['edit_last_name'], PDO::PARAM_STR);
-	$update->bindValue(':class', $_POST['edit_class'], PDO::PARAM_STR);
-	$update->bindValue(':special_ability', $_POST['edit_special_ability'], PDO::PARAM_STR);
-	$update->bindValue(':weapon', $_POST['edit_weapon'], PDO::PARAM_STR);
-	$update->bindValue(':image_path', $filePath . $savedFileName, PDO::PARAM_STR);
-	$update->execute();
-	$_POST = array();
+if(isset($_POST['edit-submit']) && isset($characterToEdit)) {
 
-	header("Location: final_fantasy_characters.php" . "?" . $pageParam);
+	if(empty($_POST['edit_first_name']) || empty($_POST['edit_class']) || empty($_POST['edit_special_ability']) || empty($_POST['edit_weapon']) ) {
+		echo "<div class='alert alert-info' role='alert'> All fields except 'Last Name' must be filled out completely</div>";
+	} else {
+		// Upload image
+		if(isset($_FILES['image'])) {
+			$fileName = basename($_FILES['image']['name']);
+			$fileType = $_FILES['image']['type'];
+			$pathinfo = pathinfo(__FILE__);
+
+			$sysUploadDir = $pathinfo['dirname'] . '/images/';
+			$filePath = '/projects/final_fantasy/images/';
+			$savedFileName = $fileName;
+
+			if($fileType == 'image/jpg' || $fileType == 'image/png' || $fileType == 'image/gif' || $fileType == 'image/jpeg') {
+				move_uploaded_file($_FILES['image']['tmp_name'], $sysUploadDir . $savedFileName);
+			}
+		}
+		if(strlen($_POST['edit_first_name'] < 100)) {
+			if(isset($characterToEdit)) {
+				$update = $dbc->prepare("UPDATE characters SET first_name = :first_name, 
+																last_name = :last_name, 
+																special_ability = :special_ability, 
+																class = :class, 
+																weapon = :weapon, 
+																image_path = :image_path WHERE id = :characterToEdit");
+				$update->bindValue(':first_name', $_POST['edit_first_name'], PDO::PARAM_STR);
+				$update->bindValue(':last_name', $_POST['edit_last_name'], PDO::PARAM_STR);
+				$update->bindValue(':class', $_POST['edit_class'], PDO::PARAM_STR);
+				$update->bindValue(':special_ability', $_POST['edit_special_ability'], PDO::PARAM_STR);
+				$update->bindValue(':weapon', $_POST['edit_weapon'], PDO::PARAM_STR);
+				$update->bindValue(':image_path', $filePath . $savedFileName, PDO::PARAM_STR);
+				$update->bindValue(':characterToEdit', $_POST['character_id'], PDO::PARAM_INT);
+				$update->execute();
+				$_POST = array();
+
+				$location = $_SERVER['REQUEST_URI'];
+				header("Location: ".$location);
+				exit();
+			}
+		}
+	}
 }
 
-$stmt->closeCursor();
-$stmt = null;
-$dbc = null;
+include 'final_fantasy_characters_modal.php';
+include 'final_fantasy_edit_characters_modal.php';
+
 ?>
 
 <html>
@@ -165,9 +197,8 @@ $dbc = null;
 								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
 							</div>
 						</div> <!-- infoRow -->
-						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
-					<!--	<span class="editButton"><a href="#" data-toggle="modal" data-target="#editCharacterModal">Edit</a></span> -->
-							<span class="editButton"><a href="#" data-toggle="modal" data-target="#addCharacterModal">Edit</a></span>
+						<!-- <span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span> -->
+						<!-- <span class="editButton"><a href="#" data-toggle="modal" data-target="#editCharacterModal">Edit</a></span> -->
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>

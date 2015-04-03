@@ -48,7 +48,7 @@
                         <label for="image">Upload Portrait</label>
                     </div>
                     <div class="modalButtonBlock">
-                        <button type="submit" class="btn btn-default" id="submit-button">Add Character</button>
+                        <button type="submit" class="btn btn-default" name="new-submit-button" id="new-submit-button">Add Character</button>
                     </div>
                     <div class="soundDiv">
                         <audio src="sounds/save_chime.mp3" id="save-sound" type="audio/mpeg">
