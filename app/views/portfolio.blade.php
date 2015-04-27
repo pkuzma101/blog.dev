@@ -32,7 +32,7 @@
 							<p class="portAppName">Pet All Puppies</p>
 							<p class="portAppContent">
 								This app utilizes JavaScript and jQuery to create
-								a whack-a-mole game.
+								a whack-a-mole game (Works best on Chrome, Safari not working).
 							</p>
 						</span>
 					</a>
