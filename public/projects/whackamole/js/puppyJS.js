@@ -11,7 +11,7 @@ var recordScore = document.getElementById('recordBoard');
 
 function fadeInPuppy() {
 	// Grabs the images inside each individual square
-	var square = $('.col-sm-4').children();
+	var square = $('.col-md-4').children();
 	// Code for choosing a random square
 	var rand = Math.floor(Math.random()* square.length);
 	// Picks a random square and fades the puppy in
