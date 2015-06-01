@@ -1,0 +1,342 @@
+<?php
+require 'includes/config.address.php';
+
+// $connect = new PDO($dsn, $user_name, $pass_word); //DATABASE CONNECTION
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Junior Web Developer</title>
+
+<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<style>
+  table {
+    border-collapse:collapse;
+    border:1px solid;
+  }
+  table td,table th {
+    padding:10px;
+    border:1px solid;
+  }
+</style>
+</head>
+
+<body>
+  <div id='projects'>
+    <h2>Projects <a href="#" id="address-add"><img src='http://decoart.com/img/add.png' /></a></h2>
+  </div>
+
+  <div title="" style="display:none">
+    <form id="dialog-form">
+      <fieldset>
+        <label for="fname">First Name *</label>
+        <input type="text" name="fname" id="fname" value="" class="text ui-widget-content ui-corner-all" required>
+        <br />
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" value="" class="text ui-widget-content ui-corner-all">
+        <br />
+        <label for="street">Street</label>
+        <input type="text" name="street" id="street" value="" class="text ui-widget-content ui-corner-all">
+        <br />
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" value="" class="text ui-widget-content ui-corner-all">
+        <br />
+        <label for="state">State</label>
+        <input type="text" name="state" id="state" value="" class="text ui-widget-content ui-corner-all">
+        <br />
+        <label for="zip">Zip</label>
+        <input type="text" name="zip" id="zip" value="" class="text ui-widget-content ui-corner-all">
+        <br />
+        
+        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        <input type="submit" id="submit-btn" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+      <div id="delete-confirm">
+        Are you sure you want to delete this project?
+      </div>
+    </form>
+  </div>
+
+  <script type="text/javascript" src="/projects/address/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/projects/address/js/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#address-add').bind('click', function(){
+        openAddAddress();
+        return false;
+      });
+      $(document).on('click', '.project-edit', function(){
+        var project_id = $(this).parent().parent().children(':nth-child(1)').text();
+        var name = $(this).parent().parent().children(':nth-child(2)').text();
+        var description = $(this).parent().parent().children(':nth-child(3)').text();
+        var color = $(this).parent().parent().children(':nth-child(4)').children(':nth-child(2)').text();
+        openEditProject(project_id, name, description, color);
+        return false;
+      });
+      $(document).on('click', '.project-delete', function(){
+        var project_id = $(this).parent().parent().children(':nth-child(1)').text();
+        openDeleteProject(project_id);
+        return false;
+      });
+      //FEEL FREE TO MODIFY PARAMS AS NECESSARY
+      var params = "function_name=getAddresses";
+      var addParam = "function_name=addAddress";
+      var editParam = "function_name=editProject";
+      var deleteParam = "function_name=deleteProject";
+      //DO NOT CHANGE THE URL
+      var url = "http://main.xfiddle.com/<?php echo pf_file('nmug-v5sr',true); ?>";
+      
+      //INITIATE AJAX REQUEST
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: params,
+        cache: false,
+        dataType: "json",
+        success: function(data) {
+          var html = "";
+          if (data.projects.length == 0) {
+            html = "There are no projects found";
+          }
+          else {
+            var project_id;
+            html = "<table id='projects-table'><tr><th>ID</th><th>Name</th><th>Description</th><th>Color</th><th>Actions</th>";
+            $.each(data.projects,function(key,project) {
+              //html += "<tr>";
+              $.each(project,function(project_key,value) {
+                if (project_key == "id"){
+                  html += '<tr id=project-'+value+'>';
+                }
+                html += "<td>";
+                // else{
+                //   html += value;
+                // }
+                html += "</td>";
+              });
+              html += "<td>"
+              + "  <a href='#' class='project-edit'><img src='http://decoart.com/img/edit.png'/></a>"
+              + "  <a href='#' class='project-delete'><img src='http://decoart.com/img/delete.png'/></a>"
+              + "</td>";
+              html += "</tr>";
+            });
+            html += "<table>";
+          }
+          $("#projects").append(html);
+        }
+      });
+      
+      /*
+     *  This function opens up the jQuery modal dialog box based off of the dialog-form
+     *  The name field should be required
+     */
+      function openAddAddress() {
+        if ($('#address_id').length > 0){
+          $('#address_id').remove();
+        }
+        //SET THE TITLE TO BE USED ON THE POPUP
+        $('#dialog-form fieldset').show();
+        $('#dialog-form #delete-confirm').hide();
+        $("#dialog-form").attr("title","Create new address");
+        $('#fname').val("");
+        $('#lname').val("");
+        $('#street').val("");
+        $('#city').val("");
+        $('#state').val("");
+        $('#zip').val("");
+        dialog = $( "#dialog-form" ).dialog({
+          autoOpen: true,
+          modal: true,
+          resizable: false,
+          buttons: {
+            "Add Address": function(){
+              addAddress();
+              dialog.dialog('close');
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            
+          }
+        });
+      }
+      
+      /*
+     *  This contains an AJAX call to the server to actually save the new project to the database
+     */
+      
+      function addProject() {
+        console.log('add Project');
+        $('#dialog-form').on('submit',function() {
+          var fname = $('#fname').val();
+          var lname = $('#lname').val();
+          var street = $('#street').val();
+          if(name == '') {
+            console.log('name does not exist');
+            alert("Please fill out Name");
+          } else {
+            var params = addParam + "&" + $(this).serialize();
+            $.ajax({
+              url: url,
+              type: "POST",
+              data: params,
+              cache: false,
+                dataType: 'json',
+              success: function(data) {
+                var html = "";
+                html += '<tr id="project-'+data.project_id+'">';
+                html += '<td>';
+                html += data.project_id;
+                html += '</td>';
+                html += '<td>';
+                html += data.name;
+                html += '</td>';
+                html += '<td>';
+                html += data.description;
+                html += '</td>';
+                html += '<td>';
+                html += '<div style="background-color:'+data.color+'; border:solid 1px #000; padding: 5px;">&nbsp;</div>';
+                html += '<div style="display:none;">'+data.color+'</div>';
+                html += '</td>';
+                html += '<td>';
+                html += "<a href='#' class='project-edit'><img src='http://decoart.com/img/edit.png'/></a>"
+                  html += " <a href='#' class='project-delete'><img src='http://decoart.com/img/delete.png'/></a>"
+                html += '</td>';
+                html += '</tr>';
+                console.log(data);
+                console.log(html);
+                console.log($('#projects-table').children().html());
+                $('#projects #projects-table').children().after(html);
+              }
+            });
+          }
+          return false;
+        });
+        $('#dialog-form').submit();
+        $('#dialog-form').off('submit');
+      }
+      
+      /*
+     *  This function opens up the jQuery modal dialog box to edit a project
+     *  The name field should be required
+     */
+      function openEditProject(project_id, name, description, color) {
+        var html = '<input type="hidden" value="'+project_id+'" name="project_id" id="project_id" />';
+        if ($('#project_id').length > 0){
+          $('#project_id').remove();
+        }
+        $('#dialog-form fieldset').prepend(html);
+        $('#name').val(name);
+        $('#description').val(description);
+        $('#color option:contains('+color+')').attr('selected','selected');
+        //SET THE TITLE TO BE USED ON THE POPUP
+        $('#dialog-form fieldset').show();
+        $('#dialog-form #delete-confirm').hide();
+        $("#dialog-form").attr("title","Edit project");
+        dialog = $( "#dialog-form" ).dialog({
+          autoOpen: true,
+          modal: true,
+          resizable: false,
+          buttons: {
+            "Edit project": function(){
+              editProject();
+              dialog.dialog('close');
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            
+          }
+        });
+      }
+      
+      /*
+     *  This contains an AJAX call to the server to actually update the new project in the database
+     */
+      function editProject(project_id, name, description, color) {
+        $('#dialog-form').on('submit',function() {
+          var params = editParam + "&" + $(this).serialize();
+          console.log(params);
+          $.ajax({            
+            url: url,
+            type: "POST",
+            data: params,
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+              $('#project-'+data.project_id).children(':nth-child(2)').text(data.name);
+              $('#project-'+data.project_id).children(':nth-child(3)').text(data.name);
+              $('#project-'+data.project_id).children(':nth-child(4)').html('<div style="background-color:'+data.color+'; border:solid 1px #000; padding: 5px;">&nbsp;</div>');
+            }
+          });
+          return false;
+        });
+        $('#dialog-form').submit();
+        $('#dialog-form').off('submit');
+      }
+      
+      /*
+     *  This function opens up the jQuery dialog box to confirm deleting a project
+     *  This should not contain a form, rather just be a simple confirm box
+     */
+      function openDeleteProject(project_id) {
+        var html = '<input type="hidden" value="'+project_id+'" name="project_id" id="project_id" />';
+        if ($('#project_id').length > 0){
+          $('#project_id').remove();
+        }
+        $('#dialog-form fieldset').prepend(html);
+        $("#dialog-form").attr("title","Delete project");
+        $('#dialog-form fieldset').hide();
+        $('#dialog-form #delete-confirm').show();
+        dialog = $( "#dialog-form" ).dialog({
+          autoOpen: true,
+          modal: true,
+          resizable: false,
+          buttons: {
+            "Delete project": function(){
+              deleteProject();
+              dialog.dialog('close');
+            },
+            Cancel: function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+            
+          }
+        });       
+      }
+      
+      /*
+     *  This contains an AJAX call to the server to actually delete the project from the database
+     */
+      function deleteProject() {
+        $('#dialog-form').on('submit',function() {
+          var params = deleteParam + "&" + $(this).serialize();
+          console.log(params);
+          $.ajax({            
+            url: url,
+            type: "POST",
+            data: params,
+            cache: false,
+            dataType: 'json',
+            success: function(data) {
+              $('#project-'+data.project_id).remove();
+            }
+          });
+          return false;
+        });
+        $('#dialog-form').submit();
+        $('#dialog-form').off('submit');
+      }
+    });
+  </script>
+</body>
+</html>

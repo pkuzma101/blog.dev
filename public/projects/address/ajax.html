@@ -1,0 +1,66 @@
+<?php
+
+require '../../../config.address.php';
+
+// gets function name from param variables
+$functionName = $_REQUEST['functionName'];
+
+var_dump($functionName);
+
+
+// gets all addresses in database
+if($functionName == "getAddresses") {
+	$sql = "SELECT *
+			FROM person as p
+			LEFT OUTER JOIN address_person as ap
+			ON p.person_id = ap.person_id
+			RIGHT JOIN address as a
+			ON ap.address_id = a.address_id";
+	$result = $dbc->prepare($sql);
+	$status = $result->execute();
+
+	$addresses = $result->fetchAll(PDO::FETCH_ASSOC);
+
+	// returns json string of all addresses
+	echo json_encode(array(
+		"addresses" => $addresses,
+	));
+
+}
+
+elseif($functionName == 'addAddress') {
+	$fname = trim(htmlspecialchars(strip_tags($_POST['fname'])));
+	$lname = trim(htmlspecialchars(strip_tags($_POST['lname'])));
+	$personQuery = $dbc->prepare("INSERT INTO person(fname, lname)
+				    			  VALUES(?, ?)");
+	$personArg = array($fname, $lname);
+	$personQuery->execute($personArg);
+	$personId = $dbc->lastInsertId();
+
+	$street = trim(htmlspecialchars(strip_tags($_POST['street'])));
+	$city = trim(htmlspecialchars(strip_tags($_POST['city'])));
+	$state = trim(htmlspecialchars(strip_tags($_POST['state'])));
+	$zip = trim(htmlspecialchars(strip_tags($_POST['zip'])));
+	$addressQuery = $dbc->prepare("INSERT INTO address(street, city, state, zip, person_id)
+								   VALUES(?, ?, ?, ?, ?)");
+	$addressArg = array($street, $city, $state, $zip, $personId);
+	$addressQuery->execute($addressArg);
+
+	$sql = "SELECT p.id, CONCAT(p.fname, ' ', p.lname) AS name, CONCAT(a.street, ',', ' ', a.city, ',', ' ', a.state, ' ', a.zip) AS address
+			FROM person as p
+			RIGHT JOIN address as a
+			ON p.person_id = a.person_id
+			WHERE p.person_id = " . $id;
+	$result = $dbc->prepare($sql);
+	$status = $result->execute();
+
+	$entry = $result->fetch(PDO::FETCH_ASSOC);
+
+	echo json_encode(array(
+		"person_id" => $entry['id'],
+		"name" => $entry['name'],
+		"address" => $entry['address']
+	));
+}
+
+?>
