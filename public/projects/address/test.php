@@ -84,7 +84,7 @@ require '../../../config.address.php';
       var editParam = "functionName=editAddress";
       var deleteParam = "functionName=deleteAddress";
       //DO NOT CHANGE THE URL
-      var url = "http://blog.dev/projects/address/ajax.php";
+      var url = "http://paulkuzmadev.com/projects/address/ajax.php";
       
       //INITIATE AJAX REQUEST
       $.ajax({
