@@ -6,60 +6,55 @@ require '../../../config.address.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>Ajax Address Book</title>
+  <title>Ajax Address Book</title>
 
-<link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
-
-<style>
-  table {
-    border-collapse:collapse;
-    border:1px solid;
-  }
-  table td,table th {
-    padding:10px;
-    border:1px solid;
-  }
-</style>
+  <link rel="stylesheet" href="js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light|Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/address_book.css">
 </head>
-
 <body>
-  <div id='addresses'>
-    <h2>Addresses <a href="#" id="address-add"><img src='http://decoart.com/img/add.png' /></a></h2>
-  </div>
-  <div id='contacts'>
 
-  </div>
-  <div title="" style="display:none">
-    <form id="dialog-form">
-      <fieldset>
-        <label for="fname">First Name *</label>
-        <input type="text" name="fname" id="fname" value="" class="text ui-widget-content ui-corner-all" required>
-        <br />
-        <label for="lname">Last Name</label>
-        <input type="text" name="lname" id="lname" value="" class="text ui-widget-content ui-corner-all">
-        <br />
-        <label for="street">Street</label>
-        <input type="text" name="street" id="street" value="" class="text ui-widget-content ui-corner-all">
-        <br />
-        <label for="city">City</label>
-        <input type="text" name="city" id="city" value="" class="text ui-widget-content ui-corner-all">
-        <br />
-        <label for="state">State</label>
-        <input type="text" name="state" id="state" value="" class="text ui-widget-content ui-corner-all">
-        <br />
-        <label for="zip">Zip</label>
-        <input type="text" name="zip" id="zip" value="" class="text ui-widget-content ui-corner-all">
-        <br />
-        
-        <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        <input type="submit" id="submit-btn" tabindex="-1" style="position:absolute; top:-1000px">
-      </fieldset>
-      <div id="delete-confirm">
-        Are you sure you want to delete this project?
-      </div>
-    </form>
+  <a href="/portfolio" class="btn btn-default" id="back">Back</a>
+  <div class="container-fluid" id="book">
+    <div id='addresses'>
+      <h2>Addresses <a href="#" id="address-add"><img src='http://decoart.com/img/add.png' /></a></h2>
+    </div>
+
+    <div id='contacts'></div>
+
+    <div title="" style="display:none">
+      <form id="dialog-form">
+        <fieldset>
+          <label for="fname">First Name *</label>
+          <input type="text" name="fname" id="fname" value="" class="text ui-widget-content ui-corner-all" required>
+          <br />
+          <label for="lname">Last Name</label>
+          <input type="text" name="lname" id="lname" value="" class="text ui-widget-content ui-corner-all">
+          <br />
+          <label for="street">Street</label>
+          <input type="text" name="street" id="street" value="" class="text ui-widget-content ui-corner-all">
+          <br />
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" value="" class="text ui-widget-content ui-corner-all">
+          <br />
+          <label for="state">State</label>
+          <input type="text" name="state" id="state" value="" class="text ui-widget-content ui-corner-all">
+          <br />
+          <label for="zip">Zip</label>
+          <input type="text" name="zip" id="zip" value="" class="text ui-widget-content ui-corner-all">
+          <br />
+          
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" id="submit-btn" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+        <div id="delete-confirm">
+          Are you sure you want to delete this project?
+        </div>
+      </form>
+    </div>
   </div>
 
   <script type="text/javascript" src="/projects/address/js/jquery.min.js"></script>

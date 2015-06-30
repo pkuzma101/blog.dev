@@ -75,12 +75,13 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portNationalSquare">
-					<a href="/projects/national_parks/national_parks.php">
-						<img src="/projects/national_parks/img/canoe.jpg" class="portPic">
+					<a href="/projects/address/test.php">
+						<img src="/css/images/address.png" class="portPic">
 						<span class="portHover center-block" id="portNationalHover">
-							<p class="portAppName">National Parks Database</p>
+							<p class="portAppName">Address Book</p>
 							<p class="portAppContent">
-								An app that uses MySQL to store information about various national parks in a table.
+								An app that uses MySQL and Ajax to create an address book that updates 
+								in real time.
 							</p>
 						</span>
 					</a>
