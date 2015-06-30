@@ -2,10 +2,12 @@ public/projects/inc/config.php
 public/projects/inc/config.todo.php
 public/projects/inc/config.np.php
 public/projects/final_fantasy/inc/config.emp.php
+public/projects/address/config.address.php
 final_fantasy_characters_seeder.php
 config.np.php
 config.todo.php
 config.emp.php
+config.address.php
 /bootstrap/compiled.php
 /vendor
 composer.phar
