@@ -18,8 +18,9 @@ function alphabetSoup($string) {
 	<head>
 		<title>Alphabet Soup</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Glegoo:400,700|Righteous|Changa+One' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/alphabet_soup.css">
+		<link href='http://fonts.googleapis.com/scss?family=Permanent+Marker|Sniglet:400,800|Walter+Turncoat|Coming+Soon' rel='stylesheet' type='text/css'>
+		<!-- <link rel="stylesheet" href="css/alphabet_soup.css"> -->
+		<link rel="stylesheet" href="css/alphabet.scss">
 	</head>
 	<body>
 		<div class="container-fluid" id="soupPage">
