@@ -86,6 +86,7 @@ require '../../../config.address.php';
       //DO NOT CHANGE THE URL
       var url = "http://paulkuzmadev.com/projects/address/ajax.php";
       
+      
       //INITIATE AJAX REQUEST
       $.ajax({
         url: url,
