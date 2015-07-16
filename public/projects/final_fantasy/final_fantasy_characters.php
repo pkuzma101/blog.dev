@@ -153,14 +153,14 @@ include 'final_fantasy_characters_modal.php';
 								<p class="charInfo">Weapon: <?php echo htmlspecialchars(strip_tags($employee['weapon'])) ?></p>
 							</div>
 						</div> <!-- infoRow -->
-						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
+						<!-- <span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
 						<span class="editButton">
 							<form method="POST" action="final_fantasy_edit_character.php">
 								<input type="hidden" name="edit-character" value="<?php echo $employee['id']; ?>">
 								<input type="hidden" name="action" value="edit">
-								<!-- <a href="final_fantasy_edit_character.php">Edit</a> -->
+								<a href="final_fantasy_edit_character.php">Edit</a>
 								<input type="submit" value="Edit">
-							</form>
+							</form> -->
 						</span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
