@@ -61,7 +61,7 @@ if(isset($_POST['new-submit-button'])) {
 		// Put form info into MySQL database
 		if(strlen($_POST['first_name'] < 100)) {
 			$query = $dbc->prepare('INSERT INTO characters(first_name, last_name, class, special_ability, weapon, image_path)
-					 VALUES(:first_name, :last_name, :class, :special_ability, :weapon, :image_path)');
+					 							VALUES(:first_name, :last_name, :class, :special_ability, :weapon, :image_path)');
 			$query->bindValue(':first_name', $_POST['first_name'], PDO:: PARAM_STR);
 			$query->bindValue(':last_name', $_POST['last_name'], PDO:: PARAM_STR);
 			$query->bindValue(':class', $_POST['class'], PDO:: PARAM_STR);
@@ -92,60 +92,10 @@ if(isset($characterToRemove)) {
 	exit();
 }
 
-#$dbc = null;
-
-// Edit Character Variables
-if(isset($_POST['character_id'])) {
-	$characterToEdit = intval($_POST['character_id']);
-}
-// Edit Character
-if(isset($_POST['edit-submit']) && isset($characterToEdit)) {
-
-	if(empty($_POST['edit_first_name']) || empty($_POST['edit_class']) || empty($_POST['edit_special_ability']) || empty($_POST['edit_weapon']) ) {
-		echo "<div class='alert alert-info' role='alert'> All fields except 'Last Name' must be filled out completely</div>";
-	} else {
-		// Upload image
-		if(isset($_FILES['image'])) {
-			$fileName = basename($_FILES['image']['name']);
-			$fileType = $_FILES['image']['type'];
-			$pathinfo = pathinfo(__FILE__);
-
-			$sysUploadDir = $pathinfo['dirname'] . '/images/';
-			$filePath = '/projects/final_fantasy/images/';
-			$savedFileName = $fileName;
-
-			if($fileType == 'image/jpg' || $fileType == 'image/png' || $fileType == 'image/gif' || $fileType == 'image/jpeg') {
-				move_uploaded_file($_FILES['image']['tmp_name'], $sysUploadDir . $savedFileName);
-			}
-		}
-		if(strlen($_POST['edit_first_name'] < 100)) {
-			if(isset($characterToEdit)) {
-				$update = $dbc->prepare("UPDATE characters SET first_name = :first_name, 
-																last_name = :last_name, 
-																special_ability = :special_ability, 
-																class = :class, 
-																weapon = :weapon, 
-																image_path = :image_path WHERE id = :characterToEdit");
-				$update->bindValue(':first_name', $_POST['edit_first_name'], PDO::PARAM_STR);
-				$update->bindValue(':last_name', $_POST['edit_last_name'], PDO::PARAM_STR);
-				$update->bindValue(':class', $_POST['edit_class'], PDO::PARAM_STR);
-				$update->bindValue(':special_ability', $_POST['edit_special_ability'], PDO::PARAM_STR);
-				$update->bindValue(':weapon', $_POST['edit_weapon'], PDO::PARAM_STR);
-				$update->bindValue(':image_path', $filePath . $savedFileName, PDO::PARAM_STR);
-				$update->bindValue(':characterToEdit', $_POST['character_id'], PDO::PARAM_INT);
-				$update->execute();
-				$_POST = array();
-
-				$location = $_SERVER['REQUEST_URI'];
-				header("Location: ".$location);
-				exit();
-			}
-		}
-	}
-}
-
 include 'final_fantasy_characters_modal.php';
-include 'final_fantasy_edit_characters_modal.php';
+
+// include 'final_fantasy_edit_characters_modal.php';
+
 
 ?>
 
@@ -163,17 +113,23 @@ include 'final_fantasy_edit_characters_modal.php';
 			<h1 id="pageTitle">Final Fantasy Characters</h1>
 			<div class="space-filler"></div>
 			<div class="buttonRow">
-				<a href="#" data-toggle="modal" data-target="#addCharacterModal" class="fantasyButton" id="pageButton">
-				    New Character
-				</a>
-				<span id="pagination">
-					<? if($pageNumber > 1): ?>
-						<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton" id="pageButton"> &lt; Previous </a>
-					<? endif ?>
-					<? if(($numberOfEmployees / 8) > $pageNumber): ?>
-						<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton" id="pageButton"> Next &gt;</a>
-					<? endif ?>
-				</span>
+				<div class="row-fluid">
+					<div class="col-md-6">
+						<a href="#" data-toggle="modal" data-target="#addCharacterModal" class="fantasyButton" id="pageButton">
+						    New Character
+						</a>
+					</div>
+					<div class="col-md-6">
+						<span id="pagination">
+							<? if($pageNumber > 1): ?>
+								<a href="?page=<?= $pageNumber - 1 ?>" class="fantasyButton" id="pageButton"> &lt; Previous </a>
+							<? endif ?>
+							<? if(($numberOfEmployees / 8) > $pageNumber): ?>
+								<a href="?page=<?= $pageNumber + 1 ?>" class="fantasyButton" id="pageButton"> Next &gt;</a>
+							<? endif ?>
+						</span>
+					</div>
+				</div>
 			</div>
 			<div class="space-filler"></div>
 			<div class="container menuBox">
@@ -185,20 +141,27 @@ include 'final_fantasy_edit_characters_modal.php';
 								<img src="<?= $employee['image_path'] ?>" class="charPic">
 							</div>
 							<div class="col-xs-6" id="charName">
-								<h3 class="fullName"><?= $employee['first_name'] ?> <?= $employee['last_name'] ?></h3>
-								<h4><?= $employee['class'] ?> </h4>
+								<h3 class="fullName"><?php echo htmlspecialchars(strip_tags($employee['first_name'])) ?> <?php echo htmlspecialchars(strip_tags($employee['last_name'])) ?></h3>
+								<h4><?php echo htmlspecialchars(strip_tags($employee['class'])) ?></h4>
 							</div>
 						</div> <!-- row -->
 						<div class="row" id="infoRow">
 							<div class="col-xs-6">
-								<p class="charInfo">Special Ability: <?= $employee['special_ability'] ?> </p>
+								<p class="charInfo">Special Ability: <?php echo htmlspecialchars(strip_tags($employee['special_ability'])) ?></p>
 							</div>
 							<div class="col-xs-6">
-								<p class="charInfo">Weapon: <?= $employee['weapon'] ?> </p>
+								<p class="charInfo">Weapon: <?php echo htmlspecialchars(strip_tags($employee['weapon'])) ?></p>
 							</div>
 						</div> <!-- infoRow -->
-						<!-- <span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span> -->
-						<!-- <span class="editButton"><a href="#" data-toggle="modal" data-target="#editCharacterModal">Edit</a></span> -->
+						<span class="deleteButton"><a href="?characterId=<?php echo $employee['id']; ?>&<?php echo $pageParam; ?>" onclick="return confirm('Delete this character?');"n >Delete</a></span>
+						<span class="editButton">
+							<form method="POST" action="final_fantasy_edit_character.php">
+								<input type="hidden" name="edit-character" value="<?php echo $employee['id']; ?>">
+								<input type="hidden" name="action" value="edit">
+								<!-- <a href="final_fantasy_edit_character.php">Edit</a> -->
+								<input type="submit" value="Edit">
+							</form>
+						</span>
 					</div> <!-- charCard -->
 				</div> <!-- cardBlock -->
 				<? endforeach ?>
