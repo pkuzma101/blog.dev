@@ -87,12 +87,12 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portPalindromeSquare">
-					<a href="/projects/palindrome/palindrome.php">
-						<img src="/css/images/palindrome.png" class="portPic">
+					<a href="/projects/synonym/synonym.php">
+						<img src="/css/images/synonym.png" class="portPic">
 						<span class="portHover center-block" id="portPalindromeHover">
-							<p class="portAppName">Palindrome</p>
+							<p class="portAppName">Matching Game</p>
 							<p class="portAppContent">
-								An app that takes an entered string and judges whether or not it is a palindrome.
+								A jQuery-based card-matching game.  Find all pairs of synonyms!
 							</p>
 						</span>
 					</a>
