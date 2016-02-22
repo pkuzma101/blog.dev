@@ -1,0 +1,161 @@
+.col-1-8, .col-2-8, .col-3-8, .col-4-8,
+.col-5-8, .col-6-8, .col-7-8, .col-8-8,
+
+.col-1-12, .col-2-12, .col-3-12, .col-4-12,
+.col-5-12, .col-6-12, .col-7-12, .col-8-12,
+
+.col-9-12, .col-10-12, .col-11-12, .col-12-12,
+.col-1-15, .col-2-15, .col-3-15, .col-4-15, .col-5-15,
+.col-6-15, .col-7-15, .col-8-15, .col-9-15, .col-10-15,
+.col-11-15, .col-12-15, .col-13-15, .col-14-15, .col-15-15,
+
+.col-5, .col-10, .col-15, .col-20, .col-25,
+.col-30, .col-35, .col-40, .col-45, .col-50,
+.col-55, .col-60, .col-65, .col-70, .col-75,
+.col-80, .col-85, .col-90, .col-95, .col-100{
+	position: relative;
+	min-height: 1px;
+
+}
+
+@media (min-width: 992px) {
+
+	.col-1-8, .col-2-8, .col-3-8, .col-4-8,
+	.col-5-8, .col-6-8, .col-7-8, .col-8-8,
+
+	.col-1-12, .col-2-12, .col-3-12, .col-4-12,
+	.col-5-12, .col-6-12, .col-7-12, .col-8-12,
+
+	.col-9-12, .col-10-12, .col-11-12, .col-12-12,
+	.col-1-15, .col-2-15, .col-3-15, .col-4-15, .col-5-15,
+	.col-6-15, .col-7-15, .col-8-15, .col-9-15, .col-10-15,
+	.col-11-15, .col-12-15, .col-13-15, .col-14-15, .col-15-15,
+
+	.col-5, .col-10, .col-15, .col-20, .col-25,
+	.col-30, .col-35, .col-40, .col-45, .col-50,
+	.col-55, .col-60, .col-65, .col-70, .col-75,
+	.col-80, .col-85, .col-90, .col-95, .col-100{
+		float: left;
+  	}
+
+	.col-1-8{width: 12.5%;}
+	.col-2-8{width: 25%;}
+	.col-3-8{width: 37.5%;}
+	.col-4-8{width: 50%;}
+	.col-5-8{width: 62.5%;}
+	.col-6-8{width: 75%;}
+	.col-7-8{width: 87.5%;}
+	.col-8-8{width: 100%;}
+
+	.col-1-12{width: 8.333%;}
+	.col-2-12{width: 16.667%;}
+	.col-3-12{width: 25%;}
+	.col-4-12{width: 33.333%;}
+	.col-5-12{width: 41.667%;}
+	.col-6-12{width: 50%;}
+	.col-7-12{width: 58.333%;}
+	.col-8-12{width: 66.667%;}
+	.col-9-12{width: 75%;}
+	.col-10-12{width: 83.333%;}
+	.col-11-12{width: 91.667%;}
+	.col-12-12{width: 100%;}
+
+	.col-1-15{width: 6.667%;}
+	.col-2-15{width: 13.333%;}
+	.col-3-15{width: 20%;}
+	.col-4-15{width: 26.667%;}
+	.col-5-15{width: 33.333%;}
+	.col-6-15{width: 40%;}
+	.col-7-15{width: 46.667%;}
+	.col-8-15{width: 53.333%;}
+	.col-9-15{width: 60%;}
+	.col-10-15{width: 66.667%;}
+	.col-11-15{width: 73.333%;}
+	.col-12-15{width: 80%;}
+	.col-13-15{width: 86.667%;}
+	.col-14-15{width: 93.333%;}
+	.col-15-15{width: 100%;}
+
+	.col-0{width: 0%;}
+	.col-5{width: 5%;}
+	.col-10{width: 10%;}
+	.col-15{width: 15%;}
+	.col-20{width: 20%;}
+	.col-25{width: 25%;}
+	.col-30{width: 30%;}
+	.col-35{width: 35%;}
+	.col-40{width: 40%;}
+	.col-45{width: 45%;}
+	.col-50{width: 50%;}
+	.col-55{width: 55%;}
+	.col-60{width: 60%;}
+	.col-65{width: 65%;}
+	.col-70{width: 70%;}
+	.col-75{width: 75%;}
+	.col-80{width: 80%;}
+	.col-85{width: 85%;}
+	.col-90{width: 90%;}
+	.col-95{width: 95%;}
+	.col-100{width: 100%;}
+
+	.offset-1-8{margin-left: 12.5%;}
+	.offset-2-8{margin-left: 25%;}
+	.offset-3-8{margin-left: 37.5%;}
+	.offset-4-8{margin-left: 50%;}
+	.offset-5-8{margin-left: 62.5%;}
+	.offset-6-8{margin-left: 75%;}
+	.offset-7-8{margin-left: 87.5%;}
+	.offset-8-8{margin-left: 100%;}
+
+	.offset-1-12{margin-left: 8.333%;}
+	.offset-2-12{margin-left: 16.667%;}
+	.offset-3-12{margin-left: 25%;}
+	.offset-4-12{margin-left: 33.333%;}
+	.offset-5-12{margin-left: 41.667%;}
+	.offset-6-12{margin-left: 50%;}
+	.offset-7-12{margin-left: 58.333%;}
+	.offset-8-12{margin-left: 66.667%;}
+	.offset-9-12{margin-left: 75%;}
+	.offset-10-12{margin-left: 83.333%;}
+	.offset-11-12{margin-left: 91.667%;}
+	.offset-12-12{margin-left: 100%;}
+
+	.offset-1-15{margin-left: 6.667%;}
+	.offset-2-15{margin-left: 13.333%;}
+	.offset-3-15{margin-left: 20%;}
+	.offset-4-15{margin-left: 26.667%;}
+	.offset-5-15{margin-left: 33.333%;}
+	.offset-6-15{margin-left: 40%;}
+	.offset-7-15{margin-left: 46.667%;}
+	.offset-8-15{margin-left: 53.333%;}
+	.offset-9-15{margin-left: 60%;}
+	.offset-10-15{margin-left: 66.667%;}
+	.offset-11-15{margin-left: 73.333%;}
+	.offset-12-15{margin-left: 80%;}
+	.offset-13-15{margin-left: 86.667%;}
+	.offset-14-15{margin-left: 93.333%;}
+	.offset-15-15{margin-left: 100%;}
+
+	.offset-0{margin-left: 0%;}
+	.offset-5{margin-left: 5%;}
+	.offset-10{margin-left: 10%;}
+	.offset-15{margin-left: 15%;}
+	.offset-20{margin-left: 20%;}
+	.offset-25{margin-left: 25%;}
+	.offset-30{margin-left: 30%;}
+	.offset-35{margin-left: 35%;}
+	.offset-40{margin-left: 40%;}
+	.offset-45{margin-left: 45%;}
+	.offset-50{margin-left: 50%;}
+	.offset-55{margin-left: 55%;}
+	.offset-60{margin-left: 60%;}
+	.offset-65{margin-left: 65%;}
+	.offset-70{margin-left: 70%;}
+	.offset-75{margin-left: 75%;}
+	.offset-80{margin-left: 80%;}
+	.offset-85{margin-left: 85%;}
+	.offset-90{margin-left: 90%;}
+	.offset-95{margin-left: 95%;}
+	.offset-100{margin-left: 100%;}
+
+}
