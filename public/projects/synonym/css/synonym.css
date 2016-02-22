@@ -1,0 +1,104 @@
+section#synonym_page {
+	height: 1200px;
+	font-family: 'Candal', sans-serif;
+}
+
+body {
+	background: url("/projects/synonym/images/white-background.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div#game_board {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  background: linear-gradient(#4ed6cb, #00ffcc);
+  background: -webkit-linear-gradient(#4ed6cb, #00ffcc);
+  background: -o-linear-gradient(#4ed6cb, #00ffcc);
+  background: -moz-linear-gradient(#4ed6cb, #00ffcc);
+  margin-top: 50px;
+}
+
+article#intro_box {
+	text-align: center;
+	width: 40%;
+	height: 18%;
+	margin: 0 auto;
+	padding-top: 10px;
+}
+
+article#intro_box div {
+	font-size: 1.3em;
+}
+
+div#score_row {
+	text-align: center;
+	font-family: Arial;
+	font-size: 1.3em;
+	line-height: 60px;
+}
+
+span#num_turns, span#pair_found {
+	padding-left: 15px;
+}
+
+table#game_grid {
+	height: 60%;
+	width: 70%;
+	margin: 0 auto;
+}
+
+table#game_grid td.card {
+	width: 20%;
+	height: 100px;
+	text-align: center;
+	background: red;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+td.card a {
+	text-decoration: none;
+	color: black;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+td.card a.picked {
+	opacity: 1;
+
+}
+
+td.card a.found {
+	opacity: 1;
+}
+
+div#reset_row {
+  text-align: center;
+  width: 10%;
+  margin: 0 auto;
+  height: 80px;
+  margin-top: 30px;
+  border: 5px solid black;
+  transition: background 1.5s;
+}
+
+div#reset_row:hover {
+	background: red;
+}
+
+div#reset_row a {
+	line-height: 80px;
+  text-decoration: none;
+  font-size: 2em;
+  color: black;
+  transition: color 1.5s;
+}
+
+div#reset_row a:hover {
+	color: white;
+}
+
