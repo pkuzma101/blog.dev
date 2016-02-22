@@ -2,7 +2,7 @@
   <head>
     <title>Synomym Matching Game</title>
     <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/grid-upgrade.css">
+    <link rel="stylesheet" href="css/grid_upgrade.css">
     <link rel="stylesheet" href="css/synonym.css">
   </head>
   <body>
