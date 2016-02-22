@@ -75,13 +75,12 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portNationalSquare">
-					<a href="/projects/address/test.php">
+					<a href="#/">
 						<img src="/css/images/address.png" class="portPic">
 						<span class="portHover center-block" id="portNationalHover">
 							<p class="portAppName">Address Book</p>
 							<p class="portAppContent">
-								An app that uses MySQL and Ajax to create an address book that updates 
-								in real time.
+								This app is currently being remodeled.  
 							</p>
 						</span>
 					</a>
