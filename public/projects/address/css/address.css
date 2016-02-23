@@ -9,15 +9,26 @@ body {
 	width: 50%;
 	margin-top: 10%;
 	background: url(../images/paper.png);
-	background-repeat: no-repeat;
-	overflow: hidden;
+	/*background-repeat: no-repeat;*/
+	overflow: auto;
+	padding: 10px;
+	font-family: 'Architects Daughter', cursive;
+}
+
+#whole_book a#address_add {
+	text-decoration: none;
+	color: blue;
+}
+
+#address_book {
+	width: 100%;
 }
 
 #address_book td {
-	width: 15%;
+	line-height: 45px;
 }
 
 #address_book img {
 	height: 25px;
-	width: 30px;
+	width: 25px;
 }
