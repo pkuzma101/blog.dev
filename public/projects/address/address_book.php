@@ -24,6 +24,7 @@ require '../../../config.address.php';
 		    	<tr>
 		    		<th>Name</th>
 		    		<th>Street</th>
+		    		<th>City</th>
 		    		<th>State</th>
 		    		<th>Zip</th>
 		    		<th>Actions</th>
@@ -66,7 +67,7 @@ require '../../../config.address.php';
 				success: function(data) {
 					$.each(data, function(key, value) {
 						$.each(value, function(k, v) {
-							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + v.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.city + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + v.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
 						});
 					});
 				}
@@ -80,13 +81,16 @@ require '../../../config.address.php';
         var state = $('#state').val();
         var zip = $('#zip').val();
 
+        var params = add_params + "&" + $(this).serialize();
+
       	$.ajax({
       		url: url,
       		type: 'post',
-      		data: add_params + "&" + $(this).serialize(),
+      		data: params,
       		dataType: 'json',
       		success: function(data) {
-      			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+      			console.log(data);
+      			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
       		}
       	});
       });
