@@ -17,7 +17,7 @@ require '../../../config.address.php';
 
 			<article id="whole_book">
 				<div id="title">
-		      <h2>Addresses <a href="#/" id="address-add"><span id="plus_sign">&#43;</span></h2>
+		      <h2>Addresses <a href="#/" id="address-add"><span id="plus_sign">&#43;</span></a></h2>
 		    </div>
 
 		    <table id="address_book">
