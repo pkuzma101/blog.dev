@@ -20,6 +20,8 @@ if ($function_name == "get_addresses") {
 	echo json_encode(array(
 		"addresses" => $addresses,
 	));
+} elseif ($function_name == "add_address") {
+
 }
 
 

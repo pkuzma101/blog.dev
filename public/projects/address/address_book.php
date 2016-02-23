@@ -33,23 +33,11 @@ require '../../../config.address.php';
 
 	  </section>
 
-	  <div class="modal fade" id="address_modal" tabindex="-1" role="dialog">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h3 class="modal-title">Modal title</h3>
-		      </div>
-		      <div class="modal-body">
-		        <div class="modal-form-body"></div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary" id="activity-modal-save">Submit</button>
-		        <button type="button" class="btn btn-default" id="activity-modal-cancel" data-dismiss="modal">Close</button>
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
+	  <?php
+
+	  include('address_modal.php');
+
+	  ?>
 
 	  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -76,17 +64,32 @@ require '../../../config.address.php';
 				data: get_params,
 				dataType: 'json',
 				success: function(data) {
-					console.log(data);
 					$.each(data, function(key, value) {
 						$.each(value, function(k, v) {
-							console.log(v.person_id);
-							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" data_id="' + v.person_id + '" onclick="address_modal(' + v.person_id + ')"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + v.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
 						});
 					});
 				}
 			});
 			
-      
+      $('#new_address_form').on('submit', function() {
+      	var fname = $('#fname').val();
+        var lname = $('#lname').val();
+        var street = $('#street').val();
+        var city = $('#city').val();
+        var state = $('#state').val();
+        var zip = $('#zip').val();
+
+      	$.ajax({
+      		url: url,
+      		type: 'post',
+      		data: add_params + "&" + $(this).serialize();
+      		dataType: 'json',
+      		success: function(data) {
+      			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+      		}
+      	});
+      });
 
 		});
 		</script>
