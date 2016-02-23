@@ -61,7 +61,7 @@ require '../../../config.address.php';
 					$.each(data, function(key, value) {
 						$.each(value, function(k, v) {
 							console.log(v.person_id);
-							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" data_id="' + v.person_id + '"><img src="images/pencil.png" /></a></td><td><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+							$('#address_book').append('<tr id="' + v.person_id + '"></tr><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" data_id="' + v.person_id + '"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
 						});
 					});
 				}

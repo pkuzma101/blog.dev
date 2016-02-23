@@ -11,5 +11,13 @@ body {
 	background: url(../images/paper.png);
 	background-repeat: no-repeat;
 	overflow: hidden;
-	/*border-radius: 10px;
-}*/
+}
+
+#address_book td {
+	width: 15%;
+}
+
+#address_book img {
+	height: 25px;
+	width: 30px;
+}
