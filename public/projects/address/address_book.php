@@ -74,6 +74,7 @@ require '../../../config.address.php';
 			});
 			
       $('#new_address_form').on('submit', function() {
+      	console.log($(this));
       	var fname = $('#fname').val();
         var lname = $('#lname').val();
         var street = $('#street').val();

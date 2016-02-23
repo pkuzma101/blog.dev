@@ -33,8 +33,8 @@
         			<input type="number" id="zip" name="zip" placeholder="45454" maxlength="5" style="width: 55px;">
         		</div>
         		<div>
-        			<input type="submit" class="address_modal_btn" id="new_address_submit" name="new_address_submit">
-        			<!-- <input type="button" class="address_modal_btn" id="cancel_button" data-dismiss="modal">Cancel</button> -->
+        			<button type="submit" class="address_modal_btn" id="new_address_submit" name="new_address_submit">Submit</button>
+        			<button type="button" class="address_modal_btn" id="cancel_button" data-dismiss="modal">Cancel</button>
         		</div>
         	</form>
         </div>
