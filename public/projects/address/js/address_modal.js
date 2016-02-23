@@ -20,6 +20,7 @@ function address_modal(person_id) {
   	success: function(data) {
   		console.log(data);
   		$('.modal-body').append($('<form />', {id: 'edit_address_form'}));
+  		$('#edit_address_form').append($('<div />').append($('<label />' {html: 'First Name: '})).append($('<input />', {id: 'fname', name: 'fname', type: 'text'})));
   	}
   });
 }
