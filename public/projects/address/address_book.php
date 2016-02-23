@@ -17,7 +17,7 @@ require '../../../config.address.php';
 
 			<article id="whole_book">
 				<div id="title">
-		      <h2>Addresses <a href="#/" id="address-add"><span id="plus_sign">&#43;</span></a></h2>
+		      <h2>Addresses <a href="#/" id="address-add" data-toggle="modal" data-target="#address_modal"><span id="plus_sign">&#43;</span></a></h2>
 		    </div>
 
 		    <table id="address_book">
@@ -33,8 +33,27 @@ require '../../../config.address.php';
 
 	  </section>
 
+	  <div class="modal fade" id="address_modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h3 class="modal-title">Modal title</h3>
+		      </div>
+		      <div class="modal-body">
+		        <div class="modal-form-body"></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" id="activity-modal-save">Submit</button>
+		        <button type="button" class="btn btn-default" id="activity-modal-cancel" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 	  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="js/address_modal.js"></script>
 		<script>
 		$(document).ready(function() {
 
