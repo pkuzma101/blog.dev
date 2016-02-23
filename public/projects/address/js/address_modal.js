@@ -26,7 +26,7 @@ function address_modal(person_id) {
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'City: '})).append($('<input />', {type: 'text', id: 'city', name: 'city', value: data.city})));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'State: '})).append($('<input />', {type: 'text', id: 'state', name: 'state', value: data.state})));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'Zip: '})).append($('<input />', {type: 'text', id: 'zip', name: 'zip', value: data.zip})));
-  		$('#edit_address_form').append($('<div />').append($('<button />', {html: 'Submit', type: 'submit', class: 'address_modal_btn', id: 'edit_submit'})).append($('<button />', {html: 'Cancel', type: 'button', class: 'address_modal_btn', data-dismiss: 'modal'})));
+  		$('#edit_address_form').append($('<div />').append($('<button />', {html: 'Submit', type: 'submit', class: 'address_modal_btn', id: 'edit_submit'})).append($('<button data-dismiss="modal" />', {html: 'Cancel', type: 'button', class: 'address_modal_btn'})));
 
   		$('#edit_address_form').on('submit', function() {
 
