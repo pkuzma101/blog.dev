@@ -11,7 +11,7 @@ function address_modal(person_id) {
   }
 
   $.ajax({
-  	url: '../single_address.php',
+  	url: '/projects/address/single_address.php',
   	type: 'get',
   	data: {
   		'id': person_id
