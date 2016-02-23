@@ -10,5 +10,16 @@ function address_modal(person_id) {
   	var p_id = person_id;
   }
 
-  console.log(person_id);
+  $.ajax({
+  	url: '../single_address.php',
+  	type: 'get',
+  	data: {
+  		'id': person_id
+  	},
+  	dataType: 'json',
+  	success: function(data) {
+  		console.log(data);
+  		$('.modal-body').append($('<form />', {id: 'edit_address_form'}));
+  	}
+  });
 }
