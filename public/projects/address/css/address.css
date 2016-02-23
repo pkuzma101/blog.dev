@@ -4,27 +4,12 @@ body {
 	background-size: cover;
 }
 
-#book {
+#whole_book {
 	margin: 0 auto;
 	width: 50%;
 	margin-top: 10%;
 	background: url(../images/paper.png);
 	background-repeat: no-repeat;
 	overflow: hidden;
-	/*border-radius: 10px;*/
-}
-
-#contacts, #addresses {
-	padding-left: 2em;
-	font-family: 'Architects Daughter', cursive;
-}
-
-table {
-    /*border-collapse: collapse;*/
-    border: none;
-}
-
-table td, table th {
-    padding: 10px;
-}
-
+	/*border-radius: 10px;
+}*/
