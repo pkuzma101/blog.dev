@@ -51,7 +51,7 @@ function address_modal(person_id) {
           success: function(json) {
             // alert(data);
             // console.log($('tr#' + json.person_id).children());
-            $('tr#' + json.person_id).replaceWith('<tr id="' + json.person_id + '"><td>' + json.fname + '</td></tr>');
+            $('tr#' + json.person_id).replaceWith('<tr id="' + json.person_id + '"><td>' + json.fname + " " + json.lname + '</td><td>' + json.street + '</td><td>' + json.city + '</td><td>' + json.state + '</td><td>' + json.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + json.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + json.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
           }
         });
         return false;
