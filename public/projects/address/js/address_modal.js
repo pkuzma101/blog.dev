@@ -52,7 +52,7 @@ function address_modal(person_id) {
             console.log($('tr#' + json.person_id).children());
           }
         });
-        return false;
+        // return false;
   			
   		});
       $('#edit_address_form').submit();
