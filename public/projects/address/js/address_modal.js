@@ -52,9 +52,11 @@ function address_modal(person_id) {
             console.log($('tr#' + json.person_id).children());
           }
         });
-
+        return false;
   			
   		});
+      $('#edit_address_form').submit();
+      $('#edit_address_form').off('submit');
   	}
   });
 }
