@@ -79,9 +79,6 @@ require '../../../config.address.php';
 							$.ajax({
 								url: '/projects/address/delete_address.php?id=' + del_id,
 								type: 'post',
-								// data: {
-								// 	'id': del_id
-								// },
 								dataType: 'json',
 								success: function(json) {
 									$('tr#' + del_id).remove();
@@ -113,6 +110,7 @@ require '../../../config.address.php';
       			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
       		}
       	});
+      	return false;
       });
 
 		});
