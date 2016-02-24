@@ -58,6 +58,8 @@ if ($function_name == "get_addresses") {
 		"zip" => $address['zip']
 	));
 } elseif ($functionName == 'edit_address') {
+	echo 'getting here';
+	exit();
 	$fname = trim(htmlspecialchars(strip_tags($_POST['fname'])));
 	$lname = trim(htmlspecialchars(strip_tags($_POST['lname'])));
 	$personId = trim(htmlspecialchars(strip_tags($_POST['person_id'])));
