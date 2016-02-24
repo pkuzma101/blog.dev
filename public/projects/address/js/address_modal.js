@@ -51,7 +51,7 @@ function address_modal(person_id) {
           success: function(data) {
             alert(data);
             // console.log($('tr#' + json.person_id).children());
-            $('tr#' + data.person_id).empty();
+            $('tr#' + data.person_id).children().empty();
           }
         });
         return false;
