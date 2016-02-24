@@ -48,10 +48,10 @@ function address_modal(person_id) {
           type: 'post',
           data: params,
           dataType: 'json',
-          success: function(data) {
-            alert(data);
+          success: function(json) {
+            // alert(data);
             // console.log($('tr#' + json.person_id).children());
-            $('tr#' + data.person_id).children().empty();
+            $('tr#' + json.person_id).replaceWith('<tr id="' + json.person_id + '"><td>' + json.fname + '</td></tr>');
           }
         });
         return false;
