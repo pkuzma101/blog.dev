@@ -107,6 +107,7 @@ require '../../../config.address.php';
       		data: params,
       		dataType: 'json',
       		success: function(data) {
+      			$('#address_modal').modal('hide');
       			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
       		}
       	});
