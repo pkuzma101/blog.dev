@@ -54,7 +54,7 @@ function address_modal(person_id) {
             $('tr#' + data.person_id).empty();
           }
         });
-        // return false;
+        return false;
   			
   		});
       // $('#edit_address_form').submit();
