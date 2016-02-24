@@ -57,14 +57,14 @@ if ($function_name == "get_addresses") {
 		"state" => $address['state'],
 		"zip" => $address['zip']
 	));
-} elseif ($functionName == 'editAddress') {
+} elseif ($functionName == 'edit_address') {
 	$fname = trim(htmlspecialchars(strip_tags($_POST['fname'])));
 	$lname = trim(htmlspecialchars(strip_tags($_POST['lname'])));
 	$personId = trim(htmlspecialchars(strip_tags($_POST['person_id'])));
 
 	$editPersonQuery = $dbc->prepare("UPDATE person SET fname = ?,
-														lname = ?
-													WHERE person_id = ?");
+																											lname = ?
+																		WHERE person_id = ?");
 
 	$editPersonArg = array($fname, $lname, $personId);
 
@@ -77,20 +77,20 @@ if ($function_name == "get_addresses") {
 	$personId = trim(htmlspecialchars(strip_tags($_POST['person_id'])));
 
 	$editAddressQuery = $dbc->prepare("UPDATE address SET street = ?,
-														  city = ?,
-														  state = ?,
-														  zip = ?
-													  WHERE person_id = ?");
+																											  city = ?,
+																											  state = ?,
+																											  zip = ?
+													  				 WHERE person_id = ?");
 
 	$editAddressArg = array($street, $city, $state, $zip, $personId);
 
 	$editAddressQuery->execute($editAddressArg);
 
 	$sql = "SELECT p.person_id, p.fname, p.lname, a.street, a.city, a.state, a.zip, a.person_id
-			FROM address as a
-		 	RIGHT JOIN person as p
-		 	ON a.person_id = p.person_id
-		 	WHERE p.person_id = " . $personId;
+					FROM address as a
+				 	RIGHT JOIN person as p
+				 	ON a.person_id = p.person_id
+				 	WHERE p.person_id = " . $personId;
 
 	$result = $dbc->prepare($sql);
 
