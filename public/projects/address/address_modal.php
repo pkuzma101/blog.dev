@@ -26,11 +26,11 @@
         		</div>
         		<div>
         			<label>State: </label>
-        			<input type="text" id="state" name="state" placeholder="IN" maxlength="2" style="width: 25px;">
+        			<input type="text" id="state" name="state" placeholder="IN" maxlength="2" style="width: 30px;">
         		</div>
         		<div>
         			<label>First Name: </label>
-        			<input type="number" id="zip" name="zip" placeholder="45454" maxlength="5" style="width: 55px;">
+        			<input type="number" id="zip" name="zip" placeholder="45454" maxlength="5" style="width: 65px;">
         		</div>
         		<div>
         			<button type="submit" class="address_modal_btn" id="new_address_submit" name="new_address_submit">Submit</button>
