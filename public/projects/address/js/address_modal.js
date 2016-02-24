@@ -32,41 +32,8 @@ function address_modal(person_id) {
   		// $('#edit_address_form').append($('<div />').append($('<button />', {html: 'Submit', type: 'submit', class: 'address_modal_btn', id: 'edit_submit'})).append($('<button data-dismiss="modal" class="address_modal_btn">Cancel</button>'})));
       $('#edit_address_form').append($('<div><button type="submit" class="address_modal_btn" id="edit_submit" name="edit_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn">Cancel</button></div>'));
 
-  		// $('#edit_address_form').on('submit', function() {
-  		// 	var params = edit_params + "&" + $(this).serialize();
-
-    //     var fname = $('#fname').val();
-    //     var lname = $('#lname').val();
-    //     var person_id = $('#person_id').val();
-    //     var street = $('#street').val();
-    //     var city = $('#city').val();
-    //     var state = $('#state').val();
-    //     var zip = $('#zip').val();
-
-    //     $.ajax({
-    //       url: url,
-    //       type: 'post',
-    //       data: params,
-    //       dataType: 'json',
-    //       success: function(json) {
-    //         // console.log($('tr#' + json.person_id).children());
-    //         $(json.person_id).children(':nth-child(0)').text(data.fname);
-    //         $(json.person_id).children(':nth-child(1)').text(data.lname);
-    //         $(json.person_id).children(':nth-child(2)').text(data.street);
-    //         $(json.person_id).children(':nth-child(3)').text(data.city);
-    //         $(json.person_id).children(':nth-child(4)').text(data.state);
-    //         $(json.person_id).children(':nth-child(5)').text(data.zip);
-    //       }
-    //     });
-    //     // return false;
-  			
-  		// });
-      // $('#edit_address_form').submit();
-      // $('#edit_address_form').off('submit');
-  	}
-
-    $('#edit_address_form').on('submit', function() {
-        var params = edit_params + "&" + $(this).serialize();
+  		$('#edit_address_form').on('submit', function() {
+  			var params = edit_params + "&" + $(this).serialize();
 
         var fname = $('#fname').val();
         var lname = $('#lname').val();
@@ -82,6 +49,7 @@ function address_modal(person_id) {
           data: params,
           dataType: 'json',
           success: function(json) {
+            alert('here');
             // console.log($('tr#' + json.person_id).children());
             $(json.person_id).children(':nth-child(0)').text(json.fname);
             $(json.person_id).children(':nth-child(1)').text(json.lname);
@@ -91,8 +59,11 @@ function address_modal(person_id) {
             $(json.person_id).children(':nth-child(5)').text(json.zip);
           }
         });
-        // return false;
-        
-      });
+        return false;
+  			
+  		});
+      $('#edit_address_form').submit();
+      $('#edit_address_form').off('submit');
+  	}
   });
 }
