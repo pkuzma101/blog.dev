@@ -109,6 +109,23 @@ if ($function_name == "get_addresses") {
 		"zip" => $address['zip']
 	));
 
+} elseif ($function_name == 'delete_address') {
+	
+	$deleteAddress = $dbc->prepare("DELETE FROM address WHERE person_id = :person_id");
+	$deleteAddress->bindValue(':person_id', $_POST['person_id'], PDO::PARAM_INT);
+	$deleteAddress->execute();
+
+	$deletion = $dbc->prepare("DELETE FROM person WHERE person_id = :person_id");
+	$deletion->bindValue(':person_id', $_POST['person_id'], PDO::PARAM_INT);
+	$deletion->execute();
+
+	// $deleteAddress = $dbc->prepare("DELETE FROM address WHERE person_id = :person_id");
+	// $deleteAddress->bindValue(':person_id', $_POST['person_id'], PDO::PARAM_INT);
+	// $deleteAddress->execute();
+
+	echo json_encode(array(
+		'person_id' => $_POST['person_id']
+	));
 }
 
 

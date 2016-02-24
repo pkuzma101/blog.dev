@@ -2,7 +2,7 @@
 
 require '../../../config.address.php';
 
-$person_id = $_POST['id'];
+$person_id = $_GET['id'];
 
 $deleteAddress = $dbc->prepare("DELETE FROM address WHERE person_id = " . $person_id);
 $deleteAddress->bindValue(':person_id', $person_id, PDO::PARAM_INT);
