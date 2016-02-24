@@ -30,14 +30,14 @@ function address_modal(person_id) {
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'State: '})).append($('<input />', {type: 'text', id: 'state', name: 'state', value: data.state})));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'Zip: '})).append($('<input />', {type: 'text', id: 'zip', name: 'zip', value: data.zip})));
   		// $('#edit_address_form').append($('<div />').append($('<button />', {html: 'Submit', type: 'submit', class: 'address_modal_btn', id: 'edit_submit'})).append($('<button data-dismiss="modal" class="address_modal_btn">Cancel</button>'})));
-      $('#edit_address_form').append($('<div><button type="submit" class="address_modal_btn" id="edit_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn">Cancel</button></div>'));
+      $('#edit_address_form').append($('<div><button type="submit" class="address_modal_btn" id="edit_submit" name="edit_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn">Cancel</button></div>'));
 
   		$('#edit_address_form').on('submit', function() {
   			var params = edit_params + "&" + $(this).serialize();
 
-        var person_id = $('#person_id').val();
         var fname = $('#fname').val();
         var lname = $('#lname').val();
+        var person_id = $('#person_id').val();
         var street = $('#street').val();
         var city = $('#city').val();
         var state = $('#state').val();
@@ -52,7 +52,8 @@ function address_modal(person_id) {
           data: params,
           dataType: 'json',
           success: function(json) {
-            console.log($('tr#' + json.person_id).children());
+            // console.log($('tr#' + json.person_id).children());
+            alert(json);
           }
         });
         // return false;
