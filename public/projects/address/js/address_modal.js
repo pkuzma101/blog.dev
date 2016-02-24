@@ -48,22 +48,17 @@ function address_modal(person_id) {
           type: 'post',
           data: params,
           dataType: 'json',
-          success: function(json) {
-            alert('here');
+          success: function(data) {
+            alert(data);
             // console.log($('tr#' + json.person_id).children());
-            $(json.person_id).children(':nth-child(0)').text(json.fname);
-            $(json.person_id).children(':nth-child(1)').text(json.lname);
-            $(json.person_id).children(':nth-child(2)').text(json.street);
-            $(json.person_id).children(':nth-child(3)').text(json.city);
-            $(json.person_id).children(':nth-child(4)').text(json.state);
-            $(json.person_id).children(':nth-child(5)').text(json.zip);
+            $('tr#' + data.person_id).empty();
           }
         });
-        return false;
+        // return false;
   			
   		});
-      $('#edit_address_form').submit();
-      $('#edit_address_form').off('submit');
+      // $('#edit_address_form').submit();
+      // $('#edit_address_form').off('submit');
   	}
   });
 }
