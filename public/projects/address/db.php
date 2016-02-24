@@ -57,9 +57,8 @@ if ($function_name == "get_addresses") {
 		"state" => $address['state'],
 		"zip" => $address['zip']
 	));
-} elseif ($functionName == 'edit_address') {
-	// echo '<h1>here</h1>';
-	// exit();
+} elseif ($function_name == 'edit_address') {
+
 	$fname = trim(htmlspecialchars(strip_tags($_POST['fname'])));
 	$lname = trim(htmlspecialchars(strip_tags($_POST['lname'])));
 	$personId = trim(htmlspecialchars(strip_tags($_POST['person_id'])));

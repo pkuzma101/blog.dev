@@ -43,8 +43,6 @@ function address_modal(person_id) {
         var state = $('#state').val();
         var zip = $('#zip').val();
 
-        alert('hey');
-
         // console.log(params);
         // return false;
 
