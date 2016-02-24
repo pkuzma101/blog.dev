@@ -43,24 +43,20 @@ function address_modal(person_id) {
         var state = $('#state').val();
         var zip = $('#zip').val();
 
-        // console.log(params);
-        // return false;
-
         $.ajax({
           url: url,
           type: 'post',
           data: params,
           dataType: 'json',
           success: function(json) {
-            // console.log($('tr#' + json.person_id).children());
-            alert(json);
+            console.log($('tr#' + json.person_id).children());
           }
         });
-        // return false;
+        return false;
   			
   		});
-      // $('#edit_address_form').submit();
-      // $('#edit_address_form').off('submit');
+      $('#edit_address_form').submit();
+      $('#edit_address_form').off('submit');
   	}
   });
 }
