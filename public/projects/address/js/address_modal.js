@@ -17,7 +17,7 @@ function address_modal(person_id) {
   	url: '/projects/address/single_address.php',
   	type: 'get',
   	data: {
-  		'id': person_id
+  		'id': p_id
   	},
   	dataType: 'json',
   	success: function(data) {
@@ -43,7 +43,7 @@ function address_modal(person_id) {
         var state = $('#state').val();
         var zip = $('#zip').val();
 
-        console.log(params);
+        console.log(person_id);
         return false;
 
         $.ajax({
