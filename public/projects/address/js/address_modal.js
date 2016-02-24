@@ -11,6 +11,7 @@ function address_modal(person_id) {
   }
 
   var edit_params = "function_name=edit_address";
+  var url = "http://paulkuzmadev.com/projects/address/db.php";
 
   $.ajax({
   	url: '/projects/address/single_address.php',
