@@ -21,7 +21,7 @@ function address_modal(person_id) {
   	dataType: 'json',
   	success: function(data) {
   		$('.modal-body').append($('<form />', {id: 'edit_address_form'}));
-  		$('#edit_address_form').append($('<input />', {type: 'hidden', value: data.person_id, id: 'person_id'}));
+  		$('#edit_address_form').append($('<input />', {type: 'text', value: data.person_id, id: 'person_id', style: 'display: none;'}));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'First Name: '})).append($('<input />', {type: 'text', id: 'fname', name: 'fname', value: data.fname})));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'Last Name: '})).append($('<input />', {type: 'text', id: 'lname', name: 'lname', value: data.lname})));
   		$('#edit_address_form').append($('<div />').append($('<label />', {html: 'Street: '})).append($('<input />', {type: 'text', id: 'street', name: 'street', value: data.street})));
@@ -41,9 +41,6 @@ function address_modal(person_id) {
         var city = $('#city').val();
         var state = $('#state').val();
         var zip = $('#zip').val();
-
-        console.log(params);
-        return false;
 
         $.ajax({
           url: url,
