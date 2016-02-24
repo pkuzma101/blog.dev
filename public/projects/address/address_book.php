@@ -77,11 +77,11 @@ require '../../../config.address.php';
 							var del_id = $(this).attr("data_id");
 							console.log(del_id);
 							$.ajax({
-								url: '/delete_address.php?id=' + del_id,
+								url: '/projects/address/delete_address.php',
 								type: 'post',
-								// data: {
-								// 	'id': del_id
-								// },
+								data: {
+									'id': del_id
+								},
 								dataType: 'json',
 								success: function(json) {
 									$('tr#' + del_id).remove();
