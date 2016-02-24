@@ -70,6 +70,25 @@ require '../../../config.address.php';
 							$('#address_book').append('<tr id="' + v.person_id + '"><td>' + v.fname + " " + v.lname + '</td><td>' + v.street + '</td><td>' + v.city + '</td><td>' + v.state + '</td><td>' + v.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + v.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + v.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
 						});
 					});
+
+					$('.address_delete').click(function() {
+						var question = confirm("Delete this entry?");
+						if (question == true) {
+							var del_id = $(this).attr("data_id");
+
+							$.ajax({
+								url: '/projects/address/delete_address.php',
+								type: 'post',
+								data: {
+									'id': del_id
+								},
+								dataType: 'json',
+								success: function(json) {
+									$('tr#' + del_id).remove();
+								}
+							});
+						}
+					});
 				}
 			});
 			
