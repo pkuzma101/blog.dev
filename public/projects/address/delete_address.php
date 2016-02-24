@@ -10,9 +10,9 @@ $deleteAddress->execute();
 $deletion = $dbc->prepare("DELETE FROM person WHERE person_id = " + $person_id);
 $deletion->execute();
 
-// echo json_encode(array(
-// 	'person_id' => $_POST['person_id']
-// ));
+echo json_encode(array(
+	'person_id' => $person_id
+));
 
 
 
