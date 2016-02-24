@@ -77,7 +77,7 @@ require '../../../config.address.php';
 							var del_id = $(this).attr("data_id");
 							console.log(del_id);
 							$.ajax({
-								url: 'delete_address.php?id=' + del_id,
+								url: '/delete_address.php?id=' + del_id,
 								type: 'post',
 								// data: {
 								// 	'id': del_id
@@ -87,6 +87,8 @@ require '../../../config.address.php';
 									$('tr#' + del_id).remove();
 								}
 							});
+						} else {
+							return false;
 						}
 					});
 				}

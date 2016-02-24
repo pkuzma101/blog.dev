@@ -14,6 +14,4 @@ echo json_encode(array(
 	'person_id' => $person_id
 ));
 
-
-
 ?>
