@@ -50,6 +50,12 @@ function address_modal(person_id) {
           dataType: 'json',
           success: function(json) {
             // console.log($('tr#' + json.person_id).children());
+            $(json.person_id).children(':nth-child(0)').text(data.fname);
+            $(json.person_id).children(':nth-child(1)').text(data.lname);
+            $(json.person_id).children(':nth-child(2)').text(data.street);
+            $(json.person_id).children(':nth-child(3)').text(data.city);
+            $(json.person_id).children(':nth-child(4)').text(data.state);
+            $(json.person_id).children(':nth-child(5)').text(data.zip);
           }
         });
         // return false;
