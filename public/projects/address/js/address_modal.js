@@ -10,6 +10,8 @@ function address_modal(person_id) {
   	var p_id = person_id;
   }
 
+  var edit_params = "function_name=edit_address";
+
   $.ajax({
   	url: '/projects/address/single_address.php',
   	type: 'get',
@@ -39,6 +41,9 @@ function address_modal(person_id) {
         var city = $('#city').val();
         var state = $('#state').val();
         var zip = $('#zip').val();
+
+        console.log(params);
+        return false;
 
         $.ajax({
           url: url,

@@ -15,7 +15,12 @@ body {
 	font-family: 'Architects Daughter', cursive;
 }
 
-#whole_book a#address_add, #whole_book a#address_add:hover {
+#whole_book a#address_add {
+	text-decoration: none;
+	color: blue;
+}
+
+#whole_book a#address_add:hover {
 	text-decoration: none;
 	color: blue;
 }
