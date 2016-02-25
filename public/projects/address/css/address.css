@@ -25,6 +25,15 @@ body {
 	color: blue;
 }
 
+#address_modal div {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#address_modal label {
+	width: 20%;
+}
+
 #address_book {
 	width: 100%;
 }
