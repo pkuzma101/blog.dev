@@ -34,6 +34,15 @@ body {
 	width: 20%;
 }
 
+#address_modal .address_modal_btn {
+	line-height: 35px;
+	width: 70px;
+}
+
+#address_modal #cancel_button {
+	margin-left: 20px;
+}
+
 #address_book {
 	width: 100%;
 }
