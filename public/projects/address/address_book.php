@@ -17,7 +17,7 @@ require '../../../config.address.php';
 
 			<article id="whole_book">
 				<div id="title">
-		      <h2>Addresses <a href="#/" id="address_add" data-toggle="modal" data-target="#address_modal"><span id="plus_sign">&#43;</span></a></h2>
+		      <h2>Addresses <a href="#/" id="address_add" data-toggle="modal" data-target="#address_modal" onclick="address_modal()"><span id="plus_sign">&#43;</span></a></h2>
 		    </div>
 
 		    <table id="address_book">
@@ -91,28 +91,28 @@ require '../../../config.address.php';
 				}
 			});
 			
-      $('#new_address_form').on('submit', function() {
-      	var fname = $('#fname').val();
-        var lname = $('#lname').val();
-        var street = $('#street').val();
-        var city = $('#city').val();
-        var state = $('#state').val();
-        var zip = $('#zip').val();
+      // $('#new_address_form').on('submit', function() {
+      // 	var fname = $('#fname').val();
+      //   var lname = $('#lname').val();
+      //   var street = $('#street').val();
+      //   var city = $('#city').val();
+      //   var state = $('#state').val();
+      //   var zip = $('#zip').val();
 
-        var params = add_params + "&" + $(this).serialize();
+      //   var params = add_params + "&" + $(this).serialize();
 
-      	$.ajax({
-      		url: url,
-      		type: 'post',
-      		data: params,
-      		dataType: 'json',
-      		success: function(data) {
-      			$('#address_modal').modal('hide');
-      			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
-      		}
-      	});
-      	return false;
-      });
+      // 	$.ajax({
+      // 		url: url,
+      // 		type: 'post',
+      // 		data: params,
+      // 		dataType: 'json',
+      // 		success: function(data) {
+      // 			$('#address_modal').modal('hide');
+      // 			$('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+      // 		}
+      // 	});
+      // 	return false;
+      // });
 
 		});
 		</script>

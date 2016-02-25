@@ -4,12 +4,13 @@ function address_modal(person_id) {
   $('.modal-title').empty();
   $('.modal-body').empty();
   $('.modal-footer').empty();
-  $('.modal-title').append($('<h3 />', {html: 'Edit Address'}));
+  // $('.modal-title').append($('<h3 />', {html: 'Edit Address'}));
 
   if (person_id) {
   	var p_id = person_id;
-  }
+  // }
 
+  $('.modal-title').append($('<h3 />', {html: 'Edit Address'}));
   var edit_params = "function_name=edit_address";
   var url = "http://paulkuzmadev.com/projects/address/db.php";
 
@@ -57,4 +58,39 @@ function address_modal(person_id) {
   		});
   	}
   });
+
+  } else {
+    $('.modal-title').append($('<h3 />', {html: 'New Address'}));
+    $('.modal-body').append($('<form />', {id: 'new_address_form'}));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'First Name: '})).append($('<input />', {type: 'text', id: 'fname', name: 'fname'})));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'Last Name: '})).append($('<input />', {type: 'text', id: 'lname', name: 'lname'})));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'Street: '})).append($('<input />', {type: 'text', id: 'street', name: 'street'})));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'City: '})).append($('<input />', {type: 'text', id: 'city', name: 'city'})));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'State: '})).append($('<input />', {type: 'text', id: 'state', name: 'state'})));
+    $('#new_address_form').append($('<div />').append($('<label />', {html: 'Zip: '})).append($('<input />', {type: 'text', id: 'zip', name: 'zip'})));
+    $('#new_address_form').append($('<div><button type="submit" class="address_modal_btn" id="edit_submit" name="new_address_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn" id="cancel_button">Cancel</button></div>'));
+
+    $('#new_address_form').on('submit', function() {
+      var fname = $('#fname').val();
+      var lname = $('#lname').val();
+      var street = $('#street').val();
+      var city = $('#city').val();
+      var state = $('#state').val();
+      var zip = $('#zip').val();
+
+      var params = add_params + "&" + $(this).serialize();
+
+      $.ajax({
+        url: url,
+        type: 'post',
+        data: params,
+        dataType: 'json',
+        success: function(data) {
+          $('#address_modal').modal('hide');
+          $('#address_book').append('<tr id="' + data.person_id + '"></tr><td>' + data.fname + " " + data.lname + '</td><td>' + data.street + '</td><td>' + data.city + '</td><td>' + data.state + '</td><td>' + data.zip + '</td><td><a href="#/" class="address_edit" onclick="address_modal(' + data.person_id + ')" data-toggle="modal" data-target="#address_modal"><img src="images/pencil.png" /></a><a href="#/" class="address_delete" data_id="' + data.person_id + '"><img src="images/cancel.png" /></a></td></tr>');
+        }
+      });
+      return false;
+    });    
+  }
 }
