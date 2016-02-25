@@ -75,7 +75,7 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portNationalSquare">
-					<a href="/projects/address_address_book.php">
+					<a href="/projects/address/address_book.php">
 						<img src="/css/images/address.png" class="portPic">
 						<span class="portHover center-block" id="portNationalHover">
 							<p class="portAppName">Address Book</p>
