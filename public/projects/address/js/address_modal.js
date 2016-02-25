@@ -60,6 +60,10 @@ function address_modal(person_id) {
   });
 
   } else {
+
+    var add_params = "function_name=add_address";
+    var url = "http://paulkuzmadev.com/projects/address/db.php";
+
     $('.modal-title').append($('<h3 />', {html: 'New Address'}));
     $('.modal-body').append($('<form />', {id: 'new_address_form'}));
     $('#new_address_form').append($('<div />').append($('<label />', {html: 'First Name: '})).append($('<input />', {type: 'text', id: 'fname', name: 'fname'})));
@@ -68,7 +72,7 @@ function address_modal(person_id) {
     $('#new_address_form').append($('<div />').append($('<label />', {html: 'City: '})).append($('<input />', {type: 'text', id: 'city', name: 'city'})));
     $('#new_address_form').append($('<div />').append($('<label />', {html: 'State: '})).append($('<input />', {type: 'text', id: 'state', name: 'state'})));
     $('#new_address_form').append($('<div />').append($('<label />', {html: 'Zip: '})).append($('<input />', {type: 'text', id: 'zip', name: 'zip'})));
-    $('#new_address_form').append($('<div><button type="submit" class="address_modal_btn" id="edit_submit" name="new_address_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn" id="cancel_button">Cancel</button></div>'));
+    $('#new_address_form').append($('<div><button type="submit" class="address_modal_btn" id="new_address_submit" name="new_address_submit">Submit</button><button data-dismiss="modal" class="address_modal_btn" id="cancel_button">Cancel</button></div>'));
 
     $('#new_address_form').on('submit', function() {
       var fname = $('#fname').val();

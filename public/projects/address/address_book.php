@@ -47,9 +47,9 @@ require '../../../config.address.php';
 		$(document).ready(function() {
 
 			var get_params = "function_name=get_addresses";
-			var add_params = "function_name=add_address";
-			var edit_params = "function_name=edit_address";
-			var delete_params = "function_name=delete_address";
+			// var add_params = "function_name=add_address";
+			// var edit_params = "function_name=edit_address";
+			// var delete_params = "function_name=delete_address";
 
 			var page = document.URL;
 
