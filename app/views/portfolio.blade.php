@@ -75,12 +75,12 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portNationalSquare">
-					<a href="#/">
+					<a href="/projects/address_address_book.php">
 						<img src="/css/images/address.png" class="portPic">
 						<span class="portHover center-block" id="portNationalHover">
 							<p class="portAppName">Address Book</p>
 							<p class="portAppContent">
-								This app is currently being remodeled.  
+								A jQuery-based app that uses AJAX to create an address book dynamically.  
 							</p>
 						</span>
 					</a>
