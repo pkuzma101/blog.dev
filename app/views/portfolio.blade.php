@@ -64,12 +64,12 @@
 			<div class="space-filler"></div>
 			<div class="row">
 				<div class="col-md-4" id="portAlphabetSquare">
-					<a href="/projects/alphabet_soup/alphabet_soup.php">
-						<img src="/css/images/alphabet.png" class="portPic">
+					<a href="/projects/bakery/bakery.html">
+						<img src="/css/images/bakery.png" class="portPic">
 						<span class="portHover center-block" id="portAlphabetHover">
-							<p class="portAppName">Alphabet Soup</p>
+							<p class="portAppName">Bakery</p>
 							<p class="portAppContent">
-								An app that takes any string(s) fed to it and rearranges the letters in alphabetical order.
+								An AngularJS-based bake shop app where orders and prices are calculated in real time.    
 							</p>
 						</span>
 					</a>

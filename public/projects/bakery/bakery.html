@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="bakedGoods">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Sniglet:400,800|Knewave|Fredoka+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/bakery.css">
+		<title>Baked Goods Store</title>
+	</head>
+	<body>
+		<section id="baked_goods_page" class="container-fluid">
+			<a href="/portfolio" class="btn btn-default" id="back">Back</a>
+			
+			<article id="title_box">
+				<h1>Baked Goods Store</h1>
+			</article>
+
+			<article id="store_front" ng-controller="CartController as cart">
+				<div id="goods_section">
+					<div class="card" ng-repeat="item in lineup.items">
+						<div class="top_half">
+							<img ng-src="{{ item.image }}">
+						</div>
+						<div class="bottom_half">
+							<p class="name">{{ item.name }}</p>
+							<p class="price">{{ item.price | currency}}</p>
+							<p class="button_p">
+								<a href ng-click="addToCart(item); custom=!custom" class="add_btn">
+									<span ng-hide="custom">Buy</span>
+								</a>
+								<a href ng-click="deleteItem(item); custom=!custom" class="add_btn">
+									<span ng-show="custom">Remove</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div id="shopping_cart">
+					<table id="cart_table">
+						<tr ng-repeat="value in cart.goods">
+							<td ng-model="value.name">{{ value.name }}</td>
+							<td ng-model="value.price">{{ value.price | currency }}</td>
+							<td><input type="number" ng-model="value.quantity"></td>
+							<td>{{ value.quantity * value.price | currency }}</td>
+						</tr>
+						<tr id="total_row">
+							<td></td>
+							<td>Total:</td>
+							<td></td>
+							<td>{{ total() | currency }}</td> 
+						</tr>
+					</table>
+				</div>
+			</article>
+		</section>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+		<script type="text/javascript" src="js/bakery.js"></script>
+
+	</body>
+</html>

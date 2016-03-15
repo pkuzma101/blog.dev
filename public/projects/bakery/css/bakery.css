@@ -1,0 +1,146 @@
+body {
+	background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	font-family: 'Chewy', cursive;
+}
+
+#baked_goods_page {
+	min-height: 1200px;
+}
+
+#baked_goods_page article#title_box {
+	width: 30%;
+	margin:0 auto;
+	border: 1px solid black;
+	margin-top: 30px;
+	background: #7D0CE8;
+	border: 15px inset #FF0000;
+}
+
+#baked_goods_page h1 {
+	text-align: center;
+	line-height: 80px;
+	font-size: 5em;
+	font-family: 'Sniglet', cursive;
+	background: -webkit-linear-gradient(#eee, #CCCCCC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#baked_goods_page article#store_front {
+	margin-top: 50px;
+}
+
+article#store_front div#goods_section {
+	width: 80%;
+	height: 900px;
+	background: -moz-linear-gradient(-45deg, #ffaf4b 0%, #ff920a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #ffaf4b 0%,#ff920a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #ffaf4b 0%,#ff920a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	/*padding-top: 15px;
+  padding-left: 15px;*/
+  border: 15px inset #FF0000;
+}
+
+div#goods_section div.card {
+	height: 400px;
+	width: 400px;
+	margin: 15px;
+	float: left;
+	background: white;
+}
+
+div.card div.top_half {
+	width: 80%;
+	margin: 0 auto;
+}
+
+div.card div.bottom_half {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 1.7em;
+}
+
+article#store_front img {
+	height: 250px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+article#store_front div#shopping_cart {
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(1, #F6FF47),
+		color-stop(1, #FAFF93)
+	);
+	background-image: -o-linear-gradient(bottom, #F6FF47 100%, #FAFF93 100%);
+	background-image: -moz-linear-gradient(bottom, #F6FF47 100%, #FAFF93 100%);
+	background-image: -webkit-linear-gradient(bottom, #F6FF47 100%, #FAFF93 100%);
+	background-image: -ms-linear-gradient(bottom, #F6FF47 100%, #FAFF93 100%);
+	background-image: linear-gradient(to bottom, #F6FF47 100%, #FAFF93 100%);
+	min-height: 200px;
+	width: 18%;
+	position: fixed;
+	right: 25px;
+	top: 120px;
+	font-size: 1.4em;
+	border: 10px inset #FF0000;
+	font-family: 'Fredoka One', cursive;
+	color: #7D0CE8;
+}
+
+div#shopping_cart table#cart_table {
+	width: 100%;
+}
+
+table#cart_table tr {
+	line-height: 50px;
+	float: left;
+}
+
+table#cart_table td {
+	width: 65px;
+	text-align: center;
+}
+
+div#shopping_cart input {
+	width: 35px;
+	line-height: 30px;
+
+}
+
+div#shopping_cart tr#total_row {
+	float: left;
+}
+
+
+@media screen and (max-device-width: 500px) {
+	#baked_goods_page article#title_box {
+		width: 55%;
+	}
+
+	article#store_front div#goods_section {
+		width: 60%;
+		height: 2615px;
+	}
+
+	div#goods_section div.card {
+		width: 94%;
+		font-size: 1.25em;
+	}
+
+	div.card p {
+		text-align: center;
+	}
+
+	article#store_front div#shopping_cart {
+		top: 350px;
+		right: 30px;
+		width: 35%;
+		font-size: 1.8em;
+
+	}
+}
