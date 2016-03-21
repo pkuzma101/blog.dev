@@ -8,6 +8,7 @@ config.np.php
 config.todo.php
 config.emp.php
 config.address.php
+config.bakery.php
 /bootstrap/compiled.php
 /vendor
 composer.phar
