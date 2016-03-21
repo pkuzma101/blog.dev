@@ -1,3 +1,8 @@
+<?php
+require '../../../config.bakery.php';
+
+?>
+
 <!DOCTYPE html>
 <html ng-app="bakedGoods">
 	<head>
@@ -38,23 +43,62 @@
 
 				<div id="shopping_cart">
 					<table id="cart_table">
+						<tr>
+							<td>Name:</td>
+							<td><input type="text" ng-model="customer" id="customer" name="customer" placeholder="Name of Customer" /></td>
+						</tr>
 						<tr ng-repeat="value in cart.goods">
 							<td ng-model="value.name">{{ value.name }}</td>
 							<td ng-model="value.price">{{ value.price | currency }}</td>
-							<td><input type="number" ng-model="value.quantity"></td>
+							<td><input type="number" ng-model="value.quantity" id="quan"></td>
 							<td>{{ value.quantity * value.price | currency }}</td>
+							<input type="hidden" id="{{ value.name | lowercase }}" name="{{ value.name | lowercase }}" value="{{ value.quantity }}" />
 						</tr>
 						<tr id="total_row">
-							<td></td>
 							<td>Total:</td>
-							<td></td>
-							<td>{{ total() | currency }}</td> 
+							<td>{{ total() | currency }}</td>
+							<input type="hidden" id="price" name="price" ng-model="price" value="{{ total() | currency }}" />
+						</tr>
+						<tr>
+							<td id="button_row"><a href="#/" id="submit_btn" name="submit_btn" ng-click="insertOrder()"><span>Place Order</span></a></td>
 						</tr>
 					</table>
+					<p>*All orders have a tax of %8.125 added</p>
 				</div>
+
+				<div id="order_box">
+					<h2>Orders</h2>
+					<table id="order_table">
+						<tbody ng-init="getOrders()">
+							<tr>
+								<th>Customer</th>
+								<th>Muffins</th>
+								<th>Cupcakes</th>
+								<th>Cakes</th>
+								<th>Danishes</th>
+								<th>Cookies</th>
+								<th>Donuts</th>
+								<th>Price</th>
+							</tr>
+							<tr ng-repeat="v in results | filter:search" style="width: 100%;">
+								<td>{{ v.customer }}</td>
+								<td>{{ v.muffin }}</td>
+								<td>{{ v.cupcake }}</td>
+								<td>{{ v.cake }}</td>
+								<td>{{ v.danish }}</td>
+								<td>{{ v.cookie }}</td>
+								<td>{{ v.donut }}</td>
+								<td>{{ v.price }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
 			</article>
+
 		</section>
 
+		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 		<script type="text/javascript" src="js/bakery.js"></script>
 

@@ -3,7 +3,8 @@
 (function() {
 	var app = angular.module("bakedGoods", []);
 
-	app.controller("CartController", ['$scope', function($scope) {
+	// app.controller("CartController", ['$scope', function($scope) {
+	app.controller('CartController', function($scope, $http) {
 		$scope.lineup = {
 			items: [
 				{
@@ -55,15 +56,15 @@
 				price: item.price,
 				quantity: 1
 			});
-		}
-
-		$scope.addItem = function() {
-			$scope.lineup.items.push({
-				name: '',
-				price: '',
-				quantity: 1
-			});
 		},
+
+		// $scope.addItem = function() {
+		// 	$scope.lineup.items.push({
+		// 		name: '',
+		// 		price: '',
+		// 		quantity: 1
+		// 	});
+		// },
 
 		$scope.deleteItem = function(item) {
 			var index = $scope.cart.goods.indexOf(item);
@@ -79,5 +80,30 @@
 			})
 			return new_total;
 		}
-	}]);
+
+		$scope.getOrders = function() {
+			$http.get("get_orders.php").success(function(data) {
+				$scope.results = data.orders;
+			})
+			return $scope.results;
+		}
+
+		$scope.insertOrder = function() {
+			$http.post('insert_order.php', {
+				'customer': angular.element('#customer').val(),
+				'muffin': angular.element('#muffin').val(),
+				'cupcake': angular.element('#cupcake').val(),
+				'cake': angular.element('#cake').val(),
+				'danish': angular.element('#danish').val(),
+				'cookie': angular.element('#cookie').val(),
+				'donut': angular.element('#donut').val(),
+				'price': angular.element('#price').val()
+				}
+			).success(function(data) {
+				console.log(data);
+				console.log("Success");
+
+			});
+		}
+	});
 })();

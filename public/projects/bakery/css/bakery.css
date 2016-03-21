@@ -14,7 +14,9 @@ body {
 	margin:0 auto;
 	border: 1px solid black;
 	margin-top: 30px;
-	background: #7D0CE8;
+	background: -moz-linear-gradient(-45deg, #7E0CE8 0%, #AF5AFF 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #7E0CE8 0%,#AF5AFF 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #7E0CE8 0%,#AF5AFF 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	border: 15px inset #FF0000;
 }
 
@@ -38,14 +40,12 @@ article#store_front div#goods_section {
 	background: -moz-linear-gradient(-45deg, #ffaf4b 0%, #ff920a 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg, #ffaf4b 0%,#ff920a 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(135deg, #ffaf4b 0%,#ff920a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	/*padding-top: 15px;
-  padding-left: 15px;*/
   border: 15px inset #FF0000;
 }
 
 div#goods_section div.card {
 	height: 400px;
-	width: 400px;
+	width: 31%;
 	margin: 15px;
 	float: left;
 	background: white;
@@ -99,6 +99,7 @@ div#shopping_cart table#cart_table {
 table#cart_table tr {
 	line-height: 50px;
 	float: left;
+	width: 100%;
 }
 
 table#cart_table td {
@@ -106,14 +107,53 @@ table#cart_table td {
 	text-align: center;
 }
 
-div#shopping_cart input {
-	width: 35px;
+div#shopping_cart input#quan {
+	width: 45px;
 	line-height: 30px;
+}
+
+#shopping_cart input#customer {
+	line-height: 25px;
+	width: 200px;
+	margin-left: 10px;
+}
+
+#shopping_cart td#button_row {
+	width: auto;
+}
+
+td#button_row span {
+	margin-left: 10px;
+}
+
+div#order_box {
+	width: 80%;
+	background: -moz-linear-gradient(-45deg, #7E0CE8 0%, #AF5AFF 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #7E0CE8 0%,#AF5AFF 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #7E0CE8 0%,#AF5AFF 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	border: 15px inset #FF0000;
+	margin-top: 40px;
+	padding-bottom: 25px;
+	color: white;
 
 }
 
-div#shopping_cart tr#total_row {
-	float: left;
+div#order_box h2 {
+	background: -webkit-linear-gradient(#eee, #CCCCCC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 3em;
+}
+
+table#order_table {
+	width: 100%;
+}
+
+table#order_table td, table#order_table th {
+	text-align: center;
+	font-size: 2em;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 
