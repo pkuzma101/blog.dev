@@ -63,7 +63,7 @@ require '../../../config.bakery.php';
 							<td id="button_row"><a href="#/" id="submit_btn" name="submit_btn" ng-click="insertOrder()"><span>Place Order</span></a></td>
 						</tr>
 					</table>
-					<p>*All orders have a tax of %8.125 added</p>
+					<p>*All orders have a tax of 8.125% added</p>
 				</div>
 
 				<div id="order_box">

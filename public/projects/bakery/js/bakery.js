@@ -3,7 +3,6 @@
 (function() {
 	var app = angular.module("bakedGoods", []);
 
-	// app.controller("CartController", ['$scope', function($scope) {
 	app.controller('CartController', function($scope, $http) {
 		$scope.lineup = {
 			items: [
@@ -58,14 +57,6 @@
 			});
 		},
 
-		// $scope.addItem = function() {
-		// 	$scope.lineup.items.push({
-		// 		name: '',
-		// 		price: '',
-		// 		quantity: 1
-		// 	});
-		// },
-
 		$scope.deleteItem = function(item) {
 			var index = $scope.cart.goods.indexOf(item);
 			$scope.cart.goods.splice(index, 1);
@@ -100,10 +91,8 @@
 				'price': angular.element('#price').val()
 				}
 			).success(function(data) {
-				console.log(data);
-				console.log("Success");
-
-			});
+				$scope.getOrders();
+			})
 		}
 	});
 })();
