@@ -2,9 +2,6 @@
 
 require '../../../config.emp.php';
 
-
-
-
 ?>
 
 <html>
@@ -35,56 +32,77 @@ require '../../../config.emp.php';
 					<li id="fflogo10" class="bottom_row"><a href="#tabs-10" id="ff10" data-id="10">&#8553;</a></li>
 				</ul>
 				<section id="card_section">
-					<article id="tabs-1">
+					<article id="tabs-1" data-id="1">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="1">Add Character</a></h3>
 						<div id="ff1_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-2">
+					<article id="tabs-2" data-id="2">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="2">Add Character</a></h3>
 						<div id="ff2_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-3">
+					<article id="tabs-3" data-id="3">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="3">Add Character</a></h3>
 						<div id="ff3_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-4">
+					<article id="tabs-4" data-id="4">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="4">Add Character</a></h3>
 						<div id="ff4_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-5">
+					<article id="tabs-5" data-id="5">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="5">Add Character</a></h3>
 						<div id="ff5_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-6">
+					<article id="tabs-6" data-id="6">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="6">Add Character</a></h3>
 						<div id="ff6_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-7">
+					<article id="tabs-7" data-id="7">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="7">Add Character</a></h3>
 						<div id="ff7_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-8">
+					<article id="tabs-8" data-id="8">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="8">Add Character</a></h3>
 						<div id="ff8_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-9">
+					<article id="tabs-9" data-id="9">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="9">Add Character</a></h3>
 						<div id="ff9_body" class="tab_body"></div>
 					</article>
-					<article id="tabs-10">
+					<article id="tabs-10" data-id="10">
+						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="10">Add Character</a></h3>
 						<div id="ff10_body" class="tab_body"></div>
 					</article>
 				</section>
 			</div><!-- tabs -->
 		</section><!-- ff_page -->
 
+		<?php
+
+		include('characters_modal.php');
+
+		?>
+
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<script src="js/characters.js"></script>
 		<script>
 			$(document).ready(function() {
 
+				// tab functionality
 				$(function() {
 					$('#tabs').tabs();
 				});
 
+				// fade roman numerals on tabs in and out
 				$('ul#tab_list li').hover(function() {
 					$(this).children().fadeIn(700);
 				},
 				function() {
 					$(this).children().fadeOut(700);
 				});
+
+
 			});
 		</script>
 	</body>

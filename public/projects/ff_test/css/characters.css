@@ -10,20 +10,17 @@ section#ff_page {
 	text-align: center;
 }
 
-article#tabs-section {
-	/*width: 80%;
-	margin: 0 auto;
-	background-color: white;
-	background-size: cover;
-	height: 240px;*/
+#card_section h3#add_label {
+	text-align: center;
+	font-family: 'Cinzel Decorative', cursive;
 }
 
-div#tabs {
-	/*width: 80%;
-	margin: 0 auto;
-	background-color: white;
-	background-size: cover;
-	height: 240px;*/
+#card_section h3 a:hover {
+	text-decoration: none;
+}
+
+#card_section h3 a:focus {
+	text-decoration: none;
 }
 
 ul#tab_list {
@@ -130,7 +127,7 @@ section#card_section {
   height: 60%;
   /*background: blue;*/
   margin-top: 40px;
-  overflow: auto;
+  overflow: scroll;
 }
 
 #card_section article div.tab_body {
@@ -170,5 +167,22 @@ div.char_card img {
 	width: 150px;
 	height: 150px;
 	/*margin-left: 10px;*/
+}
+
+/*  MODAL  */
+form#new_char_form {
+	/*height: 250px;*/
+}
+
+form#new_char_form section {
+	width: 45%;
+}
+
+form#new_char_form section#left_sec {
+	float: left;
+}
+
+form#new_char_form section#right_sec {
+	float: right;
 }
 
