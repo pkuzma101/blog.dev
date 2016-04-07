@@ -35,6 +35,12 @@ $(document).ready(function() {
           char_id = $(this).attr('data-id');
           edit_character(char_id);
         });
+
+        // code for deleting cards
+        $('a.delete_btn').click(function() {
+          char_id = $(this).attr('data-id');
+          delete_character(char_id);
+        });
 			}
 		});
 		// return false;
@@ -148,6 +154,21 @@ $(document).ready(function() {
 	  return false;
 	}
 
+  // removes input fields based on which game is having a character added
+  function adjust_for_game(game_id) {
+    if (game_id == 1) {
+      $('.ff1').addClass("invisible");
+    } else if (game_id == 2) {
+      $('.ff2').addClass("invisible");
+    } else if (game_id == 3) {
+      $('.ff3').addClass("invisible");
+    } else if (game_id == 5) {
+      $('.ff5').addClass("invisible");
+    } else if (game_id == 10) {
+      $('.ff10').addClass("invisible");
+    }
+  }
+
 	// function that changes a card portrait
 	function change_portrait(char_id) {
 		create_modal(2);
@@ -176,6 +197,29 @@ $(document).ready(function() {
     }));
     return false;
 	}
+
+  function delete_character(char_id) {
+    var question = confirm("Delete this character?");
+    if (question == true) {
+      $.ajax({
+        url: 'delete_character.php?id=' + char_id,
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+          $('div#' + data['id']).remove();
+          $('.delete_btn').hide();
+        },
+        error: function(request, status, error) {
+          console.log(status);
+          console.log(error);
+          console.log(request.responseText);
+        }
+      });
+    } else {
+      return false;
+    }
+  }
 
   function edit_character(char_id) {
     create_modal(1);
@@ -207,21 +251,6 @@ $(document).ready(function() {
       });
     });
     return false;
-  }
-
-  // removes input fields based on which game is having a character added
-  function adjust_for_game(game_id) {
-    if (game_id == 1) {
-      $('.ff1').addClass("invisible");
-    } else if (game_id == 2) {
-      $('.ff2').addClass("invisible");
-    } else if (game_id == 3) {
-      $('.ff3').addClass("invisible");
-    } else if (game_id == 5) {
-      $('.ff5').addClass("invisible");
-    } else if (game_id == 10) {
-      $('.ff10').addClass("invisible");
-    }
   }
 
 	// gets list of characters from a particular game
