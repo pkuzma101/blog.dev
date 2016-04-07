@@ -6,7 +6,7 @@ $game_id = $_GET['game_id'];
 
 $sql = "SELECT id, first_name, last_name, class, special_ability, weapon, image_path
 				FROM characters
-				WHERE game = " . $game_id;
+				WHERE game = " . $game_id . " ORDER BY id DESC";
 
 $result = $dbc->prepare($sql);
 $status = $result->execute();

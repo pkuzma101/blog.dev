@@ -1,18 +1,15 @@
 section#ff_page {
-	/*background-image: url('../images/background_wallpaper.jpg');*/
-	/*background: red;*/
 	background-size: cover;
 	height: 1200px;
+  font-family: 'Cinzel Decorative', cursive;
 }
 
 #ff_page h1#main_title {
-	font-family: 'Cinzel Decorative', cursive;
 	text-align: center;
 }
 
 #card_section h3#add_label {
 	text-align: center;
-	font-family: 'Cinzel Decorative', cursive;
 }
 
 #card_section h3 a:hover {
@@ -48,7 +45,7 @@ ul#tab_list li {
 li#fflogo1 {
 	background-image: url('../images/ff1_logo.png');
 	background-size: cover;
-	border-left: 1px solid black;
+	/*border-left: 1px solid black;*/
 }
 
 li#fflogo2 {
@@ -66,15 +63,16 @@ li#fflogo4 {
 	background-size: cover;
 }
 
-li#fflogo5 {
+ul#tab_list li#fflogo5 {
 	background-image: url('../images/ff5_logo.png');
 	background-size: cover;
+  border-right: 0px;
 }
 
 li#fflogo6 {
 	background-image: url('../images/ff6_logo.png');
 	background-size: cover;
-	border-left: 1px solid black;
+	/*border-left: 1px solid black;*/
 }
 
 li#fflogo7 {
@@ -92,9 +90,10 @@ li#fflogo9 {
 	background-size: cover;
 }
 
-li#fflogo10 {
+ul#tab_list li#fflogo10 {
 	background-image: url('../images/ff10_logo.png');
 	background-size: cover;
+  border-right: 0px;
 }
 
 /* END TAB LOGOS */
@@ -155,12 +154,14 @@ section#card_section {
 	font-size: 16px;
 	background-color: #000076;
 	position: relative;
+  padding: 3.5px;
 }
 
 div.card_row {
 	margin: 0;
 	width: 100%;
 	float: left;
+  overflow: auto;
 }
 
 div.char_card img {
@@ -182,7 +183,7 @@ div.char_card div.bottom_row {
 
 div.bottom_row a.edit_btn {
   float: left;
-  margin-left: 5px;
+  /*margin-left: 5px;*/
   color: blue;
 }
 
@@ -193,19 +194,29 @@ div.bottom_row a.delete_btn {
 }
 
 /*  MODAL  */
+#character_modal {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
 form#new_char_form {
-	/*height: 250px;*/
+	width: 65%;
 }
 
-form#new_char_form section {
-	width: 45%;
+#new_char_form div {
+  padding: 5px;
 }
 
-form#new_char_form section#left_sec {
-	float: left;
+#new_char_form label {
+  width: 35%;
 }
 
-form#new_char_form section#right_sec {
-	float: right;
+#new_char_form button {
+  width: 80px;
+  line-height: 30px;
+  font-size: 1.6em;
+}
+
+.invisible {
+  display: none;
 }
 

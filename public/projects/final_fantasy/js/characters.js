@@ -33,12 +33,11 @@ $(document).ready(function() {
         // code to bring up edit modal
         $('a.edit_btn').click(function() {
           char_id = $(this).attr('data-id');
-          console.log(char_id);
           edit_character(char_id);
         });
 			}
 		});
-		return false;
+		// return false;
 	}
 
 	function create_modal(bool) {
@@ -65,13 +64,46 @@ $(document).ready(function() {
 		  $('.modal-title').append($('<h3 />', {html: (edit ? 'Edit Character' : 'Add New Character')}));
 		  $('.modal-body').append($('<form />', {id: 'new_char_form'}));
 		  $('#new_char_form').append($('<div class="ff1"><label>First Name</label><input type="text" id="first_name" name="first_name" /></div>'));
-		  $('#new_char_form').append($('<div class="ff1 ff2"><label>Last Name</label><input type="text" id="last_name" name="last_name" /></div>'));
-		  $('#new_char_form').append($('<div><label>Class</label><input type="text" id="class" name="class" /></div>'));
-		  $('#new_char_form').append($('<div class="ff2"><label>Special Ability</label><input type="text" id="special_ability" name="special_ability" /></div>'));
-		  $('#new_char_form').append($('<div><label>Weapon</label><input type="text" id="weapon" name="weapon" /></div>'));
+		  $('#new_char_form').append($('<div class="ff1 ff2 ff10"><label>Last Name</label><input type="text" id="last_name" name="last_name" /></div>'));
+		  $('#new_char_form').append($('<div class="ff5"><label>Class</label><input type="text" id="class" name="class" /></div>'));
+		  $('#new_char_form').append($('<div class="ff2 ff5"><label>Special Ability</label><input type="text" id="special_ability" name="special_ability" /></div>'));
+		  $('#new_char_form').append($('<div class="ff5"><label>Weapon</label><input type="text" id="weapon" name="weapon" /></div>'));
 		  $('#new_char_form').append($('<div><button type="button" id="submit_btn" name="submit_btn">Save</button></div>'));
 		}
-	}
+
+    if (edit) {
+      var fname;
+      var lname;
+      var spec;
+      var char_class;
+      var weapon;
+      var game;
+
+      $.ajax({
+        url: 'get_one_character.php?id=' + char_id,
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+          fname = data['first_name'];
+          lname = data['last_name'];
+          char_class = data['class'];
+          spec = data['special_ability'];
+          weapon = data['weapon'];
+          game = data['game'];
+
+          adjust_for_game(game);
+
+          // insert values for the edit modal
+          $('input#first_name').val(fname);
+          $('input#last_name').val(lname);
+          $('input#class').val(char_class);
+          $('input#special_ability').val(spec);
+          $('input#weapon').val(weapon);
+        }
+      });
+      return false;
+  	}
+  }
 
 	// function that makes a new character card
 	function add_character(game_id) {
@@ -96,27 +128,21 @@ $(document).ready(function() {
 	  		},
 	  		dataType: 'json',
 	  		success: function(data) {
+
 	  			// get rid of modal
 	  			$('#character_modal').modal('hide');
 
 	  			// create new character card
 	  			var body = $('div#ff' + game_id + '_body');
-	  			body.append('<div class="card_block" id="' + data['id'] + '"></div>');
-					$('#' + data['id']).append('<div class="char_card" id="card' + data['id'] + '"></div>');
-					$('#card' + data['id']).append('<div class="card_row" id="top' + data['id'] + '"></div>');
-					$('#top' + data['id']).append('<div class="col-3-8"><img src="' + data['image_path'] + '" id="portrait' + data['id'] + '"/></div><div class="col-5-8" id="name' + data['id'] + '"></div></div>');
-					$('#name' + data['id']).append('<h3 class="char_name">' + data['first_name'] + " " + data['last_name'] + '</h3>');
-					$('#name' + data['id']).append('<h4 class="char_class">' + data['class'] + '</h4>');
-					$('#card' + data['id']).append('<div class="card_row" id="bottom' + data['id'] + '"></div>');
-					$('#bottom' + data['id']).append('<div class="col-4-8" id="spec' + data['id'] + '"></div><div class="col-4-8" id="weapon' + data['id'] + '"></div>');
-					$('#spec' + data['id']).append('<span>Special Ability: ' + data['special_ability'] + '</span>');
-					$('#weapon' + data['id']).append('<span>Weapon: ' + data['weapon'] + '</span>');
+          $(body).empty();
+          get_list(game_id);
 	  		},
 	  		error: function(request, status, error) {
 	  			console.log(status);
 	  			console.log(error);
 	  			console.log(request.responseText);
 	  		}
+
 	  	});
 	  });
 	  return false;
@@ -153,45 +179,48 @@ $(document).ready(function() {
 
   function edit_character(char_id) {
     create_modal(1);
-    var fname;
-    var lname;
-    var spec;
-    var char_class;
-    var weapon;
-    var game;
-
-    $.ajax({
-      url: 'get_one_character.php?id=' + char_id,
-      type: 'get',
-      dataType: 'json',
-      success: function(data) {
-        fname = data['first_name'];
-        lname = data['last_name'];
-        char_class = data['class'];
-        spec = data['special_ability'];
-        weapon = data['weapon'];
-        game = data['game'];
-
-        adjust_for_game(game);
-
-        // insert values for the edit modal
-        $('input#first_name').val(fname);
-        $('input#last_name').val(lname);
-        $('input#class').val(char_class);
-        $('input#special_ability').val(spec);
-        $('input#weapon').val(weapon);
-      }
+    
+    // ajax call for editing a character
+    $('#submit_btn').click(function() {
+      $.ajax({
+        url: 'edit_character.php?id=' + char_id,
+        type: 'post',
+        data: {
+          'first_name': $('#first_name').val(),
+          'last_name': $('#last_name').val(),
+          'class': $('#class').val(),
+          'special_ability': $('#special_ability').val(),
+          'weapon': $('#weapon').val(),
+        },
+        dataType: 'json',
+        success: function(json) {
+          $('#character_modal').modal('hide');
+          $('#name' + json['id']).closest('h3').replaceWith('<h3 class="char_name">' + json['first_name'] + " " + json['last_name'] + '</h3><h4 class="char_class">' + json['class'] + '</h4>');
+          $('#spec' + char_id).children().replaceWith('<span>Special Ability: ' + json['special_ability'] + '</span>');
+          $('#weapon' + char_id).children().replaceWith('<span>Weapon: ' + json['weapon'] + '</span>');
+        },
+        error: function(request, status, error) {
+          console.log(status);
+          console.log(error);
+          console.log(request.responseText);
+        }
+      });
     });
+    return false;
   }
 
   // removes input fields based on which game is having a character added
   function adjust_for_game(game_id) {
     if (game_id == 1) {
-      $('.ff1').remove();
+      $('.ff1').addClass("invisible");
     } else if (game_id == 2) {
-      $('.ff2').remove();
+      $('.ff2').addClass("invisible");
     } else if (game_id == 3) {
-      $('.ff3').remove();
+      $('.ff3').addClass("invisible");
+    } else if (game_id == 5) {
+      $('.ff5').addClass("invisible");
+    } else if (game_id == 10) {
+      $('.ff10').addClass("invisible");
     }
   }
 
