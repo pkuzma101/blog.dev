@@ -34,7 +34,14 @@ require '../../../config.emp.php';
 				<section id="card_section">
 					<article id="tabs-1" data-id="1">
 						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="1">Add Character</a></h3>
-						<div id="ff1_body" class="tab_body"></div>
+						<div id="ff1_body" class="tab_body">
+              <article id="intro">
+                <p>Welcome!  Click on a logo to see all characters in the database for that particular Final Fantasy game.  If you
+                   if you see one of your favorite characters is missing, go ahead and add him/her!  To change the portrait for a 
+                   character, just click on his/her existing portrait.  May the Crystal guide you!
+                </p>
+              </article>
+            </div>
 					</article>
 					<article id="tabs-2" data-id="2">
 						<h3 id="add_label"><a href="#/" class="character_add" data-toggle="modal" data-target="#character_modal" data-id="2">Add Character</a></h3>
@@ -75,6 +82,8 @@ require '../../../config.emp.php';
 				</section>
 			</div><!-- tabs -->
 		</section><!-- ff_page -->
+    <audio id="menu_click" preload="auto"><source src="sound/cursor_move.mp3"></source></audio>
+    <audio id="save_chime" preload="auto"><source src="sound/save_chime.mp3"></source></audio>
 
 		<?php
 
@@ -84,7 +93,7 @@ require '../../../config.emp.php';
 
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="js/jquery-ui.min.js"></script>
-		<script src="js/jquery.form.min.js"></script>
+		<!-- // <script src="js/jquery.form.min.js"></script> -->
     <script src="js/parallax.js"></script>  
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<script src="js/characters.js"></script>
@@ -105,6 +114,16 @@ require '../../../config.emp.php';
 					$(this).children().fadeOut(700);
 				});
 
+        // menu click sound plays whenever an 'a' is clicked
+        var menu_click = $('#menu_click')[0];
+        $('a').click(function() {
+          menu_click.play();
+        });
+
+        // var save_chime = $('#save_chime')[0];
+        // $('#submit_btn').click(function() {
+        //   save_chime.play();
+        // });
 
 			});
 		</script>

@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	var char_id;
+  var deletion;
   	
 	function get_list(game_id) {
 		$.ajax({
@@ -23,6 +24,11 @@ $(document).ready(function() {
 					$('#weapon' + value['id']).append('<span>Weapon: ' + value['weapon'] + '</span>');
           $('#card' + value['id']).append('<div class="bottom_row"><a class="edit_btn" data-id="' + value['id'] + '" href="#/" data-toggle="modal" data-target="#character_modal">Edit</a><a class="delete_btn" data-id="' + value['id'] + '" href="#/">Delete</a></div>');
 				});
+
+        // remove all delete buttons after one deletion
+        if (deletion == 1) {
+          $('a.delete_btn').hide();
+        }
 
         // code for changing portraits
 				$('a.portrait').click(function() {
@@ -137,6 +143,7 @@ $(document).ready(function() {
 
 	  			// get rid of modal
 	  			$('#character_modal').modal('hide');
+          save_chime();
 
 	  			// create new character card
 	  			var body = $('div#ff' + game_id + '_body');
@@ -186,6 +193,7 @@ $(document).ready(function() {
         processData: false,
         success: function(data) {
           $('#character_modal').modal('hide');
+          save_chime();
           $("img#portrait" + data['id']).replaceWith('<img id="portrait' + data['id'] + '" src="' + data['image_path'] + '" />');
         },
         error: function(request, status, error) {
@@ -206,9 +214,13 @@ $(document).ready(function() {
         type: 'post',
         dataType: 'json',
         success: function(data) {
-          console.log(data);
           $('div#' + data['id']).remove();
-          $('.delete_btn').hide();
+          deletion = 1;
+
+          // remove all delete buttons after one deletion
+          if (deletion == 1) {
+            $('a.delete_btn').hide();
+          }
         },
         error: function(request, status, error) {
           console.log(status);
@@ -251,6 +263,11 @@ $(document).ready(function() {
       });
     });
     return false;
+  }
+
+  function save_chime() {
+    var save_chime = $('#save_chime')[0];
+    save_chime.play();
   }
 
 	// gets list of characters from a particular game
