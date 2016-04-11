@@ -11,7 +11,7 @@
             <p class="lead"></p>
         <div id="pitch" class="container">
             <p>
-                I am a Full Stack Web Developer, trained and experienced in the full LAMP Stack as well as JavaScript, jQuery, HTML5, and CSS3.  I love the process of building web pages and software, and am eager to bring my skills and passion, as well as the strong interpersonal skills developed through seven years as a professional educator, to an organization that requires a web developer who can learn new technologies quickly.
+                I am a Full Stack Web Developer, trained and experienced in the full LAMP Stack as well as JavaScript, jQuery, HTML5, and CSS3.  I have worked professionally both as a PHP Developer and a Front End Developer for two Indianapolis-area comapanies.  I love the process of building web pages and software, and am eager to bring my skills and passion, as well as the strong interpersonal skills developed through seven years as a professional educator, to an organization that requires a web developer who can learn new technologies quickly.
             </p>
         </div>
         <div id="pic">
@@ -43,7 +43,7 @@
         <p class="see-resume-text">
             <p>See my paper resume here:</p>
             <p id="resume-icon">
-                <a href="/paul_kuzma_developer_resume.pdf"><i class="fa fa-file-pdf-o" id="resumeIcon"></i></a>
+                <a href="/revised_resume.pdf"><i class="fa fa-file-pdf-o" id="resumeIcon"></i></a>
             </p>
         </p>
     </div>
