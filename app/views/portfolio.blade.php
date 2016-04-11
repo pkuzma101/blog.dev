@@ -64,7 +64,7 @@
 			<div class="space-filler"></div>
 			<div class="row">
 				<div class="col-md-4" id="portAlphabetSquare">
-					<a href="/projects/bakery/bakery.html">
+					<a href="/projects/bakery/bakery.php">
 						<img src="/css/images/bakery.png" class="portPic">
 						<span class="portHover center-block" id="portAlphabetHover">
 							<p class="portAppName">Bakery</p>

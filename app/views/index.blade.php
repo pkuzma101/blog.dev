@@ -18,7 +18,7 @@
 		<div class="space-filler"></div>
 		<div class="row-fluid" id="featuredRow">
 			<div class="col-md-4" id="mentrSquare">
-				<a href="/projects/bakery/bakery.html">
+				<a href="/projects/bakery/bakery.php">
 					<img src="/css/images/bakery.png" class="imageSquare center-block">
 					<span class="hoverSquare center-block" id="mentrHoverSquare">
 						<p class="whiteTextHeader">Bakery</p>
