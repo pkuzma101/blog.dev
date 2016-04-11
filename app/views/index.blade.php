@@ -18,19 +18,18 @@
 		<div class="space-filler"></div>
 		<div class="row-fluid" id="featuredRow">
 			<div class="col-md-4" id="mentrSquare">
-				<a href="http://worldmentr.org">
-					<img src="/css/images/mentr.png" class="imageSquare center-block">
+				<a href="/projects/bakery/bakery.html">
+					<img src="/css/images/bakery.png" class="imageSquare center-block">
 					<span class="hoverSquare center-block" id="mentrHoverSquare">
-						<p class="whiteTextHeader">World Mentor</p>
+						<p class="whiteTextHeader">Bakery</p>
 						<p class="whiteTextContent">
-							An interactive website where people can give or receive mentoring
-							advice across the web.
+							An AngularJS-based bake shop app where orders and prices are calculated in real time.
 						</p>
 					</span>
 				</a>
 			</div>
 			<div class="col-md-4" id="fantasySquare">
-				<a href="/projects/final_fantasy/final_fantasy_characters.php">
+				<a href="/projects/final_fantasy/characters.php">
 					<img src="/css/images/fantasy.png" class="imageSquare center-block">
 					<span class="hoverSquare center-block" id="fantasyHoverSquare">
 						<p class="whiteTextHeader">Character Database</p>
