@@ -11,7 +11,7 @@
 			<div class="row" id="capstone-box">
 				<div class="col-md-4"></div>
 				<div class="col-md-4" id="portMentSquare">
-					<a href="http://worldmentr.org">
+					<a href="https://github.com/worldmentr/capstone">
 						<img src="/css/images/mentr.png" class="portPic">
 						<span class="portHover center-block" id="portMentHover">
 							<p class="portAppName">World Mentor</p>
@@ -38,7 +38,7 @@
 					</a>
 				</div>
 				<div class="col-md-4" id="portFantasySquare">
-					<a href="/projects/final_fantasy/final_fantasy_characters.php">
+					<a href="/projects/final_fantasy/characters.php">
 						<img src="/css/images/fantasy.png" class="portPic">
 						<span class="portHover center-block" id="portFantasyHover">
 							<p class="portAppName">Character Database</p>
