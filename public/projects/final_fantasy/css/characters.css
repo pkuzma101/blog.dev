@@ -2,6 +2,7 @@ section#ff_page {
 	background-size: cover;
 	height: 1200px;
   font-family: 'Cinzel Decorative', cursive;
+  overflow: auto;
 }
 
 #ff_page h1#main_title {
@@ -244,5 +245,17 @@ form#new_char_form {
 
 .invisible {
   display: none;
+}
+
+@media only screen and (max-width: 320px) {
+  div.col-3-8 {
+    width: 35%;
+    float: left;
+  }
+
+  div.col-5-8 {
+    width: 65%;
+    float: left;
+  }
 }
 
