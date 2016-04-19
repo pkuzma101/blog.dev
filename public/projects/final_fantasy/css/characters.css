@@ -37,6 +37,7 @@ section#ff_page {
 
 h3#add_label:hover a {
   color: white;
+  text-decoration: none;
 }
 
 #card_section h3 a:hover {
@@ -142,11 +143,6 @@ ul#tab_list li a:hover {
 	text-decoration: none;
 }
 
-/*ul#tab_list li a#ff6 {
-	color: white;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}*/
-
 section#card_section {
   width: 85%;
   margin: 0 auto;
@@ -247,15 +243,59 @@ form#new_char_form {
   display: none;
 }
 
-@media only screen and (max-width: 320px) {
-  div.col-3-8 {
-    width: 35%;
+@media screen and (max-device-width: 400px) {
+  .col-3-8 {
+    width: 33%;
     float: left;
   }
 
-  div.col-5-8 {
+  .col-5-8 {
     width: 65%;
     float: left;
+    text-align: center;
+  }
+
+  .col-4-8 {
+    width: 50%;
+    float: left;
+    font-size: 20px;
+  }
+
+  #card_section article div.tab_body {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  #card_section article#intro {
+    width: 100%;
+  }
+}
+
+@media screen and (max-device-width: 800px) {
+  .col-3-8 {
+    width: 33%;
+    float: left;
+  }
+
+  .col-5-8 {
+    width: 65%;
+    float: left;
+    text-align: center;
+  }
+
+  .col-4-8 {
+    width: 50%;
+    float: left;
+    font-size: 20px;
+  }
+
+  #card_section article div.tab_body {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  #card_section article#intro {
+    width: 100%;
   }
 }
 
