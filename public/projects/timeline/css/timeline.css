@@ -1,0 +1,42 @@
+section#timeline_box {
+  /*height: 4600px;*/
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background: #372ee0;
+}
+
+section#timeline_box ul#timeline {
+  /*height: 100%;*/
+  /*width: 3px;
+  margin: 0 auto;*/
+  /*background: black;
+  margin-left: 50%;
+  margin-right: 50%;*/
+}
+
+section#timeline_box ul#timeline li {
+  list-style-type: none;
+  position: relative;
+  margin: 0 auto;
+  /*height: 1.2%;*/
+  width: 20px;
+  background: #fff;
+  padding-top: 100px;
+}
+
+section#timeline_box ul#timeline li div.bubble {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translateX(-40%);
+}
+
+section#timeline_box ul#timeline li div.year {
+    padding-top: 35%;
+    text-align: center;
+    color: black;
+    font-size: 1.5em;
+}
