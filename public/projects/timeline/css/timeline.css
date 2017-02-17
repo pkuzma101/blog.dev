@@ -23,20 +23,27 @@ section#timeline_box ul#timeline li {
   /*height: 1.2%;*/
   width: 20px;
   background: #fff;
-  padding-top: 100px;
+  padding-top: 50px;
 }
 
 section#timeline_box ul#timeline li div.bubble {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: #fff;
-  transform: translateX(-40%);
+  transform: translateX(-34%);
 }
 
 section#timeline_box ul#timeline li div.year {
-    padding-top: 35%;
-    text-align: center;
-    color: black;
-    font-size: 1.5em;
+  padding-top: 35%;
+  text-align: center;
+  color: black;
+  font-size: 1.2em;
+}
+
+section#timeline_box ul#timeline li span.first_gen {
+  width: 20px;
+  height: 100px;
+  background: green;
+  transform: translateX(-400%);
 }
