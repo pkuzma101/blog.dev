@@ -7,13 +7,29 @@ section#timeline_box {
   background: #372ee0;
 }
 
+section#timeline_box div#timeline_div {
+  width: 50%;
+  margin: 0 auto;
+}
+
 section#timeline_box ul#timeline {
-  /*height: 100%;*/
-  /*width: 3px;
-  margin: 0 auto;*/
-  /*background: black;
-  margin-left: 50%;
-  margin-right: 50%;*/
+  /*width: 200px;*/
+  /*margin: 0 auto;*/
+}
+
+section#timeline_box div#timeline_div ul#gen_line {
+  float: left;
+  margin: 0px;
+}
+
+section#timeline_box div#timeline_div ul#gen_line li {
+  list-style-type: none;
+  position: relative;
+  margin-left: 200px;
+  /*height: 1.2%;*/
+  width: 20px;
+  background: transparent;
+  padding-top: 110px;
 }
 
 section#timeline_box ul#timeline li {
@@ -39,11 +55,4 @@ section#timeline_box ul#timeline li div.year {
   text-align: center;
   color: black;
   font-size: 1.2em;
-}
-
-section#timeline_box ul#timeline li span.first_gen {
-  width: 20px;
-  height: 100px;
-  background: green;
-  transform: translateX(-400%);
 }
