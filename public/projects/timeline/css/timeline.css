@@ -22,7 +22,7 @@ section#timeline_box div#timeline_div ul#gen_line {
   margin: 0px;
 }
 
-section#timeline_box div#timeline_div ul#gen_line li {
+section#timeline_box div#timeline_div ul#gen_line li.gen_year {
   list-style-type: none;
   position: relative;
   margin-left: 200px;
